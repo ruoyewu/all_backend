@@ -20,4 +20,5 @@
 
 获取文章详情的方法，如`http://all.wuruoye.com/v2/detail/ifan/home/12345`
 
-####暂无
+####v3文件夹
+
