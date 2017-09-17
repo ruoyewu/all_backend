@@ -43,7 +43,7 @@ def _v3_one_detail(category, id):
     content_list = []
     try:
         i = soup.find('div', attrs={'class': 'text-music-info'})
-        info = {"type": "7", 'info': i.text.strip()}
+        info = {"type": v3_const.v3_item_type['text_cen'], 'info': i.text.strip()}
         content_list.append(info)
     except:
         pass
@@ -51,13 +51,13 @@ def _v3_one_detail(category, id):
     if len(contents) > 1:
         content = contents[1]
         asker = soup.find('div', attrs={'class': 'text-askers'}).text.strip()
-        info = {'type': '7', 'info': asker}
+        info = {'type': v3_const.v3_item_type['text_cen'], 'info': asker}
         content_list.append(info)
         question = contents[0].text
-        info = {'type': '1', 'info': question}
+        info = {'type': v3_const.v3_item_type['text'], 'info': question}
         content_list.append(info)
         answer = soup.find('div', attrs={'class': 'text-answers'}).text.strip()
-        info = {'type': '7', 'info': answer}
+        info = {'type': v3_const.v3_item_type['text_cen'], 'info': answer}
         content_list.append(info)
     else:
         content = contents[0]
@@ -66,16 +66,17 @@ def _v3_one_detail(category, id):
     items = content_soup.find_all(name=['p', 'img'])[1:]
     for i in range(len(items)):
         item = items[i]
+        type = v3_const.v3_item_type['text']
+        info = ''
         if item.name == 'p':
             info = item.text
-            type = '1'
             try:
                 if item['style'] == 'text-align: center;':
                     type = '7'
             except:
-                type = '1'
+                pass
         elif item.name == 'img':
-            type = '2'
+            type = v3_const.v3_item_type['image']
             info = item['src']
         if info == 'http://image.wufazhuce.com/music_copyright_2_2.png' or info == 'http://image.wufazhuce.com/music_copyright_1.png':
             info = ''
@@ -83,7 +84,7 @@ def _v3_one_detail(category, id):
             content_list.append({'type': type, 'info': info})
     for i in range(len(editors)):
         editor = editors[i].text
-        info = {'type': '7', 'info': editor}
+        info = {'type': v3_const.v3_item_type['text_cen'], 'info': editor}
         content_list.append(info)
     result = v3_const.v3_get_default_detail_item()
     result['title'] = title

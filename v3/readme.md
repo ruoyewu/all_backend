@@ -1,5 +1,19 @@
 ## v3说明
 
+### AppInfo 构造
+
+```json
+{
+  "name": "",
+  "title": "",
+  "icon": "",
+  "category_name": [],
+  "category_title": []
+}
+```
+
+
+
 ### list构造
 
 ```json
@@ -21,7 +35,8 @@
     "content": [],
     "type": "当前所属分类名称",
     "category_id": "在app内展示类型分类"，
-    "other_info": "其他信息，以 | 为分隔符表示，如： 天气|晴|多云"
+    "other_info": "其他信息，以 | 为分隔符表示，如： 天气|晴|多云",
+    "open_type": ""
   }
 }
 ```
@@ -54,7 +69,8 @@ type{
   "h1": "4",
   "h2": '5',
   "li": "6",
-  "text_cen": "7"
+  "text_cen": "7",
+  "quote": "8"
 }
 ```
 
