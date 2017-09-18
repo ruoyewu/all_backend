@@ -12,7 +12,8 @@ def v3_detail(name, category, id):
         return _v3_one_detail(category, id)
     elif name == 'sspai':
         return _v3_sspai_detail(category, id)
-    pass
+    elif name == 'qdaily':
+        return _v3_qdaily_detail(category, id)
 
 
 def _v3_one_detail(category, id):
@@ -141,3 +142,59 @@ def _v3_sspai_detail(category, id):
     result['date'] = date
     result['content'] = content_list
     return json.dumps(result, ensure_ascii=False)
+
+
+def _v3_qdaily_detail(category, id):
+    url = v3_const.v3_categories['qdaily']['detail'] + id + '.html'
+    response = requests.get(url)
+    response.encoding = 'utf-8'
+    # return response.text
+    soup = BeautifulSoup(response.text, 'html.parser')
+    head = soup.find('div', attrs={'class': 'article-detail-hd'})
+    head_soup = BeautifulSoup(str(head), 'html.parser')
+    title = head_soup.find('h1', attrs={'class': 'title'}).text
+    author = head_soup.find('div', attrs={'class': 'author'}).text
+    date = head_soup.find('span', attrs={'class': 'date'}).text
+
+    content_list = []
+    content = soup.find('div', attrs={'class': 'detail'})
+    content_soup = BeautifulSoup(str(content), 'html.parser')
+    items = content_soup.find_all(name=['p', 'img', 'h3', 'h2', 'li', 'blockquote', 'figcaption'])
+
+    for i in range(len(items)):
+        item = items[i]
+        type = v3_const.v3_item_type['text']
+        info = ''
+        if item.name == 'p':
+            info = item.text
+            if len(content_list) > 0 and info == content_list[len(content_list) - 1]['info']:
+                info = ''
+        elif item.name == 'img':
+            type = v3_const.v3_item_type['image']
+            info = item['data-src']
+        elif item.name == 'h3':
+            type = v3_const.v3_item_type['h1']
+            info = item.text
+        elif item.name == 'h4':
+            type = v3_const.v3_item_type['h2']
+            info = item.text
+        elif item.name == 'li':
+            type = v3_const.v3_item_type['li']
+            info = item.text
+        elif item.name == 'blockquote':
+            type = v3_const.v3_item_type['quote']
+            info = item.text.strip()
+        elif item.name == 'figcaption':
+            type = v3_const.v3_item_type['text_cen']
+            info = item.text
+
+        if info != '':
+            content_list.append({'type': type, 'info': info})
+
+    result = v3_const.v3_get_default_detail_item()
+    result['title'] = title
+    result['author'] = author
+    result['date'] = date
+    result['content'] = content_list
+    return json.dumps(result, ensure_ascii=False)
+    pass

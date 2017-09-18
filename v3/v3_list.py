@@ -170,7 +170,7 @@ def _v3_get_sspai_list(category, page):
 
 
 def _v3_get_qdaily_list(category, page):
-    url = v3_const.v3_categories['qdaily'][category] + id
+    url = v3_const.v3_categories['qdaily'][category] + page
     data = requests.get(url).json()['data']
     next = data['last_key']
     content_list = data['feeds']
