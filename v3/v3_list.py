@@ -12,6 +12,10 @@ def v3_get_list(name, category, page):
         return _v3_get_one_list(category, page)
     elif name == 'ifanr':
         return _v3_get_ifanr_list(category, page)
+    elif name == 'sspai':
+        return _v3_get_sspai_list(category, page)
+    elif name == 'qdaily':
+        return _v3_get_qdaily_list(category, page)
 
 
 def _v3_get_one_list(category, page):
@@ -123,6 +127,88 @@ def _v3_get_ifanr_list(category, page):
     return json.dumps(result, ensure_ascii=False)
 
 
+def _v3_get_sspai_list(category, page):
+    offset = str(int(page) * 10)
+    next = int(page) + 1
+    url = v3_const.v3_categories['sspai'][category] + offset
+    content_list = requests.get(url).json()['list']
+
+    list = []
+    for i in range(len(content_list)):
+        item = content_list[i]
+        id = str(item['id'])
+        title = item['title']
+        forward = item['promote_intro']
+        image = 'https://cdn.sspai.com/' + item['banner']
+        url = 'https://sspai.com/post/' + id
+        author = item['author']['nickname']
+        t = item['released_at']
+        timeArray = time.localtime(t)
+        date = time.strftime('%Y-%m-%d %H:%M:%S', timeArray)
+        try:
+            type = item['tags'][0]['title']
+        except:
+            type = '推荐'
+        info = v3_const.v3_get_default_list_item()
+        info['id'] = id
+        info['title'] = title
+        info['author'] = author
+        info['date'] = date
+        info['image'] = image
+        info['forward'] = forward
+        info['original_url'] = url
+        info['type'] = type
+        list.append(info)
+
+    result = {
+        'name': 'sspai',
+        'category': category,
+        'next': next,
+        'list': list
+    }
+    return json.dumps(result, ensure_ascii=False)
+
+
+def _v3_get_qdaily_list(category, page):
+    url = v3_const.v3_categories['qdaily'][category] + id
+    data = requests.get(url).json()['data']
+    next = data['last_key']
+    content_list = data['feeds']
+
+    list = []
+    for i in range(len(content_list)):
+        item = content_list[i]
+        try:
+            image = item['image']
+        except:
+            image = ''
+        post = item['post']
+        id = str(post['id'])
+        title = post['title']
+        forward = post['description']
+        date = post['publish_time'][:19]
+        type = post['category']['title']
+        url = 'http://m.qdaily.com/mobile/articles/' + id + '.html'
+        info = v3_const.v3_get_default_list_item()
+        info['id'] = id
+        info['image'] = image
+        info['title'] = title
+        info['forward'] = forward
+        info['date'] = date
+        info['type'] = type
+        info['original_url'] = url
+        if image != '':
+            list.append(info)
+
+    result = {
+        'name': 'qdaily',
+        'category': category,
+        'next': next,
+        'list': list
+    }
+    return json.dumps(result, ensure_ascii=False)
+
+
 def __v3_get_ifanr_detail(content):
     list = []
     soup = BeautifulSoup(str(content), 'html.parser')
@@ -151,7 +237,7 @@ def __v3_get_ifanr_detail(content):
             info = item.text
             type = v3_const.v3_item_type['quote']
 
-        if info != '':
+        if info.strip() != '':
             list.append({'type': type, 'info': info})
 
     return list

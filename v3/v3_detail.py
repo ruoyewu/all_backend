@@ -10,6 +10,8 @@ from v3 import v3_const
 def v3_detail(name, category, id):
     if name == 'one':
         return _v3_one_detail(category, id)
+    elif name == 'sspai':
+        return _v3_sspai_detail(category, id)
     pass
 
 
@@ -90,5 +92,52 @@ def _v3_one_detail(category, id):
     result['title'] = title
     result['subtitle'] = subtitle
     result['author'] = author
+    result['content'] = content_list
+    return json.dumps(result, ensure_ascii=False)
+
+
+def _v3_sspai_detail(category, id):
+    url = v3_const.v3_categories['sspai']['detail'] + id
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, 'html.parser')
+    content = soup.find('article')
+    content_soup = BeautifulSoup(str(content), 'html.parser')
+    title = content.h1.text
+    head_content = content_soup.find('div', attrs={'class': 'meta'})
+    author = head_content.h4.text
+    date = head_content.time.text
+
+    content_list = []
+    content = content_soup.find('div', attrs={'id': 'article-content'})
+    content_soup = BeautifulSoup(str(content.div.div), 'html.parser')
+    items = content_soup.find_all(name=['p', 'img', 'h2', 'li', 'h4', 'dt', 'h3'])
+    for i in range(len(items)):
+        item = items[i]
+        type = v3_const.v3_item_type['text']
+        info = ''
+        if item.name == 'p' or item.name == 'dt':
+            info = item.text.strip()
+        elif item.name == 'img':
+            type = v3_const.v3_item_type['image']
+            info = item['src']
+        elif item.name == 'li':
+            type = v3_const.v3_item_type['li']
+            info = item.text.strip()
+        elif item.name == 'h2':
+            type = v3_const.v3_item_type['h1']
+            info = item.text
+        elif item.name == 'h3':
+            type = v3_const.v3_item_type['h2']
+            info = item.text
+        elif item.name == 'h4':
+            type = v3_const.v3_item_type['h3']
+            info = item.text
+        if info != '':
+            content_list.append({'type': type, 'info': info})
+
+    result = v3_const.v3_get_default_detail_item()
+    result['title'] = title
+    result['author'] = author
+    result['date'] = date
     result['content'] = content_list
     return json.dumps(result, ensure_ascii=False)
