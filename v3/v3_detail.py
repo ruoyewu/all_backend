@@ -4,16 +4,23 @@ from bs4 import BeautifulSoup
 import requests
 import json
 
-from v3 import v3_const
+from v3 import v3_const, v3_sql
 
 
 def v3_detail(name, category, id):
-    if name == 'one':
-        return _v3_one_detail(category, id)
-    elif name == 'sspai':
-        return _v3_sspai_detail(category, id)
-    elif name == 'qdaily':
-        return _v3_qdaily_detail(category, id)
+    key = name + '_' + category + '_' + id
+    result = v3_sql.get_article(key)
+    if result == 'no':
+        if name == 'one':
+            result = _v3_one_detail(category, id)
+        elif name == 'sspai':
+            result = _v3_sspai_detail(category, id)
+        elif name == 'qdaily':
+            result = _v3_qdaily_detail(category, id)
+        # print(type(result))
+        result = result.encode().decode()
+        v3_sql.put_article(key, result)
+    return result
 
 
 def _v3_one_detail(category, id):

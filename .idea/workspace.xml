@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="adb2b422-3cff-4fce-90e9-0296bd56140a" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/v3/v3_sql.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/f0b333fb-47e0-4dcc-b8d9-a106a11deb24.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/f0b333fb-47e0-4dcc-b8d9-a106a11deb24.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/v3/v3_detail.py" afterPath="$PROJECT_DIR$/v3/v3_detail.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/v3/v3_list.py" afterPath="$PROJECT_DIR$/v3/v3_list.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,7 +18,7 @@
     <SUITE FILE_PATH="coverage/all_app$zhihu_get.coverage" NAME="zhihu_get Coverage Results" MODIFIED="1502192348069" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/zhihu" />
     <SUITE FILE_PATH="coverage/all_app$tmt_main.coverage" NAME="tmt_main Coverage Results" MODIFIED="1502117991756" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tmt" />
     <SUITE FILE_PATH="coverage/all_app$juzi_detail.coverage" NAME="juzi_detail Coverage Results" MODIFIED="1501987651140" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/juzi" />
-    <SUITE FILE_PATH="coverage/all_app$main.coverage" NAME="main Coverage Results" MODIFIED="1505740130468" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/all_app$main.coverage" NAME="main Coverage Results" MODIFIED="1505789637410" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/all_app$sspai_detail.coverage" NAME="sspai_detail Coverage Results" MODIFIED="1501312173116" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/sspai" />
     <SUITE FILE_PATH="coverage/all_app$ifanr_main.coverage" NAME="ifanr_main Coverage Results" MODIFIED="1501127835304" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ifanr" />
     <SUITE FILE_PATH="coverage/all_app$main__1_.coverage" NAME="main (1) Coverage Results" MODIFIED="1500809038621" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/one" />
@@ -25,6 +26,7 @@
     <SUITE FILE_PATH="coverage/all_app$zhihu_detail.coverage" NAME="zhihu_detail Coverage Results" MODIFIED="1502197030456" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/zhihu" />
     <SUITE FILE_PATH="coverage/all_app$sspai_main.coverage" NAME="sspai_main Coverage Results" MODIFIED="1501304889739" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/sspai" />
     <SUITE FILE_PATH="coverage/all_app$medium_main.coverage" NAME="medium_main Coverage Results" MODIFIED="1501072951818" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/medium" />
+    <SUITE FILE_PATH="coverage/all_app$v3_sql.coverage" NAME="v3_sql Coverage Results" MODIFIED="1505790104818" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/v3" />
     <SUITE FILE_PATH="coverage/all_app$yourshot_get.coverage" NAME="yourshot_get Coverage Results" MODIFIED="1501689611337" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/yourshot" />
     <SUITE FILE_PATH="coverage/all_app$yike_get.coverage" NAME="yike_get Coverage Results" MODIFIED="1502163039443" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/yike" />
     <SUITE FILE_PATH="coverage/all_app$qdaily_main.coverage" NAME="qdaily_main Coverage Results" MODIFIED="1501167246776" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/qdaily" />
@@ -42,24 +44,32 @@
     <option name="SHOW_TABLE_DETAILS" value="true" />
     <option name="SHOW_EMPTY_GROUPS" value="false" />
     <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
-    <PATH>
-      <PATH_ELEMENT>
-        <option name="myItemId" />
-        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="allapp@localhost" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-    </PATH>
+    <expand>
+      <path>
+        <item name="" type="eadb38e5:DatabaseStructure$Root" />
+        <item name="allapp@localhost" type="e3449647:DbNodeDescriptor" />
+      </path>
+      <path>
+        <item name="" type="eadb38e5:DatabaseStructure$Root" />
+        <item name="allapp@localhost" type="e3449647:DbNodeDescriptor" />
+        <item name="allapp" type="e3449647:DbNodeDescriptor" />
+      </path>
+      <path>
+        <item name="" type="eadb38e5:DatabaseStructure$Root" />
+        <item name="allapp@localhost" type="e3449647:DbNodeDescriptor" />
+        <item name="allapp" type="e3449647:DbNodeDescriptor" />
+        <item name="article" type="e3449647:DbNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="v3_list.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/v3/v3_list.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="19" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="245" selection-end-column="0" />
+            <state relative-caret-position="270">
+              <caret line="127" column="0" lean-forward="false" selection-start-line="127" selection-start-column="0" selection-end-line="127" selection-end-column="0" />
               <folding>
                 <element signature="e#496#2565#0" expanded="false" />
                 <element signature="e#527#656#0" expanded="false" />
@@ -86,27 +96,83 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="v3_detail.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="v3_detail.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/v3/v3_detail.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="393">
-              <caret line="185" column="36" lean-forward="false" selection-start-line="185" selection-start-column="36" selection-end-line="185" selection-end-column="36" />
+            <state relative-caret-position="330">
+              <caret line="22" column="17" lean-forward="false" selection-start-line="22" selection-start-column="17" selection-end-line="22" selection-end-column="17" />
               <folding>
-                <element signature="e#408#3528#0" expanded="false" />
-                <element signature="e#1508#1681#0" expanded="false" />
-                <element signature="e#1742#2281#0" expanded="false" />
-                <element signature="e#2482#3122#0" expanded="false" />
-                <element signature="e#2602#2766#0" expanded="false" />
-                <element signature="e#2652#2725#0" expanded="false" />
-                <element signature="e#2812#2880#0" expanded="false" />
-                <element signature="e#3165#3298#0" expanded="false" />
-                <element signature="e#4262#5066#0" expanded="false" />
-                <element signature="e#4473#4541#0" expanded="false" />
-                <element signature="e#4586#4657#0" expanded="false" />
-                <element signature="e#4702#4765#0" expanded="false" />
-                <element signature="e#4810#4873#0" expanded="false" />
-                <element signature="e#4918#4981#0" expanded="false" />
+                <element signature="e#0#34#0" expanded="true" />
+                <element signature="e#1779#1952#0" expanded="false" />
+                <element signature="e#2013#2552#0" expanded="false" />
+                <element signature="e#2753#3393#0" expanded="false" />
+                <element signature="e#2873#3037#0" expanded="false" />
+                <element signature="e#2923#2996#0" expanded="false" />
+                <element signature="e#3083#3151#0" expanded="false" />
+                <element signature="e#3436#3569#0" expanded="false" />
+                <element signature="e#4533#5337#0" expanded="false" />
+                <element signature="e#4744#4812#0" expanded="false" />
+                <element signature="e#4857#4928#0" expanded="false" />
+                <element signature="e#4973#5036#0" expanded="false" />
+                <element signature="e#5081#5144#0" expanded="false" />
+                <element signature="e#5189#5252#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="v3_sql.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/v3/v3_sql.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="247">
+              <caret line="17" column="21" lean-forward="true" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
+              <folding>
+                <marker date="1505790508000" expanded="true" signature="109:128" ph="insert into article... " />
+                <marker date="1505790508000" expanded="true" signature="109:147" ph="insert into article... " />
+                <marker date="1505790508000" expanded="true" signature="163:197" ph="select * fro... article" />
+                <marker date="1505790508000" expanded="true" signature="163:202" ph="select * fro... article" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/main.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="14" column="12" lean-forward="false" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
+              <folding>
+                <element signature="e#0#11#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="console.sql" pinned="false" current-in-tab="false">
+        <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/f0b333fb-47e0-4dcc-b8d9-a106a11deb24/console.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="51" lean-forward="false" selection-start-line="0" selection-start-column="51" selection-end-line="0" selection-end-column="51" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="article" pinned="false" current-in-tab="false">
+        <entry file="das://table:/54dc8ed2/f0b333fb-47e0-4dcc-b8d9-a106a11deb24/allapp.article">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="v3_main.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/v3/v3_main.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -115,7 +181,7 @@
         <entry file="file://$PROJECT_DIR$/v2/v2_detail.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="54">
-              <caret line="35" column="30" lean-forward="true" selection-start-line="35" selection-start-column="30" selection-end-line="35" selection-end-column="30" />
+              <caret line="35" column="30" lean-forward="false" selection-start-line="35" selection-start-column="30" selection-end-line="35" selection-end-column="30" />
               <folding>
                 <element signature="e#152#880#0" expanded="false" />
                 <element signature="e#1692#2364#0" expanded="false" />
@@ -165,81 +231,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="v2_get.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/v2/v2_get.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="78" column="21" lean-forward="true" selection-start-line="78" selection-start-column="21" selection-end-line="78" selection-end-column="21" />
-              <folding>
-                <element signature="e#212#1593#0" expanded="false" />
-                <element signature="e#1633#2112#0" expanded="false" />
-                <element signature="e#1664#1903#0" expanded="false" />
-                <element signature="e#1922#2087#0" expanded="false" />
-                <element signature="e#2655#2846#0" expanded="false" />
-                <element signature="e#3141#3328#0" expanded="false" />
-                <element signature="e#3369#3576#0" expanded="false" />
-                <element signature="e#3617#3895#0" expanded="false" />
-                <element signature="e#3937#4291#0" expanded="false" />
-                <element signature="e#4337#4645#0" expanded="false" />
-                <element signature="e#4687#4989#0" expanded="false" />
-                <element signature="e#5029#5310#0" expanded="false" />
-                <element signature="e#5351#6729#0" expanded="false" />
-                <element signature="e#5450#6561#0" expanded="false" />
-                <element signature="e#5477#6545#0" expanded="false" />
-                <element signature="e#6772#7100#0" expanded="false" />
-                <element signature="e#6896#6990#0" expanded="false" />
-                <element signature="e#7143#7816#0" expanded="false" />
-                <element signature="e#7174#7578#0" expanded="false" />
-                <element signature="e#7200#7375#0" expanded="false" />
-                <element signature="e#7402#7578#0" expanded="false" />
-                <element signature="e#7597#7748#0" expanded="false" />
-                <element signature="e#7857#8195#0" expanded="false" />
-                <element signature="e#7894#8016#0" expanded="false" />
-                <element signature="e#8237#8655#0" expanded="false" />
-                <element signature="e#8268#8426#0" expanded="false" />
-                <element signature="e#8445#8538#0" expanded="false" />
-                <element signature="e#8689#8805#0" expanded="false" />
-                <element signature="e#8853#10366#0" expanded="false" />
-                <element signature="e#10408#11149#0" expanded="false" />
-                <element signature="e#12027#12741#0" expanded="false" />
-                <element signature="e#12080#12721#0" expanded="false" />
-                <element signature="e#13703#14403#0" expanded="false" />
-                <element signature="e#13756#14383#0" expanded="false" />
-                <element signature="e#14444#15322#0" expanded="false" />
-                <element signature="e#14497#15302#0" expanded="false" />
-                <element signature="e#15363#16248#0" expanded="false" />
-                <element signature="e#15416#16228#0" expanded="false" />
-                <element signature="e#16296#16749#0" expanded="false" />
-                <element signature="e#16349#16729#0" expanded="false" />
-                <element signature="e#16801#17314#0" expanded="false" />
-                <element signature="e#16854#17294#0" expanded="false" />
-                <element signature="e#17362#17683#0" expanded="false" />
-                <element signature="e#17415#17663#0" expanded="false" />
-                <element signature="e#17723#18431#0" expanded="false" />
-                <element signature="e#17776#18411#0" expanded="false" />
-                <element signature="e#18472#19566#0" expanded="false" />
-                <element signature="e#18525#19546#0" expanded="false" />
-                <element signature="e#19054#19546#0" expanded="false" />
-                <element signature="e#19609#20573#0" expanded="false" />
-                <element signature="e#19662#20553#0" expanded="false" />
-                <element signature="e#20622#21396#0" expanded="false" />
-                <element signature="e#20675#21376#0" expanded="false" />
-                <element signature="e#21437#21954#0" expanded="false" />
-                <element signature="e#21490#21934#0" expanded="false" />
-                <element signature="e#22006#22810#0" expanded="false" />
-                <element signature="e#22059#22790#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="v3_const.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/v3/v3_const.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="214">
-              <caret line="72" column="56" lean-forward="true" selection-start-line="72" selection-start-column="56" selection-end-line="72" selection-end-column="56" />
+            <state relative-caret-position="138">
+              <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
               <folding>
-                <element signature="e#461#1049#0" expanded="false" />
                 <element signature="e#1064#4583#0" expanded="false" />
                 <element signature="e#1259#1433#0" expanded="false" />
                 <element signature="e#1454#1632#0" expanded="false" />
@@ -475,12 +472,14 @@
         <option value="$PROJECT_DIR$/const.py" />
         <option value="$PROJECT_DIR$/v3/const.py" />
         <option value="$PROJECT_DIR$/v3/main.py" />
-        <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/v3/v3_main.py" />
-        <option value="$PROJECT_DIR$/v3/v3_list.py" />
         <option value="$PROJECT_DIR$/v2/v2_get.py" />
         <option value="$PROJECT_DIR$/v3/v3_const.py" />
+        <option value="$PROJECT_DIR$/v3/v3_list.py" />
         <option value="$PROJECT_DIR$/v3/v3_detail.py" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/f0b333fb-47e0-4dcc-b8d9-a106a11deb24/console.sql" />
+        <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/v3/v3_sql.py" />
       </list>
     </option>
   </component>
@@ -555,7 +554,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.main">
+  <component name="RunManager" selected="Python.v3_sql">
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
       <node-interpreter>project</node-interpreter>
       <node-options />
@@ -757,6 +756,24 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
+    <configuration name="v3_sql" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/v3" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="all_app" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/v3/v3_sql.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+    </configuration>
     <configuration name="zhihu_detail" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -775,38 +792,20 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
-    <configuration name="zhihu_get" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/zhihu" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="all_app" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/zhihu/zhihu_get.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-    </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Python.main" />
-      <item index="1" class="java.lang.String" itemvalue="Python.zhihu_get" />
-      <item index="2" class="java.lang.String" itemvalue="Python.zhihu_detail" />
-      <item index="3" class="java.lang.String" itemvalue="Python.v2_get" />
-      <item index="4" class="java.lang.String" itemvalue="Python.v2_detail" />
+      <item index="1" class="java.lang.String" itemvalue="Python.zhihu_detail" />
+      <item index="2" class="java.lang.String" itemvalue="Python.v2_get" />
+      <item index="3" class="java.lang.String" itemvalue="Python.v2_detail" />
+      <item index="4" class="java.lang.String" itemvalue="Python.v3_sql" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.main" />
-        <item index="1" class="java.lang.String" itemvalue="Python.v2_get" />
-        <item index="2" class="java.lang.String" itemvalue="Python.v2_detail" />
-        <item index="3" class="java.lang.String" itemvalue="Python.zhihu_detail" />
-        <item index="4" class="java.lang.String" itemvalue="Python.zhihu_get" />
+        <item index="0" class="java.lang.String" itemvalue="Python.v3_sql" />
+        <item index="1" class="java.lang.String" itemvalue="Python.main" />
+        <item index="2" class="java.lang.String" itemvalue="Python.v2_get" />
+        <item index="3" class="java.lang.String" itemvalue="Python.v2_detail" />
+        <item index="4" class="java.lang.String" itemvalue="Python.zhihu_detail" />
       </list>
     </recent_temporary>
   </component>
@@ -859,7 +858,14 @@
       <option name="project" value="LOCAL" />
       <updated>1505737060923</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="add qdaily detail">
+      <created>1505742552018</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1505742552018</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TodoView">
@@ -876,17 +882,18 @@
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32890856" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.503231" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32890856" sideWeight="0.5048465" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32890856" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32892805" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3141593" sideWeight="0.49676898" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3141593" sideWeight="0.49676898" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32890856" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21728595" sideWeight="0.46680942" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32890856" sideWeight="0.4951535" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21728595" sideWeight="0.45806453" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956383" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32743362" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19466881" sideWeight="0.53319055" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21728595" sideWeight="0.5419355" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39772728" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39675516" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956383" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -937,10 +944,18 @@
     <MESSAGE value="增加one" />
     <MESSAGE value="增加ifanr" />
     <MESSAGE value="增加qdaily list" />
-    <option name="LAST_COMMIT_MESSAGE" value="增加qdaily list" />
+    <MESSAGE value="add qdaily detail" />
+    <option name="LAST_COMMIT_MESSAGE" value="add qdaily detail" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/v3/v3_sql.py</url>
+          <line>13</line>
+          <option name="timeStamp" value="93" />
+        </line-breakpoint>
+      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">
@@ -948,145 +963,15 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="87" />
+      <option name="time" value="94" />
     </breakpoint-manager>
-    <watches-manager />
+    <watches-manager>
+      <configuration name="PythonConfigurationType">
+        <watch expression="result" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/one/one_get.py" />
-    <entry file="file://$PROJECT_DIR$/one/one_main.py" />
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/one/one_sql.py" />
-    <entry file="file://$PROJECT_DIR$/const.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="65" lean-forward="false" selection-start-line="2" selection-start-column="65" selection-end-line="2" selection-end-column="65" />
-          <folding>
-            <element signature="e#720#880#0" expanded="false" />
-            <element signature="e#897#1071#0" expanded="false" />
-            <element signature="e#1092#1270#0" expanded="false" />
-            <element signature="e#1289#1465#0" expanded="false" />
-            <element signature="e#1486#1663#0" expanded="false" />
-            <element signature="e#1683#1861#0" expanded="false" />
-            <element signature="e#1882#2057#0" expanded="false" />
-            <element signature="e#2076#2254#0" expanded="false" />
-            <element signature="e#2271#2449#0" expanded="false" />
-            <element signature="e#2469#2647#0" expanded="false" />
-            <element signature="e#2666#2844#0" expanded="false" />
-            <element signature="e#2861#3039#0" expanded="false" />
-            <element signature="e#3057#3233#0" expanded="false" />
-            <element signature="e#3254#3431#0" expanded="false" />
-            <element signature="e#3449#3627#0" expanded="false" />
-            <element signature="e#3645#3823#0" expanded="false" />
-            <element signature="e#3841#4019#0" expanded="false" />
-            <element signature="e#4037#4215#0" expanded="false" />
-            <element signature="e#4237#5030#0" expanded="false" />
-            <element signature="e#5044#8580#0" expanded="false" />
-            <element signature="e#8595#9807#0" expanded="false" />
-            <element signature="e#9823#11539#0" expanded="false" />
-            <element signature="e#9841#9971#0" expanded="false" />
-            <element signature="e#9992#10146#0" expanded="false" />
-            <element signature="e#10170#10327#0" expanded="false" />
-            <element signature="e#10351#10508#0" expanded="false" />
-            <element signature="e#10525#10675#0" expanded="false" />
-            <element signature="e#10695#10848#0" expanded="false" />
-            <element signature="e#10869#11023#0" expanded="false" />
-            <element signature="e#11041#11192#0" expanded="false" />
-            <element signature="e#11210#11361#0" expanded="false" />
-            <element signature="e#11380#11533#0" expanded="false" />
-            <element signature="e#11553#12341#0" expanded="false" />
-            <element signature="e#12355#12476#0" expanded="false" />
-            <element signature="e#12491#12692#0" expanded="false" />
-            <element signature="e#12711#12864#0" expanded="false" />
-            <element signature="e#12729#12858#0" expanded="false" />
-            <element signature="e#12879#17094#0" expanded="false" />
-            <element signature="e#12897#13026#0" expanded="false" />
-            <element signature="e#13044#13174#0" expanded="false" />
-            <element signature="e#13196#13326#0" expanded="false" />
-            <element signature="e#13346#13476#0" expanded="false" />
-            <element signature="e#13495#13625#0" expanded="false" />
-            <element signature="e#13645#13775#0" expanded="false" />
-            <element signature="e#13793#13923#0" expanded="false" />
-            <element signature="e#13945#14075#0" expanded="false" />
-            <element signature="e#14094#14224#0" expanded="false" />
-            <element signature="e#14244#14374#0" expanded="false" />
-            <element signature="e#14395#14525#0" expanded="false" />
-            <element signature="e#14544#14674#0" expanded="false" />
-            <element signature="e#14691#14821#0" expanded="false" />
-            <element signature="e#14839#14969#0" expanded="false" />
-            <element signature="e#14987#15117#0" expanded="false" />
-            <element signature="e#15138#15268#0" expanded="false" />
-            <element signature="e#15286#15416#0" expanded="false" />
-            <element signature="e#15436#15566#0" expanded="false" />
-            <element signature="e#15586#15716#0" expanded="false" />
-            <element signature="e#15733#15863#0" expanded="false" />
-            <element signature="e#15882#16012#0" expanded="false" />
-            <element signature="e#16030#16160#0" expanded="false" />
-            <element signature="e#16180#16310#0" expanded="false" />
-            <element signature="e#16331#16461#0" expanded="false" />
-            <element signature="e#16481#16611#0" expanded="false" />
-            <element signature="e#16636#16773#0" expanded="false" />
-            <element signature="e#16799#16937#0" expanded="false" />
-            <element signature="e#16958#17088#0" expanded="false" />
-            <element signature="e#17107#18382#0" expanded="false" />
-            <element signature="e#17199#17343#0" expanded="false" />
-            <element signature="e#17363#17507#0" expanded="false" />
-            <element signature="e#17528#17672#0" expanded="false" />
-            <element signature="e#17689#17833#0" expanded="false" />
-            <element signature="e#17852#17996#0" expanded="false" />
-            <element signature="e#18022#18166#0" expanded="false" />
-            <element signature="e#18187#18331#0" expanded="false" />
-            <element signature="e#18402#18633#0" expanded="false" />
-            <element signature="e#18420#18627#0" expanded="false" />
-            <element signature="e#18649#21253#0" expanded="false" />
-            <element signature="e#18667#18950#0" expanded="false" />
-            <element signature="e#18970#19262#0" expanded="false" />
-            <element signature="e#23030#23549#0" expanded="false" />
-            <element signature="e#23137#23387#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/one/one_get.py" />
-    <entry file="file://$PROJECT_DIR$/one/one_sql.py" />
-    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/site-packages/requests/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="378" column="0" lean-forward="false" selection-start-line="378" selection-start-column="0" selection-end-line="378" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ifanr/__init__.py" />
-    <entry file="file://$PROJECT_DIR$/medium/medium_main.py" />
-    <entry file="file://$PROJECT_DIR$/one/one_main.py" />
-    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/site-packages/flask/app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="1628" column="11" lean-forward="true" selection-start-line="1628" selection-start-column="11" selection-end-line="1628" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/qdaily/qdaily_detail.py" />
-    <entry file="file://$PROJECT_DIR$/qdaily/qdaily_main.py" />
-    <entry file="file://$PROJECT_DIR$/juejin/juejin_main.py" />
-    <entry file="file://$PROJECT_DIR$/yourshot/yourshot_get.py" />
-    <entry file="file://$PROJECT_DIR$/yourshot/yourshot_main.py" />
-    <entry file="file://$PROJECT_DIR$/kr/kr_main.py" />
-    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/json/decoder.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="356" column="0" lean-forward="false" selection-start-line="356" selection-start-column="0" selection-end-line="356" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/juzi/juzi_main.py" />
-    <entry file="file://$PROJECT_DIR$/sspai/sspai_main.py" />
     <entry file="file://$PROJECT_DIR$/yike/yike_main.py" />
     <entry file="file://$PROJECT_DIR$/zhihu/zhihu_main.py" />
     <entry file="file://$PROJECT_DIR$/one/one_get.py" />
@@ -1099,13 +984,6 @@
     <entry file="file://$PROJECT_DIR$/juzi/juzi_get.py" />
     <entry file="file://$PROJECT_DIR$/kr/kr_get.py" />
     <entry file="file://$PROJECT_DIR$/qdaily/qdaily_get.py" />
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/f0b333fb-47e0-4dcc-b8d9-a106a11deb24/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ifanr/ifanr_detail.py" />
     <entry file="file://$PROJECT_DIR$/kr/kr_detail.py" />
     <entry file="file://$PROJECT_DIR$/sspai/sspai_detail.py" />
@@ -1117,6 +995,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="24" lean-forward="false" selection-start-line="0" selection-start-column="24" selection-end-line="0" selection-end-column="27" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1127,28 +1006,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/v3/v3_main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="13" column="38" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#27#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="17" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/v2/v2_get.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
-          <caret line="78" column="21" lean-forward="true" selection-start-line="78" selection-start-column="21" selection-end-line="78" selection-end-column="21" />
+          <caret line="78" column="21" lean-forward="false" selection-start-line="78" selection-start-column="21" selection-end-line="78" selection-end-column="21" />
           <folding>
             <element signature="e#212#1593#0" expanded="false" />
             <element signature="e#1633#2112#0" expanded="false" />
@@ -1214,7 +1075,7 @@
     <entry file="file://$PROJECT_DIR$/v2/v2_detail.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="54">
-          <caret line="35" column="30" lean-forward="true" selection-start-line="35" selection-start-column="30" selection-end-line="35" selection-end-column="30" />
+          <caret line="35" column="30" lean-forward="false" selection-start-line="35" selection-start-column="30" selection-end-line="35" selection-end-column="30" />
           <folding>
             <element signature="e#152#880#0" expanded="false" />
             <element signature="e#1692#2364#0" expanded="false" />
@@ -1357,12 +1218,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/v3/v3_main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/v3/v3_const.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="72" column="56" lean-forward="true" selection-start-line="72" selection-start-column="56" selection-end-line="72" selection-end-column="56" />
+        <state relative-caret-position="138">
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
           <folding>
-            <element signature="e#461#1049#0" expanded="false" />
             <element signature="e#1064#4583#0" expanded="false" />
             <element signature="e#1259#1433#0" expanded="false" />
             <element signature="e#1454#1632#0" expanded="false" />
@@ -1452,8 +1320,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/v3/v3_list.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="19" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="245" selection-end-column="0" />
+        <state relative-caret-position="270">
+          <caret line="127" column="0" lean-forward="false" selection-start-line="127" selection-start-column="0" selection-end-line="127" selection-end-column="0" />
           <folding>
             <element signature="e#496#2565#0" expanded="false" />
             <element signature="e#527#656#0" expanded="false" />
@@ -1479,25 +1347,196 @@
         </state>
       </provider>
     </entry>
+    <entry file="das://table:/54dc8ed2/f0b333fb-47e0-4dcc-b8d9-a106a11deb24/allapp.article">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/54dc8ed2/f0b333fb-47e0-4dcc-b8d9-a106a11deb24/allapp.article">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/54dc8ed2/f0b333fb-47e0-4dcc-b8d9-a106a11deb24/allapp.article">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/54dc8ed2/f0b333fb-47e0-4dcc-b8d9-a106a11deb24/allapp.article">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/54dc8ed2/f0b333fb-47e0-4dcc-b8d9-a106a11deb24/allapp.article">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/54dc8ed2/f0b333fb-47e0-4dcc-b8d9-a106a11deb24/allapp.article">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/54dc8ed2/f0b333fb-47e0-4dcc-b8d9-a106a11deb24/allapp.article">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/54dc8ed2/f0b333fb-47e0-4dcc-b8d9-a106a11deb24/allapp.article">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/54dc8ed2/f0b333fb-47e0-4dcc-b8d9-a106a11deb24/allapp.article">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/54dc8ed2/f0b333fb-47e0-4dcc-b8d9-a106a11deb24/allapp.article">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/54dc8ed2/f0b333fb-47e0-4dcc-b8d9-a106a11deb24/allapp.article">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/54dc8ed2/f0b333fb-47e0-4dcc-b8d9-a106a11deb24/allapp.article">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/54dc8ed2/f0b333fb-47e0-4dcc-b8d9-a106a11deb24/allapp.article">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/54dc8ed2/f0b333fb-47e0-4dcc-b8d9-a106a11deb24/allapp.article">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/54dc8ed2/f0b333fb-47e0-4dcc-b8d9-a106a11deb24/allapp.article">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/54dc8ed2/f0b333fb-47e0-4dcc-b8d9-a106a11deb24/allapp.article">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/54dc8ed2/f0b333fb-47e0-4dcc-b8d9-a106a11deb24/allapp.article">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/54dc8ed2/f0b333fb-47e0-4dcc-b8d9-a106a11deb24/allapp.article">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="12" lean-forward="false" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/f0b333fb-47e0-4dcc-b8d9-a106a11deb24/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="51" lean-forward="false" selection-start-line="0" selection-start-column="51" selection-end-line="0" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/54dc8ed2/f0b333fb-47e0-4dcc-b8d9-a106a11deb24/allapp.article">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/54dc8ed2/f0b333fb-47e0-4dcc-b8d9-a106a11deb24/allapp.article">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/v3/v3_detail.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="393">
-          <caret line="185" column="36" lean-forward="false" selection-start-line="185" selection-start-column="36" selection-end-line="185" selection-end-column="36" />
+        <state relative-caret-position="330">
+          <caret line="22" column="17" lean-forward="false" selection-start-line="22" selection-start-column="17" selection-end-line="22" selection-end-column="17" />
           <folding>
-            <element signature="e#408#3528#0" expanded="false" />
-            <element signature="e#1508#1681#0" expanded="false" />
-            <element signature="e#1742#2281#0" expanded="false" />
-            <element signature="e#2482#3122#0" expanded="false" />
-            <element signature="e#2602#2766#0" expanded="false" />
-            <element signature="e#2652#2725#0" expanded="false" />
-            <element signature="e#2812#2880#0" expanded="false" />
-            <element signature="e#3165#3298#0" expanded="false" />
-            <element signature="e#4262#5066#0" expanded="false" />
-            <element signature="e#4473#4541#0" expanded="false" />
-            <element signature="e#4586#4657#0" expanded="false" />
-            <element signature="e#4702#4765#0" expanded="false" />
-            <element signature="e#4810#4873#0" expanded="false" />
-            <element signature="e#4918#4981#0" expanded="false" />
+            <element signature="e#0#34#0" expanded="true" />
+            <element signature="e#1779#1952#0" expanded="false" />
+            <element signature="e#2013#2552#0" expanded="false" />
+            <element signature="e#2753#3393#0" expanded="false" />
+            <element signature="e#2873#3037#0" expanded="false" />
+            <element signature="e#2923#2996#0" expanded="false" />
+            <element signature="e#3083#3151#0" expanded="false" />
+            <element signature="e#3436#3569#0" expanded="false" />
+            <element signature="e#4533#5337#0" expanded="false" />
+            <element signature="e#4744#4812#0" expanded="false" />
+            <element signature="e#4857#4928#0" expanded="false" />
+            <element signature="e#4973#5036#0" expanded="false" />
+            <element signature="e#5081#5144#0" expanded="false" />
+            <element signature="e#5189#5252#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/v3/v3_sql.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="17" column="21" lean-forward="true" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
+          <folding>
+            <marker date="1505790508000" expanded="true" signature="109:128" ph="insert into article... " />
+            <marker date="1505790508000" expanded="true" signature="109:147" ph="insert into article... " />
+            <marker date="1505790508000" expanded="true" signature="163:197" ph="select * fro... article" />
+            <marker date="1505790508000" expanded="true" signature="163:202" ph="select * fro... article" />
           </folding>
         </state>
       </provider>

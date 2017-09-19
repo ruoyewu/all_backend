@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="allapp@localhost">
-  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.2">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.4">
     <root id="1"/>
     <schema id="2" parent="1" name="allapp">
       <Current>1</Current>
@@ -12,5 +12,21 @@
     <schema id="6" parent="1" name="mysql"/>
     <schema id="7" parent="1" name="performance_schema"/>
     <schema id="8" parent="1" name="sys"/>
+    <table id="9" parent="2" name="article"/>
+    <column id="10" parent="9" name="key">
+      <Position>1</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="11" parent="9" name="content">
+      <Position>2</Position>
+      <DataType>mediumtext|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="12" parent="9" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>key</ColNames>
+      <Primary>1</Primary>
+    </key>
   </database-model>
 </dataSource>
