@@ -53,5 +53,3 @@ if __name__ == '__main__':
     result = register_user('dasd', 'fasdfasfda', '', '')
     print(json.dumps(result, ensure_ascii=False))
     pass
-
-
