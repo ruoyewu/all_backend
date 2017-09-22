@@ -15,6 +15,8 @@ query_user_name_sql = "select * from user WHERE name = '%s'"
 query_user_id_sql = "select * from user WHERE id = '%d'"
 query_comment_sql = "select * from comment WHERE `key` = '%s' ORDER BY `time` desc limit 10"
 query_comment_below_sql = "select * from comment WHERE `key` = '%s' and `time` < '%d' order by `time` desc limit 10"
+query_comment_id_sql = "select * from comment WHERE  id = '%d'"
+query_comment_time_user_sql = "select * from comment WHERE time = '%d' and username = '%s'"
 
 
 def put_article(key, content):
@@ -99,6 +101,31 @@ def get_comment(key, below):
     return result
 
 
+def get_comment_id(id):
+    conn, cur = openDB()
+
+    cur.execute(query_comment_id_sql % (id))
+    result = cur.fetchone()
+
+    if result is None:
+        result = 'no'
+
+    closeDB(conn, cur)
+    return result
+
+
+def get_comment_time_username(time, username):
+    conn, cur = openDB()
+    cur.execute(query_comment_time_user_sql % (time, username))
+    result = cur.fetchone()
+
+    if result is None:
+        result = 'no'
+
+    closeDB(conn, cur)
+    return result
+
+
 def openDB():
     conn = pymysql.connect(host=host, user=username, passwd=password, db=db_name, charset='utf8mb4')
     cur = conn.cursor()
@@ -111,4 +138,4 @@ def closeDB(conn, cur):
 
 
 if __name__ == "__main__":
-    print(get_comment('test', 1505919547026))
+    print(get_comment_id(17))

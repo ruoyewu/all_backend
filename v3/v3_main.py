@@ -24,16 +24,15 @@ def v3_get_detail(name, category, id):
     pass
 
 
-@v3_app.route('/comment/add')
+@v3_app.route('/comment/add', methods=['POST'])
 def v3_add_comment():
-    time = int(request.args['time'])
-    username = request.args['username']
-    content = request.args['content']
-    key = request.args['key']
-    parent = int(request.args['parent'])
+    time = int(request.form['time'])
+    username = request.form['username']
+    content = request.form['content']
+    key = request.form['key']
+    parent = int(request.form['parent'])
 
     result, info = v3_comment.add_comment(key, time, username, content, parent)
-    print(result, info)
     data = {
         'result': result,
         'info': info
@@ -47,10 +46,16 @@ def v3_get_comment():
     below = int(request.args['time'])
 
     result, info, list = v3_comment.get_comment(key, below)
+    if len(list) > 0:
+        next = list[len(list) - 1]['time']
+    else:
+        next = -1
 
     data = {
         'result': result,
         'info': info,
-        'list': list
+        'list': list,
+        'next': next
     }
     return json.dumps(data, ensure_ascii=False)
+

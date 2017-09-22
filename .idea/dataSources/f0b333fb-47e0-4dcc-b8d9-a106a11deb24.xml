@@ -61,9 +61,11 @@
       <Position>6</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <index id="22" parent="10" name="comment_key_time_index">
+    <index id="22" parent="10" name="comment_key_time_id_username_index">
       <ColNames>key
-time</ColNames>
+time
+id
+username</ColNames>
     </index>
     <key id="23" parent="10" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
@@ -117,13 +119,12 @@ time</ColNames>
       <Position>5</Position>
       <DataType>varchar(20)|0</DataType>
     </column>
-    <index id="34" parent="12" name="user_id_name_index">
-      <ColNames>id
-name</ColNames>
-    </index>
-    <index id="35" parent="12" name="user_name_uindex">
+    <index id="34" parent="12" name="user_name_uindex">
       <ColNames>name</ColNames>
       <Unique>1</Unique>
+    </index>
+    <index id="35" parent="12" name="user_id_index">
+      <ColNames>id</ColNames>
     </index>
     <key id="36" parent="12" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
