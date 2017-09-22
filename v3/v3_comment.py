@@ -14,7 +14,17 @@ def get_comment(key, below):
             item = list[i]
             comment_list.append(parseData(item))
 
-    return result, info, comment_list
+    if len(comment_list) > 0:
+        next = comment_list[len(comment_list) - 1]['time']
+    else:
+        next = -1
+
+    return {
+        'result': result,
+        'info': info,
+        'list': comment_list,
+        'next': next
+    }
 
 
 def add_comment(key, time, username, content, parent):
@@ -31,7 +41,10 @@ def add_comment(key, time, username, content, parent):
         result = False
         info = '评论失败'
 
-    return result, info
+    return {
+        'result': result,
+        'info': info
+    }
 
 
 def parseData(data):

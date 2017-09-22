@@ -225,7 +225,7 @@ def __v3_get_ifanr_detail(content):
                     type = v3_const.v3_item_type['text_cen']
             except:
                 pass
-            if len(list) > 0 and info == list[len(list) - 1]['info']:
+            if len(list) > 0 and info in list[len(list) - 1]['info']:
                 info = ''
         elif item.name == 'img':
             info = item['src']

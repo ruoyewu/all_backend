@@ -10,10 +10,10 @@ def v3_get_default_detail_item():
 
 v3_categories = {
     'one': {
-        'home': 'https://v3.wufazhuce.com:8000/api/channel/one/',
-        'read': 'https://v3.wufazhuce.com:8000/api/channel/reading/more/',
-        'music': 'https://v3.wufazhuce.com:8000/api/channel/music/more/',
-        'movie': 'https://v3.wufazhuce.com:8000/api/channel/movie/more/',
+        'home': 'http://v3.wufazhuce.com:8000/api/channel/one/',
+        'read': 'http://v3.wufazhuce.com:8000/api/channel/reading/more/',
+        'music': 'http://v3.wufazhuce.com:8000/api/channel/music/more/',
+        'movie': 'http://v3.wufazhuce.com:8000/api/channel/movie/more/',
         'detail_article': 'http://m.wufazhuce.com/article/',
         'detail_serial': 'http://m.wufazhuce.com/serial/',
         'detail_question': 'http://m.wufazhuce.com/question/',
