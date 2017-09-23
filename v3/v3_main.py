@@ -53,6 +53,14 @@ def v3_get_comment():
     return json.dumps(result, ensure_ascii=False)
 
 
+@v3_app.route('/comment/delete')
+def v3_delete_comment():
+    id = int(request.args['id'])
+
+    result = v3_sql.delete_comment(id)
+    return json.dumps(result, ensure_ascii=False)
+
+
 @v3_app.route('/article/info')
 def v3_get_article_info():
     key = request.args['key']
