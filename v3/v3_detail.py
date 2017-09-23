@@ -17,7 +17,7 @@ def v3_detail(name, category, id):
             result = _v3_sspai_detail(category, id)
         elif name == 'qdaily':
             result = _v3_qdaily_detail(category, id)
-        result = result.encode().decode()
+        # result = result.encode().decode()
         v3_sql.put_article(key, result)
     return result
 
@@ -173,9 +173,10 @@ def _v3_qdaily_detail(category, id):
         info = ''
         if item.name == 'p':
             info = item.text
-            s = ''
 
             if len(content_list) > 0 and info in content_list[len(content_list) - 1]['info']:
+                info = ''
+            elif info.strip()[:4] == 'p.p1':
                 info = ''
         elif item.name == 'img':
             type = v3_const.v3_item_type['image']
