@@ -17,7 +17,6 @@ def v3_detail(name, category, id):
             result = _v3_sspai_detail(category, id)
         elif name == 'qdaily':
             result = _v3_qdaily_detail(category, id)
-        # result = result.encode().decode()
         v3_sql.put_article(key, result)
     return result
 

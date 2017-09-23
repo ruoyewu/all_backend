@@ -62,11 +62,12 @@
       <Position>6</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <index id="23" parent="10" name="comment_key_time_id_username_index">
+    <index id="23" parent="10" name="comment_key_time_id_username_parent_index">
       <ColNames>key
 time
 id
-username</ColNames>
+username
+parent</ColNames>
     </index>
     <key id="24" parent="10" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>

@@ -2,7 +2,7 @@ import json
 
 from flask import Blueprint, request
 
-from v3 import v3_list, v3_detail, v3_comment, v3_love
+from v3 import v3_list, v3_detail, v3_sql
 
 v3_app = Blueprint('v3', __name__, url_prefix='/v3')
 
@@ -40,7 +40,7 @@ def v3_add_comment():
     key = request.form['key']
     parent = int(request.form['parent'])
 
-    result = v3_comment.add_comment(key, time, username, content, parent)
+    result = v3_sql.put_comment(key, time, username, content, parent)
     return json.dumps(result, ensure_ascii=False)
 
 
@@ -49,7 +49,7 @@ def v3_get_comment():
     key = request.args['key']
     below = int(request.args['time'])
 
-    result = v3_comment.get_comment(key, below)
+    result = v3_sql.get_comment_list(key, below)
     return json.dumps(result, ensure_ascii=False)
 
 
@@ -58,7 +58,7 @@ def v3_get_article_info():
     key = request.args['key']
     username = request.args['username']
 
-    result = v3_love.get_article_info(key, username)
+    result = v3_sql.get_article_info(key, username)
     return json.dumps(result, ensure_ascii=False)
 
 
@@ -68,6 +68,6 @@ def v3_set_article_love():
     username = request.args['username']
     love = request.args['love']
 
-    result = v3_love.set_article_love(key, username, love)
+    result = v3_sql.set_love(key, username, love)
     return json.dumps(result, ensure_ascii=False)
 
