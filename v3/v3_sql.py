@@ -161,7 +161,9 @@ def delete_comment(id):
         result = False
 
     closeDB(conn, cur)
-    return result
+    return {
+        'result': result
+    }
 
 
 # love
