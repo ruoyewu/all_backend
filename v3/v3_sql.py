@@ -8,12 +8,11 @@ db_name = 'allapp'
 start_transaction = "START TRANSACTION"
 transaction_commit = "COMMIT"
 
+query_user_name = "select * from user where name = '%s'"
+insert_user_name_pass = "insert into user (name, password) values ('%s', '%s')"
+
 insert_article_sql = "insert into article values('%s', '%s')"
 query_article_sql = "select * from article WHERE `key`= '%s'"
-
-insert_user_sql = "insert into user (name, password, email, phone) values('%s', '%s', '%s', '%s')"
-query_user_name_sql = "select * from user WHERE name = '%s'"
-query_user_id_sql = "select * from user WHERE id = '%d'"
 
 insert_comment_sql = "insert into comment (time, username, content, `key`, parent) values " \
                      "('%d', '%s', '%s', '%s', '%d')"
@@ -29,6 +28,60 @@ insert_love_key_user = "insert into love (`key`, username) values ('%s', '%s')"
 delete_love_key_user = "delete from love where `key` = '%s' and username = '%s'"
 query_love_key_count = "select count(*) from love WHERE `key` = '%s'"
 query_love_key_user = "select * from love WHERE `key` = '%s' and username = '%s'"
+
+
+# user
+
+
+def user_login(name, password):
+    conn, cur = openDB()
+
+    data = get_user_name(name, cur)
+    if data == 'no':
+        result = False
+        info = "没有此用户"
+    elif data == password:
+        result = True
+        info = "登录成功"
+    else:
+        result = False
+        info = "密码错误"
+
+    closeDB(conn, cur)
+
+    return {
+        'result': result,
+        'info': info
+    }
+
+
+def user_sign(name, password):
+    conn, cur = openDB()
+
+    data = get_user_name(name, cur)
+    if data == 'no':
+        try:
+            cur.execute(insert_user_name_pass % (name, password))
+            conn.commit()
+        except:
+            pass
+
+        data = get_user_name(name, cur)
+        if data == 'no':
+            result = False
+            info = "注册失败"
+        else:
+            result = True
+            info = "注册成功"
+    else:
+        result = False
+        info = "用户名已存在"
+
+    closeDB(conn, cur)
+    return {
+        'result': result,
+        'info': info
+    }
 
 
 # article
@@ -214,7 +267,7 @@ def parseCommentData(data, cur):
     key = data[4]
     parent = data[5]
     if parent != 0:
-        cur.execute(query_comment_id_sql % id)
+        cur.execute(query_comment_id_sql % parent)
         p = cur.fetchone()
         if p is None:
             parent = ''
@@ -265,7 +318,17 @@ def get_love_key_user(key, username, cur):
     return result
 
 
+def get_user_name(name, cur):
+    cur.execute(query_user_name % name)
+    result = cur.fetchone()
+    if result is None:
+        result = 'no'
+    else:
+        result = result[1]
+    return result
+
+
 if __name__ == '__main__':
     print(
-        get_article_info('test', 'r')
+        user_sign('test1', 'test1')
     )

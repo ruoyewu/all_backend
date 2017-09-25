@@ -79,3 +79,22 @@ def v3_set_article_love():
     result = v3_sql.set_love(key, username, love)
     return json.dumps(result, ensure_ascii=False)
 
+
+@v3_app.route('/user/login')
+def v3_user_login():
+    name = request.args['username']
+    password = request.args['password']
+
+    result = v3_sql.user_login(name, password)
+    return json.dumps(result, ensure_ascii=False)
+
+
+@v3_app.route('/user/sign')
+def v3_user_sign():
+    name = request.args['username']
+    password = request.args['password']
+
+    result = v3_sql.user_sign(name, password)
+
+    return json.dumps(result, ensure_ascii=False)
+
