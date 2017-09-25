@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="adb2b422-3cff-4fce-90e9-0296bd56140a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/f0b333fb-47e0-4dcc-b8d9-a106a11deb24.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/f0b333fb-47e0-4dcc-b8d9-a106a11deb24.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/v3/v3_main.py" afterPath="$PROJECT_DIR$/v3/v3_main.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/v3/v3_sql.py" afterPath="$PROJECT_DIR$/v3/v3_sql.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -69,42 +67,42 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="v3_sql.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="v3_sql.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/v3/v3_sql.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="316">
-              <caret line="326" column="25" lean-forward="false" selection-start-line="326" selection-start-column="25" selection-end-line="326" selection-end-column="25" />
+            <state relative-caret-position="435">
+              <caret line="90" column="0" lean-forward="true" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
               <folding>
                 <element signature="e#1509#1850#0" expanded="false" />
-                <element signature="e#2486#2669#0" expanded="false" />
-                <element signature="e#2698#2883#0" expanded="false" />
-                <element signature="e#2927#3399#0" expanded="false" />
-                <element signature="e#3451#4139#0" expanded="false" />
-                <element signature="e#4201#4802#0" expanded="false" />
-                <element signature="e#4833#5102#0" expanded="false" />
-                <element signature="e#5153#5597#0" expanded="false" />
-                <element signature="e#5630#5771#0" expanded="false" />
-                <element signature="e#5802#5830#0" expanded="false" />
-                <element signature="e#5870#6377#0" expanded="false" />
-                <element signature="e#6416#6579#0" expanded="false" />
-                <element signature="e#6623#6795#0" expanded="false" />
-                <element signature="e#6845#7021#0" expanded="false" />
-                <marker date="1506346683000" expanded="true" signature="185:221" ph="select * fro... user" />
-                <marker date="1506346683000" expanded="true" signature="248:301" ph="insert into user... " />
-                <marker date="1506346683000" expanded="true" signature="326:364" ph="insert into article... " />
-                <marker date="1506346683000" expanded="true" signature="387:426" ph="select * fro... article" />
-                <marker date="1506346683000" expanded="true" signature="451:575" ph="insert into comment... " />
-                <marker date="1506346683000" expanded="true" signature="598:668" ph="select * fro... comment" />
-                <marker date="1506346683000" expanded="true" signature="697:785" ph="select * fro... comment" />
-                <marker date="1506346683000" expanded="true" signature="811:849" ph="select * fro... comment" />
-                <marker date="1506346683000" expanded="true" signature="882:941" ph="select * fro... comment" />
-                <marker date="1506346683000" expanded="true" signature="970:1017" ph="select count... comment" />
-                <marker date="1506346683000" expanded="true" signature="1043:1084" ph="select * fro... comment" />
-                <marker date="1506346683000" expanded="true" signature="1111:1146" ph="delete from " />
-                <marker date="1506346683000" expanded="true" signature="1173:1227" ph="insert into love... " />
-                <marker date="1506346683000" expanded="true" signature="1253:1308" ph="delete from " />
-                <marker date="1506346683000" expanded="true" signature="1334:1378" ph="select count... love" />
-                <marker date="1506346683000" expanded="true" signature="1403:1460" ph="select * fro... love" />
+                <element signature="e#2867#3050#0" expanded="false" />
+                <element signature="e#3079#3264#0" expanded="false" />
+                <element signature="e#3308#3780#0" expanded="false" />
+                <element signature="e#3832#4520#0" expanded="false" />
+                <element signature="e#4582#5183#0" expanded="false" />
+                <element signature="e#5214#5483#0" expanded="false" />
+                <element signature="e#5534#5978#0" expanded="false" />
+                <element signature="e#6011#6152#0" expanded="false" />
+                <element signature="e#6183#6211#0" expanded="false" />
+                <element signature="e#6251#6758#0" expanded="false" />
+                <element signature="e#6797#6960#0" expanded="false" />
+                <element signature="e#7004#7176#0" expanded="false" />
+                <element signature="e#7226#7402#0" expanded="false" />
+                <marker date="1506349413000" expanded="true" signature="185:221" ph="select * fro... user" />
+                <marker date="1506349413000" expanded="true" signature="248:301" ph="insert into user... " />
+                <marker date="1506349413000" expanded="true" signature="326:364" ph="insert into article... " />
+                <marker date="1506349413000" expanded="true" signature="387:426" ph="select * fro... article" />
+                <marker date="1506349413000" expanded="true" signature="451:575" ph="insert into comment... " />
+                <marker date="1506349413000" expanded="true" signature="598:668" ph="select * fro... comment" />
+                <marker date="1506349413000" expanded="true" signature="697:785" ph="select * fro... comment" />
+                <marker date="1506349413000" expanded="true" signature="811:849" ph="select * fro... comment" />
+                <marker date="1506349413000" expanded="true" signature="882:941" ph="select * fro... comment" />
+                <marker date="1506349413000" expanded="true" signature="970:1017" ph="select count... comment" />
+                <marker date="1506349413000" expanded="true" signature="1043:1084" ph="select * fro... comment" />
+                <marker date="1506349413000" expanded="true" signature="1111:1146" ph="delete from " />
+                <marker date="1506349413000" expanded="true" signature="1173:1227" ph="insert into love... " />
+                <marker date="1506349413000" expanded="true" signature="1253:1308" ph="delete from " />
+                <marker date="1506349413000" expanded="true" signature="1334:1378" ph="select count... love" />
+                <marker date="1506349413000" expanded="true" signature="1403:1460" ph="select * fro... love" />
               </folding>
             </state>
           </provider>
@@ -120,7 +118,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user" pinned="false" current-in-tab="true">
+      <file leaf-file-name="user" pinned="false" current-in-tab="false">
         <entry file="das://table:/54dc8ed2/f0b333fb-47e0-4dcc-b8d9-a106a11deb24/allapp.user">
           <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
             <state>
@@ -374,8 +372,8 @@
         <option value="$PROJECT_DIR$/v3/v3_user.py" />
         <option value="$PROJECT_DIR$/v3/v3_detail.py" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/f0b333fb-47e0-4dcc-b8d9-a106a11deb24/console.sql" />
-        <option value="$PROJECT_DIR$/v3/v3_sql.py" />
         <option value="$PROJECT_DIR$/v3/v3_main.py" />
+        <option value="$PROJECT_DIR$/v3/v3_sql.py" />
       </list>
     </option>
   </component>
@@ -819,7 +817,14 @@
       <option name="project" value="LOCAL" />
       <updated>1506162238501</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="增加用户登录，注册功能">
+      <created>1506346842287</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1506346842287</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TodoView">
@@ -839,7 +844,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32890856" sideWeight="0.5048465" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32890856" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32892805" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30530974" sideWeight="0.49676898" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30530974" sideWeight="0.49676898" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32890856" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32890856" sideWeight="0.4951535" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23344104" sideWeight="0.4508547" order="2" side_tool="false" content_ui="combo" />
@@ -906,7 +911,8 @@
     <MESSAGE value="修改qdaily获取详情逻辑" />
     <MESSAGE value="修改数据库操作逻辑" />
     <MESSAGE value="添加删除评论功能" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加删除评论功能" />
+    <MESSAGE value="增加用户登录，注册功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加用户登录，注册功能" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1207,35 +1213,35 @@
           <caret line="96" column="0" lean-forward="true" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
           <folding>
             <element signature="e#1509#1850#0" expanded="false" />
-            <element signature="e#2486#2669#0" expanded="false" />
-            <element signature="e#2698#2883#0" expanded="false" />
-            <element signature="e#2927#3399#0" expanded="false" />
-            <element signature="e#3451#4139#0" expanded="false" />
-            <element signature="e#4201#4802#0" expanded="false" />
-            <element signature="e#4833#5102#0" expanded="false" />
-            <element signature="e#5153#5597#0" expanded="false" />
-            <element signature="e#5630#5771#0" expanded="false" />
-            <element signature="e#5802#5830#0" expanded="false" />
-            <element signature="e#5870#6377#0" expanded="false" />
-            <element signature="e#6416#6579#0" expanded="false" />
-            <element signature="e#6623#6795#0" expanded="false" />
-            <element signature="e#6845#7021#0" expanded="false" />
-            <marker date="1506346683000" expanded="true" signature="185:221" ph="select * fro... user" />
-            <marker date="1506346683000" expanded="true" signature="248:301" ph="insert into user... " />
-            <marker date="1506346683000" expanded="true" signature="326:364" ph="insert into article... " />
-            <marker date="1506346683000" expanded="true" signature="387:426" ph="select * fro... article" />
-            <marker date="1506346683000" expanded="true" signature="451:575" ph="insert into comment... " />
-            <marker date="1506346683000" expanded="true" signature="598:668" ph="select * fro... comment" />
-            <marker date="1506346683000" expanded="true" signature="697:785" ph="select * fro... comment" />
-            <marker date="1506346683000" expanded="true" signature="811:849" ph="select * fro... comment" />
-            <marker date="1506346683000" expanded="true" signature="882:941" ph="select * fro... comment" />
-            <marker date="1506346683000" expanded="true" signature="970:1017" ph="select count... comment" />
-            <marker date="1506346683000" expanded="true" signature="1043:1084" ph="select * fro... comment" />
-            <marker date="1506346683000" expanded="true" signature="1111:1146" ph="delete from " />
-            <marker date="1506346683000" expanded="true" signature="1173:1227" ph="insert into love... " />
-            <marker date="1506346683000" expanded="true" signature="1253:1308" ph="delete from " />
-            <marker date="1506346683000" expanded="true" signature="1334:1378" ph="select count... love" />
-            <marker date="1506346683000" expanded="true" signature="1403:1460" ph="select * fro... love" />
+            <element signature="e#2867#3050#0" expanded="false" />
+            <element signature="e#3079#3264#0" expanded="false" />
+            <element signature="e#3308#3780#0" expanded="false" />
+            <element signature="e#3832#4520#0" expanded="false" />
+            <element signature="e#4582#5183#0" expanded="false" />
+            <element signature="e#5214#5483#0" expanded="false" />
+            <element signature="e#5534#5978#0" expanded="false" />
+            <element signature="e#6011#6152#0" expanded="false" />
+            <element signature="e#6183#6211#0" expanded="false" />
+            <element signature="e#6251#6758#0" expanded="false" />
+            <element signature="e#6797#6960#0" expanded="false" />
+            <element signature="e#7004#7176#0" expanded="false" />
+            <element signature="e#7226#7402#0" expanded="false" />
+            <marker date="1506349413000" expanded="true" signature="185:221" ph="select * fro... user" />
+            <marker date="1506349413000" expanded="true" signature="248:301" ph="insert into user... " />
+            <marker date="1506349413000" expanded="true" signature="326:364" ph="insert into article... " />
+            <marker date="1506349413000" expanded="true" signature="387:426" ph="select * fro... article" />
+            <marker date="1506349413000" expanded="true" signature="451:575" ph="insert into comment... " />
+            <marker date="1506349413000" expanded="true" signature="598:668" ph="select * fro... comment" />
+            <marker date="1506349413000" expanded="true" signature="697:785" ph="select * fro... comment" />
+            <marker date="1506349413000" expanded="true" signature="811:849" ph="select * fro... comment" />
+            <marker date="1506349413000" expanded="true" signature="882:941" ph="select * fro... comment" />
+            <marker date="1506349413000" expanded="true" signature="970:1017" ph="select count... comment" />
+            <marker date="1506349413000" expanded="true" signature="1043:1084" ph="select * fro... comment" />
+            <marker date="1506349413000" expanded="true" signature="1111:1146" ph="delete from " />
+            <marker date="1506349413000" expanded="true" signature="1173:1227" ph="insert into love... " />
+            <marker date="1506349413000" expanded="true" signature="1253:1308" ph="delete from " />
+            <marker date="1506349413000" expanded="true" signature="1334:1378" ph="select count... love" />
+            <marker date="1506349413000" expanded="true" signature="1403:1460" ph="select * fro... love" />
           </folding>
         </state>
       </provider>
@@ -1390,45 +1396,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/v3/v3_sql.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="316">
-          <caret line="326" column="25" lean-forward="false" selection-start-line="326" selection-start-column="25" selection-end-line="326" selection-end-column="25" />
-          <folding>
-            <element signature="e#1509#1850#0" expanded="false" />
-            <element signature="e#2486#2669#0" expanded="false" />
-            <element signature="e#2698#2883#0" expanded="false" />
-            <element signature="e#2927#3399#0" expanded="false" />
-            <element signature="e#3451#4139#0" expanded="false" />
-            <element signature="e#4201#4802#0" expanded="false" />
-            <element signature="e#4833#5102#0" expanded="false" />
-            <element signature="e#5153#5597#0" expanded="false" />
-            <element signature="e#5630#5771#0" expanded="false" />
-            <element signature="e#5802#5830#0" expanded="false" />
-            <element signature="e#5870#6377#0" expanded="false" />
-            <element signature="e#6416#6579#0" expanded="false" />
-            <element signature="e#6623#6795#0" expanded="false" />
-            <element signature="e#6845#7021#0" expanded="false" />
-            <marker date="1506346683000" expanded="true" signature="185:221" ph="select * fro... user" />
-            <marker date="1506346683000" expanded="true" signature="248:301" ph="insert into user... " />
-            <marker date="1506346683000" expanded="true" signature="326:364" ph="insert into article... " />
-            <marker date="1506346683000" expanded="true" signature="387:426" ph="select * fro... article" />
-            <marker date="1506346683000" expanded="true" signature="451:575" ph="insert into comment... " />
-            <marker date="1506346683000" expanded="true" signature="598:668" ph="select * fro... comment" />
-            <marker date="1506346683000" expanded="true" signature="697:785" ph="select * fro... comment" />
-            <marker date="1506346683000" expanded="true" signature="811:849" ph="select * fro... comment" />
-            <marker date="1506346683000" expanded="true" signature="882:941" ph="select * fro... comment" />
-            <marker date="1506346683000" expanded="true" signature="970:1017" ph="select count... comment" />
-            <marker date="1506346683000" expanded="true" signature="1043:1084" ph="select * fro... comment" />
-            <marker date="1506346683000" expanded="true" signature="1111:1146" ph="delete from " />
-            <marker date="1506346683000" expanded="true" signature="1173:1227" ph="insert into love... " />
-            <marker date="1506346683000" expanded="true" signature="1253:1308" ph="delete from " />
-            <marker date="1506346683000" expanded="true" signature="1334:1378" ph="select count... love" />
-            <marker date="1506346683000" expanded="true" signature="1403:1460" ph="select * fro... love" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/f0b333fb-47e0-4dcc-b8d9-a106a11deb24/console.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -1461,6 +1428,45 @@
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/v3/v3_sql.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="90" column="0" lean-forward="true" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
+          <folding>
+            <element signature="e#1509#1850#0" expanded="false" />
+            <element signature="e#2867#3050#0" expanded="false" />
+            <element signature="e#3079#3264#0" expanded="false" />
+            <element signature="e#3308#3780#0" expanded="false" />
+            <element signature="e#3832#4520#0" expanded="false" />
+            <element signature="e#4582#5183#0" expanded="false" />
+            <element signature="e#5214#5483#0" expanded="false" />
+            <element signature="e#5534#5978#0" expanded="false" />
+            <element signature="e#6011#6152#0" expanded="false" />
+            <element signature="e#6183#6211#0" expanded="false" />
+            <element signature="e#6251#6758#0" expanded="false" />
+            <element signature="e#6797#6960#0" expanded="false" />
+            <element signature="e#7004#7176#0" expanded="false" />
+            <element signature="e#7226#7402#0" expanded="false" />
+            <marker date="1506349413000" expanded="true" signature="185:221" ph="select * fro... user" />
+            <marker date="1506349413000" expanded="true" signature="248:301" ph="insert into user... " />
+            <marker date="1506349413000" expanded="true" signature="326:364" ph="insert into article... " />
+            <marker date="1506349413000" expanded="true" signature="387:426" ph="select * fro... article" />
+            <marker date="1506349413000" expanded="true" signature="451:575" ph="insert into comment... " />
+            <marker date="1506349413000" expanded="true" signature="598:668" ph="select * fro... comment" />
+            <marker date="1506349413000" expanded="true" signature="697:785" ph="select * fro... comment" />
+            <marker date="1506349413000" expanded="true" signature="811:849" ph="select * fro... comment" />
+            <marker date="1506349413000" expanded="true" signature="882:941" ph="select * fro... comment" />
+            <marker date="1506349413000" expanded="true" signature="970:1017" ph="select count... comment" />
+            <marker date="1506349413000" expanded="true" signature="1043:1084" ph="select * fro... comment" />
+            <marker date="1506349413000" expanded="true" signature="1111:1146" ph="delete from " />
+            <marker date="1506349413000" expanded="true" signature="1173:1227" ph="insert into love... " />
+            <marker date="1506349413000" expanded="true" signature="1253:1308" ph="delete from " />
+            <marker date="1506349413000" expanded="true" signature="1334:1378" ph="select count... love" />
+            <marker date="1506349413000" expanded="true" signature="1403:1460" ph="select * fro... love" />
+          </folding>
         </state>
       </provider>
     </entry>

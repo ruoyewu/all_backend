@@ -57,25 +57,37 @@ def user_login(name, password):
 
 def user_sign(name, password):
     conn, cur = openDB()
-
-    data = get_user_name(name, cur)
-    if data == 'no':
-        try:
-            cur.execute(insert_user_name_pass % (name, password))
-            conn.commit()
-        except:
-            pass
-
+    if len(name) < 2:
+        result = False
+        info = "用户名长度应大于1"
+    elif len(name) > 10:
+        result = False
+        info = "用户名长度应小于10"
+    elif len(password) < 6:
+        result = False
+        info = "密码长度应大于5"
+    elif len(password) > 30:
+        result = False
+        info = "密码长度应小于30"
+    else:
         data = get_user_name(name, cur)
         if data == 'no':
-            result = False
-            info = "注册失败"
+            try:
+                cur.execute(insert_user_name_pass % (name, password))
+                conn.commit()
+            except:
+                pass
+
+            data = get_user_name(name, cur)
+            if data == 'no':
+                result = False
+                info = "注册失败"
+            else:
+                result = True
+                info = "注册成功"
         else:
-            result = True
-            info = "注册成功"
-    else:
-        result = False
-        info = "用户名已存在"
+            result = False
+            info = "用户名已存在"
 
     closeDB(conn, cur)
     return {
