@@ -1,6 +1,8 @@
 import json
+from werkzeug import security
 
 from flask import Blueprint, request
+from werkzeug.utils import secure_filename
 
 from v3 import v3_list, v3_detail, v3_sql
 
@@ -98,3 +100,10 @@ def v3_user_sign():
 
     return json.dumps(result, ensure_ascii=False)
 
+
+@v3_app.route('/user/avatar', methods=['POST'])
+def v3_user_avatar():
+    file = request.files['image']
+    filename = secure_filename(file.filename)
+    print(filename)
+    return ''
