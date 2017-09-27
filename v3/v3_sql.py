@@ -42,7 +42,7 @@ def user_login(name, password):
         info = "没有此用户"
     elif data == password:
         result = True
-        info = "登录成功"
+        info = name
     else:
         result = False
         info = "密码错误"
@@ -84,7 +84,7 @@ def user_sign(name, password):
                 info = "注册失败"
             else:
                 result = True
-                info = "注册成功"
+                info = name
         else:
             result = False
             info = "用户名已存在"

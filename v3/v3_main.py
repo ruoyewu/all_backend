@@ -1,13 +1,14 @@
 import json
-from werkzeug import security
+import os
 
-from flask import Blueprint, request
+from flask import Blueprint, request, send_from_directory
 from werkzeug.utils import secure_filename
 
 from v3 import v3_list, v3_detail, v3_sql
 
-v3_app = Blueprint('v3', __name__, url_prefix='/v3')
+file_dir = 'C:\\Users\\Administrator\\Desktop\\allapp\\files\\avatar'
 
+v3_app = Blueprint('v3', __name__, url_prefix='/v3')
 
 @v3_app.route('/')
 def v3_index():
@@ -104,6 +105,12 @@ def v3_user_sign():
 @v3_app.route('/user/avatar', methods=['POST'])
 def v3_user_avatar():
     file = request.files['image']
+    username = request.form['username']
     filename = secure_filename(file.filename)
-    print(filename)
-    return ''
+    file.save(os.path.join(file_dir, username + ".avatar"))
+    return filename
+
+
+@v3_app.route('/user/avatar/<username>')
+def v3_user_avatar_get(username):
+    return send_from_directory(file_dir, username + ".avatar")
