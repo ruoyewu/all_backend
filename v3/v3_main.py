@@ -10,6 +10,7 @@ file_dir = 'C:\\Users\\Administrator\\Desktop\\allapp\\files\\avatar'
 
 v3_app = Blueprint('v3', __name__, url_prefix='/v3')
 
+
 @v3_app.route('/')
 def v3_index():
     return 'this is v3 page'
@@ -114,3 +115,24 @@ def v3_user_avatar():
 @v3_app.route('/user/avatar/<username>')
 def v3_user_avatar_get(username):
     return send_from_directory(file_dir, username + ".avatar")
+
+
+@v3_app.route('/favorite/put', methods=['POST'])
+def v3_favorite_put():
+    username = request.form['username']
+    info = request.form['info']
+    time = int(request.form['time'])
+    key = request.form['key']
+    favorite = request.form['favorite']
+
+    result = v3_sql.put_favorite(username, time, info, key, favorite)
+    return json.dumps(result, ensure_ascii=False)
+
+
+@v3_app.route('/favorite/get')
+def v3_favorite_get():
+    username = request.args['username']
+    time = int(request.args['time'])
+
+    result = v3_sql.get_favorite_time(username, time)
+    return json.dumps(result, ensure_ascii=False)

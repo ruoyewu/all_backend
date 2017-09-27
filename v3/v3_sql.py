@@ -29,6 +29,12 @@ delete_love_key_user = "delete from love where `key` = '%s' and username = '%s'"
 query_love_key_count = "select count(*) from love WHERE `key` = '%s'"
 query_love_key_user = "select * from love WHERE `key` = '%s' and username = '%s'"
 
+insert_favorite_sql = "insert into favorite (username, info, `time`, `key`) values ('%s', '%s', '%d', '%s')"
+query_favorite_sql = "select * from favorite where username = '%s' order by `time` desc limit 10"
+query_favorite_time_sql = "select * from favorite where username = '%s' and `time` < '%d' order by `time` desc limit 10"
+query_favorite_user_key_sql = "select * from favorite where username = '%s' and `key` = '%s'"
+delete_favorite_user_key = "delete from favorite where username = '%s' and `key` = '%s'"
+
 
 # user
 
@@ -139,12 +145,71 @@ def get_article_info(key, username):
     cur.execute(query_comment_key_count % key)
     comment_num = cur.fetchone()[0]
 
+    favorite = get_favorite_key_user(key, username, cur)
+
     closeDB(conn, cur)
 
     return {
         'result': result,
         'love': love_num,
-        'comment': comment_num
+        'comment': comment_num,
+        'favorite': favorite
+    }
+
+
+# favorite
+
+
+def put_favorite(username, time, info, key, favorite):
+    conn, cur = openDB()
+
+    if favorite == '0':
+        cur.execute(delete_favorite_user_key % (username, key))
+    else:
+        if get_favorite_key_user(key, username, cur):
+            pass
+        else:
+            cur.execute(insert_favorite_sql % (username, info, time, key))
+    conn.commit()
+
+    result = get_favorite_key_user(key, username, cur)
+
+    closeDB(conn, cur)
+
+    return {
+        'result': result
+    }
+
+
+def get_favorite_time(username, time):
+    conn, cur = openDB()
+
+    if time == 0:
+        cur.execute(query_favorite_sql % username)
+    else:
+        cur.execute(query_favorite_time_sql % (username, time))
+
+    favorite_list = []
+    list = cur.fetchall()
+    if len(list) == 0:
+        result = True
+    else:
+        result = True
+        for i in range(len(list)):
+            item = list[i]
+            favorite_list.append(parseFavoriteData(item))
+
+    closeDB(conn, cur)
+
+    if len(favorite_list) >= 10:
+        next = favorite_list[9]['time']
+    else:
+        next = -1
+
+    return {
+        'result': result,
+        'info': favorite_list,
+        'next': next
     }
 
 
@@ -340,7 +405,30 @@ def get_user_name(name, cur):
     return result
 
 
+def parseFavoriteData(data):
+    username = data[0]
+    info = data[1]
+    time = data[2]
+    key = data[3]
+
+    return {
+        'username': username,
+        'info': info,
+        'time': time,
+        'key': key
+    }
+
+
+def get_favorite_key_user(key, username, cur):
+    cur.execute(query_favorite_user_key_sql % (username, key))
+    data = cur.fetchone()
+    if data is None:
+        return False
+    else:
+        return True
+
+
 if __name__ == '__main__':
     print(
-        user_sign('test1', 'test1')
+        get_favorite_time('ruoye', 12345657)
     )
