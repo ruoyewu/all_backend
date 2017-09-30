@@ -16,6 +16,8 @@ def v3_get_list(name, category, page):
         return _v3_get_sspai_list(category, page)
     elif name == 'qdaily':
         return _v3_get_qdaily_list(category, page)
+    elif name == '36kr':
+        return _v3_get_36kr_list(category, page)
 
 
 def _v3_get_one_list(category, page):
@@ -205,6 +207,42 @@ def _v3_get_qdaily_list(category, page):
         'category': category,
         'next': next,
         'list': list
+    }
+    return json.dumps(result, ensure_ascii=False)
+
+
+def _v3_get_36kr_list(category, page):
+    url = v3_const.v3_categories['36kr'][category] + page
+    content_list = requests.get(url).json()['data']['items']
+    next = str(int(page) + 1)
+
+    list = []
+    for i in range(len(content_list)):
+        item = content_list[i]
+        id = str(item['id'])
+        title = item['title']
+        forward = item['summary']
+        image = item['cover']
+        date = item['published_at']
+        type = item['column']['name']
+        author = item['user']['name']
+        url = 'http://36kr.com/p/' + id + '.html'
+        info = v3_const.v3_get_default_list_item()
+        info['id'] = id
+        info['title'] = title
+        info['forward'] = forward
+        info['image'] = image
+        info['date'] = date
+        info['type'] = type
+        info['author'] = author
+        info['original_url'] = url
+        list.append(info)
+
+    result = {
+        'name': '36kr',
+        'category': category,
+        'list': list,
+        'next': next
     }
     return json.dumps(result, ensure_ascii=False)
 

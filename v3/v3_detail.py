@@ -17,6 +17,8 @@ def v3_detail(name, category, id):
             result = _v3_sspai_detail(category, id)
         elif name == 'qdaily':
             result = _v3_qdaily_detail(category, id)
+        elif name == '36kr':
+            result = _v3_36kr_detail(category, id)
         v3_sql.put_article(key, result)
     return result
 
@@ -206,3 +208,45 @@ def _v3_qdaily_detail(category, id):
     result['content'] = content_list
     return json.dumps(result, ensure_ascii=False)
     pass
+
+
+def _v3_36kr_detail(category, id):
+    url = v3_const.v3_categories['36kr']['detail'] + id
+    response = requests.get(url).json()['data']
+    title = response['catch_title']
+    content = response['content']
+
+    content_list = []
+    content_soup = BeautifulSoup(str(content), 'html.parser')
+    items = content_soup.find_all(name=['p', 'img', 'h3', 'strong'])
+
+    for i in range(len(items)):
+        item = items[i]
+        type = v3_const.v3_item_type['text']
+        info = ''
+        if item.name == 'p':
+            info = item.text
+        elif item.name == 'img':
+            type = v3_const.v3_item_type['image']
+            info = item['src']
+        elif item.name == 'h3':
+            type = v3_const.v3_item_type['h1']
+            info = item.text
+        elif item.name == 'strong':
+            size = len(content_list)
+            if size > 0 and content_list[size - 1]['info'] == item.text:
+                if content_list[size - 1]['type'] == v3_const.v3_item_type['h1']:
+                    info = ''
+                elif content_list[size - 1]['type'] == v3_const.v3_item_type['text']:
+                    content_list[size - 1]['type'] = v3_const.v3_item_type['h2']
+                    info = ''
+            else:
+                type = v3_const.v3_item_type['h2']
+                info = item.text
+        if info != '':
+            content_list.append({'type': type, 'info': info})
+
+    result = v3_const.v3_get_default_detail_item()
+    result['title'] = title
+    result['content'] = content_list
+    return json.dumps(result, ensure_ascii=False)
