@@ -406,9 +406,17 @@ def get_user_name(name, cur):
 
 
 def parseFavoriteData(data):
+    username = data[0]
     info = data[1]
+    time = data[2]
+    key = data[3]
 
-    return info
+    return {
+        'username': username,
+        'info': info,
+        'time': time,
+        'key': key
+    }
 
 
 def get_favorite_key_user(key, username, cur):
