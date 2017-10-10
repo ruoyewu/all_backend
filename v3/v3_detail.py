@@ -244,6 +244,8 @@ def _v3_36kr_detail(category, id):
                 type = v3_const.v3_item_type['h2']
                 info = item.text
         if info != '':
+            if '"' in info:
+                info = info.replace('"', '\'')
             content_list.append({'type': type, 'info': info})
 
     result = v3_const.v3_get_default_detail_item()

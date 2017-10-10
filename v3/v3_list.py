@@ -214,7 +214,6 @@ def _v3_get_qdaily_list(category, page):
 def _v3_get_36kr_list(category, page):
     url = v3_const.v3_categories['36kr'][category] + page
     content_list = requests.get(url).json()['data']['items']
-    next = str(int(page) + 1)
 
     list = []
     for i in range(len(content_list)):
@@ -238,6 +237,7 @@ def _v3_get_36kr_list(category, page):
         info['original_url'] = url
         list.append(info)
 
+    next = list[len(list) - 1]['id']
     result = {
         'name': '36kr',
         'category': category,
