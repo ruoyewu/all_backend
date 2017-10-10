@@ -253,7 +253,7 @@ def _v3_get_juzi_list(category, page):
     if page == '0':
         page = '1'
     url = v3_const.v3_categories['juzi'][category] + page
-    content_list = requests.get(url).json()['list']
+    content_list = requests.get(url).json()['data']['list']
 
     list = []
     for i in range(len(content_list)):

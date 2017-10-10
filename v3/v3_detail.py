@@ -53,7 +53,7 @@ def _v3_one_detail(category, id):
     content_list = []
     try:
         i = soup.find('div', attrs={'class': 'text-music-info'})
-        info = {"type": v3_const.v3_item_type['text_cen'], 'info': i.text.strip()}
+        info = {"type": v3_const.v3_item_type['text_cen'], 'info': i.text.strip().replace('"', '\'')}
         content_list.append(info)
     except:
         pass
@@ -61,13 +61,13 @@ def _v3_one_detail(category, id):
     if len(contents) > 1:
         content = contents[1]
         asker = soup.find('div', attrs={'class': 'text-askers'}).text.strip()
-        info = {'type': v3_const.v3_item_type['text_cen'], 'info': asker}
+        info = {'type': v3_const.v3_item_type['text_cen'], 'info': asker.replace('"', '\'')}
         content_list.append(info)
         question = contents[0].text
-        info = {'type': v3_const.v3_item_type['text'], 'info': question}
+        info = {'type': v3_const.v3_item_type['text'], 'info': question.replace('"', '\'')}
         content_list.append(info)
         answer = soup.find('div', attrs={'class': 'text-answers'}).text.strip()
-        info = {'type': v3_const.v3_item_type['text_cen'], 'info': answer}
+        info = {'type': v3_const.v3_item_type['text_cen'], 'info': answer.replace('"', '\'')}
         content_list.append(info)
     else:
         content = contents[0]
@@ -91,10 +91,11 @@ def _v3_one_detail(category, id):
         if info == 'http://image.wufazhuce.com/music_copyright_2_2.png' or info == 'http://image.wufazhuce.com/music_copyright_1.png':
             info = ''
         if info != '':
+            info = info.replace('"', '\'')
             content_list.append({'type': type, 'info': info})
     for i in range(len(editors)):
         editor = editors[i].text
-        info = {'type': v3_const.v3_item_type['text_cen'], 'info': editor}
+        info = {'type': v3_const.v3_item_type['text_cen'], 'info': editor.replace('"', '\'')}
         content_list.append(info)
     result = v3_const.v3_get_default_detail_item()
     result['title'] = title
@@ -141,6 +142,7 @@ def _v3_sspai_detail(category, id):
             type = v3_const.v3_item_type['h3']
             info = item.text
         if info != '':
+            info = info.replace('"', '\'')
             content_list.append({'type': type, 'info': info})
 
     result = v3_const.v3_get_default_detail_item()
@@ -199,6 +201,7 @@ def _v3_qdaily_detail(category, id):
             info = item.text
 
         if info != '':
+            info = info.replace('"', '\'')
             content_list.append({'type': type, 'info': info})
 
     result = v3_const.v3_get_default_detail_item()
@@ -252,3 +255,36 @@ def _v3_36kr_detail(category, id):
     result['title'] = title
     result['content'] = content_list
     return json.dumps(result, ensure_ascii=False)
+
+
+def _v3_juzi_detail(category, id):
+    url = v3_const.v3_categories['juzi']['detail'] + id + '.html'
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, 'html.parser')
+
+    content_list = []
+    content = soup.find('article', attrs={'id': 'juzi_info'})
+    content_soup = BeautifulSoup(str(content), 'html.parser')
+    items = content_soup.find_all(name=['p', 'img', 'h1'])
+
+    for i in range(len(items)):
+        item = items[i]
+        type = v3_const.v3_item_type['text']
+        info = ''
+        if item.name == 'p':
+            info = item.text
+        elif item.name == 'img':
+            type = v3_const.v3_item_type['image']
+            info = item['data-original']
+        elif item.name == 'h1':
+            type = v3_const.v3_item_type['h1']
+            info = item.text
+
+        if info != '':
+            info = info.replace('"', '\'')
+            content_list.append({'type': type, 'info': info})
+
+    result = v3_const.v3_get_default_detail_item()
+    result['content'] = content_list
+    return json.dumps(result, ensure_ascii=False)
+
