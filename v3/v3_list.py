@@ -18,6 +18,8 @@ def v3_get_list(name, category, page):
         return _v3_get_qdaily_list(category, page)
     elif name == '36kr':
         return _v3_get_36kr_list(category, page)
+    elif name == 'juzi':
+        return _v3_get_juzi_list(category, page)
 
 
 def _v3_get_one_list(category, page):
@@ -240,6 +242,42 @@ def _v3_get_36kr_list(category, page):
     next = list[len(list) - 1]['id']
     result = {
         'name': '36kr',
+        'category': category,
+        'list': list,
+        'next': next
+    }
+    return json.dumps(result, ensure_ascii=False)
+
+
+def _v3_get_juzi_list(category, page):
+    if page == '0':
+        page = '1'
+    url = v3_const.v3_categories['juzi'][category] + page
+    content_list = requests.get(url).json()['list']
+
+    list = []
+    for i in range(len(content_list)):
+        item = content_list[i]
+        id = str(item['id'])
+        title = item['title']
+        image = item['pic']
+        age = item['publish_time']
+        author = item['author']['name']
+        type = item['cat']['name']
+        url = 'http://m.happyjuzi.com/article/' + id + '.html'
+        info = v3_const.v3_get_default_list_item()
+        info['id'] = id
+        info['title'] = title
+        info['image'] = image
+        info['age'] = age
+        info['author'] = author
+        info['type'] = type
+        info['original_url'] = url
+        list.append(info)
+
+    next = str(int(page) + 1)
+    result = {
+        'name': 'juzi',
         'category': category,
         'list': list,
         'next': next
