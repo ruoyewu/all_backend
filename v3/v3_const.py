@@ -1,7 +1,7 @@
 def v3_get_default_list_item():
     return { 'id': '', 'title': '', 'forward': '', 'author': '', 'image': '', 'video': '',
              'date': '', 'time_millis': '', 'age': '', 'original_url': '', 'content': [],
-             'type': '', 'category_id': '', 'open_type': '1', 'other_info': ''}
+             'type': '', 'category_id': '', 'open_type': '1', 'other_info': '', 'img_list': []}
 
 
 def v3_get_default_detail_item():

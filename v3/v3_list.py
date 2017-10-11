@@ -20,6 +20,8 @@ def v3_get_list(name, category, page):
         return _v3_get_36kr_list(category, page)
     elif name == 'juzi':
         return _v3_get_juzi_list(category, page)
+    elif name == 'geography':
+        return _v3_get_geography_list(category, page)
 
 
 def _v3_get_one_list(category, page):
@@ -287,6 +289,41 @@ def _v3_get_juzi_list(category, page):
     next = str(int(page) + 1)
     result = {
         'name': 'juzi',
+        'category': category,
+        'list': list,
+        'next': next
+    }
+    return json.dumps(result, ensure_ascii=False)
+
+
+def _v3_get_geography_list(category, page):
+    url = v3_const.v3_categories['geography']['home'] + page
+    data = requests.get(url).json()
+    next_url = data['nextUrl']
+    nexts = next_url.split('&')
+    next = nexts[len(nexts) - 1][12:]
+    content_list = data['articles']
+
+    list = []
+    for i in range(len(content_list)):
+        item = content_list[i]
+        id = str(item['articleId'])
+        title = item['title']
+        forward = item['snippet']
+        image = item['images'][0]['url']
+        url = item['webUrl']
+        info = v3_const.v3_get_default_list_item()
+        info['id'] = id
+        info['title'] = title
+        info['forward'] = forward
+        info['image'] = image
+        info['original_url'] = url
+        info['open_type'] = v3_const.v3_open_type['image']
+        info['img_list'] = [image]
+        list.append(info)
+
+    result = {
+        'name': 'geography',
         'category': category,
         'list': list,
         'next': next
