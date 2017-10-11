@@ -258,12 +258,21 @@ def _v3_get_juzi_list(category, page):
     list = []
     for i in range(len(content_list)):
         item = content_list[i]
-        id = str(item['id'])
+        try:
+            id = str(item['id'])
+        except:
+            continue
         title = item['title']
-        image = item['pic']
+        try:
+            image = item['pic']
+        except:
+            image = item['gif'][0]['thumb']
         age = item['publish_time']
         author = item['author']['name']
-        type = item['cat']['name']
+        try:
+            type = item['cat']['name']
+        except:
+            type = 'gif'
         url = 'http://m.happyjuzi.com/article/' + id + '.html'
         info = v3_const.v3_get_default_list_item()
         info['id'] = id

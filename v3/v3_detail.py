@@ -259,6 +259,7 @@ def _v3_36kr_detail(category, id):
 
 def _v3_juzi_detail(category, id):
     url = v3_const.v3_categories['juzi']['detail'] + id + '.html'
+    print(url)
     response = requests.get(url)
     soup = BeautifulSoup(response.text, 'html.parser')
 
