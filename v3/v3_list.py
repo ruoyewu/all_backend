@@ -26,6 +26,8 @@ def v3_get_list(name, category, page):
         return _v3_get_500px_list(category, page)
     elif name == 'guokr':
         return _v3_get_guokr_list(category, page)
+    elif name == 'kaiyan':
+        return _v3_get_kaiyan_list(category, page)
 
 
 def _v3_get_one_list(category, page):
@@ -337,6 +339,57 @@ def _v3_get_guokr_list(category, page):
     next = str(int(page) + 1)
     result = {
         'name': 'guokr',
+        'category': category,
+        'list': list,
+        'next': next
+    }
+    return json.dumps(result, ensure_ascii=False)
+
+
+def _v3_get_kaiyan_list(category, page):
+    if category == 'home' or category == 'weekly':
+        url = v3_const.v3_categories['kaiyan'][category]
+    else:
+        offset = str(int(page) * 10)
+        url = v3_const.v3_categories['kaiyan'][category] + offset
+    content_list = requests.get(url).json()['itemList']
+
+    list = []
+    for i in range(len(content_list)):
+        item = content_list[i]
+        if item['type'] == 'video':
+            data = item['data']
+        elif item['type'] == 'followCard':
+            data = item['data']['content']['data']
+        else:
+            continue
+
+        id = str(data['id'])
+        title = data['title']
+        forward = data['description']
+        image = data['cover']['detail']
+        type = data['category']
+        video = data['playUrl']
+        url = data['webUrl']['raw']
+        try:
+            author = data['author']['name']
+        except:
+            author = ''
+        info = v3_const.v3_get_default_list_item()
+        info['id'] = id
+        info['title'] = title
+        info['forward'] = forward
+        info['image'] = image
+        info['type'] = type
+        info['video'] = video
+        info['original_url'] = url
+        info['author'] = author
+        info['open_type'] = v3_const.v3_open_type['video']
+        list.append(info)
+
+    next = str(int(page) + 1)
+    result = {
+        'name': 'kaiyan',
         'category': category,
         'list': list,
         'next': next

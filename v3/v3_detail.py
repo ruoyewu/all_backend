@@ -19,6 +19,8 @@ def v3_detail(name, category, id):
             result = _v3_qdaily_detail(category, id)
         elif name == '36kr':
             result = _v3_36kr_detail(category, id)
+        elif name == 'juzi':
+            result = _v3_juzi_detail(category, id)
         elif name == 'guokr':
             result = _v3_guokr_detail(category, id)
         v3_sql.put_article(key, result)
