@@ -24,6 +24,8 @@ def v3_get_list(name, category, page):
         return _v3_get_geography_list(category, page)
     elif name == '500px':
         return _v3_get_500px_list(category, page)
+    elif name == 'guokr':
+        return _v3_get_guokr_list(category, page)
 
 
 def _v3_get_one_list(category, page):
@@ -298,6 +300,49 @@ def _v3_get_juzi_list(category, page):
     return json.dumps(result, ensure_ascii=False)
 
 
+def _v3_get_guokr_list(category, page):
+    if category == 'home':
+        if page == '0':
+            url = v3_const.v3_categories['guokr']['home_index']
+        else:
+            url = v3_const.v3_categories['guokr']['home'] + page
+    else:
+        offset = str(int(page) * 10)
+        url = v3_const.v3_categories['guokr'][category] + offset
+    content_list = requests.get(url).json()['result']
+
+    list = []
+    for i in range(len(content_list)):
+        item = content_list[i]
+        id = str(item['id'])
+        type = item['source_name']
+        title = item['title']
+        image = item['headline_img']
+        author = item['author']
+        forward = item['summary']
+        url = item['link_v2']
+        time_millis = str(item['date_picked'])
+        info = v3_const.v3_get_default_list_item()
+        info['id'] = id
+        info['type'] = type
+        info['title'] = title
+        info['image'] = image
+        info['author'] = author
+        info['forward'] = forward
+        info['original_url'] = url
+        info['time_millis'] = time_millis
+        list.append(info)
+
+    next = str(int(page) + 1)
+    result = {
+        'name': 'guokr',
+        'category': category,
+        'list': list,
+        'next': next
+    }
+    return json.dumps(result, ensure_ascii=False)
+
+
 def _v3_get_geography_list(category, page):
     url = v3_const.v3_categories['geography']['home'] + page
     data = requests.get(url).json()
@@ -356,7 +401,7 @@ def _v3_get_500px_list(category, page):
         list.append(info)
 
     result = {
-        'nmae': '500px',
+        'name': '500px',
         'category': category,
         'list': list,
         'next': next

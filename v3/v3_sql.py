@@ -108,7 +108,7 @@ def user_sign(name, password):
 def put_article(key, content):
     conn, cur = openDB()
     try:
-        cur.execute(insert_article_sql % (key, content))
+        cur.execute(insert_article_sql % (key, pymysql.escape_string(content)))
         conn.commit()
     except:
         print('error')

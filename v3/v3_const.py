@@ -335,7 +335,8 @@ v3_categories = {
         'learning': 'http://apis.guokr.com/handpick/v2/article.json?retrieve_type=by_offset&limit=10&category=learning&offset=',
         'humanities': 'http://apis.guokr.com/handpick/v2/article.json?retrieve_type=by_offset&limit=10&category=humanities&offset=',
         'nature': 'http://apis.guokr.com/handpick/v2/article.json?retrieve_type=by_offset&limit=10&category=nature&offset=',
-        'entertainment': 'http://apis.guokr.com/handpick/v2/article.json?retrieve_type=by_offset&limit=10&category=entertainment&offset='
+        'entertainment': 'http://apis.guokr.com/handpick/v2/article.json?retrieve_type=by_offset&limit=10&category=entertainment&offset=',
+        'detail': 'http://jingxuan.guokr.com/pick/v2/'
     }
 }
 
