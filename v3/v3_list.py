@@ -321,7 +321,8 @@ def _v3_get_guokr_list(category, page):
         author = item['author']
         forward = item['summary']
         url = item['link_v2']
-        time_millis = str(item['date_picked'])
+        time_millis = str(item['date_picked']).split('.')[0] + '000'
+        print(time_millis)
         info = v3_const.v3_get_default_list_item()
         info['id'] = id
         info['type'] = type

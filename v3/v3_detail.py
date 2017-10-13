@@ -292,7 +292,7 @@ def _v3_juzi_detail(category, id):
 
 
 def _v3_guokr_detail(category, id):
-    url = v3_const.v3_categories['guokr']['detail'] + id
+    url = v3_const.v3_categories['guokr']['detail'] + id + '/'
     response = requests.get(url)
     soup = BeautifulSoup(response.text, 'html.parser')
 
@@ -310,10 +310,13 @@ def _v3_guokr_detail(category, id):
         elif item.name == 'strong':
             last = len(content_list) - 1
             if item.text == content_list[last]['info']:
-                type = v3_const.v3_item_type['h1']
+                content_list[last]['type'] = v3_const.v3_item_type['h1']
         elif item.name == 'img':
             type = v3_const.v3_item_type['image']
-            info = item['data-src']
+            try:
+                info = item['data-src']
+            except:
+                info = item['src']
         elif item.name == 'blockquote':
             type = v3_const.v3_item_type['quote']
             info = item.text
