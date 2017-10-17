@@ -28,6 +28,8 @@ def v3_get_list(name, category, page):
         return _v3_get_guokr_list(category, page)
     elif name == 'kaiyan':
         return _v3_get_kaiyan_list(category, page)
+    elif name == 'vmovie':
+        return _v3_get_vmovie_list(category, page)
 
 
 def _v3_get_one_list(category, page):
