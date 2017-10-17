@@ -463,6 +463,56 @@ def _v3_get_500px_list(category, page):
     return json.dumps(result, ensure_ascii=False)
 
 
+def _v3_get_vmovie_list(category, page):
+    if category == 'home':
+        if page == '0':
+            url = v3_const.v3_categories['vmovie']['home']
+            data = requests.get(url).json()['data']['today']
+            next = data['lastid']
+            content_list = data['list']
+        else:
+            url = v3_const.v3_categories['vmovie']['home_last'] + page
+            data = requests.get(url).json()['data']
+            next = data['lastid']
+            content_list = data['list']
+    else:
+        page = str(int(page) + 1)
+        url = v3_const.v3_categories['vmovie'][category] + page
+        next = str(int(page) + 1)
+        content_list = requests.get(url).json()['data']
+
+    list = []
+    for i in range(len(content_list)):
+        item = content_list[i]
+        id = str(item['postid'])
+        title = item['title']
+        image = item['image']
+        type = item['cates'][0]['catename']
+        content = requests.get(v3_const.v3_categories['vmovie']['detail'] + id).json()['data']
+        forward = content['intro']
+        video = content['content']['video'][0]['source_link']
+        url = 'http://www.vmovier.com/' + id
+        time_millis = content['publish_time'] + '000'
+        info = v3_const.v3_get_default_list_item()
+        info['id'] = id
+        info['title'] = title
+        info['image'] = image
+        info['forward'] = forward
+        info['type'] = type
+        info['video'] = video
+        info['original_url'] = url
+        info['time_millis'] = time_millis
+        list.append(info)
+
+    result = {
+        'name': 'vmovie',
+        'category': category,
+        'list': list,
+        'next': next
+    }
+    return json.dumps(result, ensure_ascii=False)
+
+
 def __v3_get_ifanr_detail(content):
     list = []
     soup = BeautifulSoup(str(content), 'html.parser')
