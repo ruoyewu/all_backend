@@ -504,6 +504,7 @@ def _v3_get_vmovie_list(category, page):
         info['video'] = video
         info['original_url'] = url
         info['time_millis'] = time_millis
+        info['open_type'] = v3_const.v3_open_type['video']
         list.append(info)
 
     result = {
