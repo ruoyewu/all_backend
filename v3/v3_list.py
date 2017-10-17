@@ -338,7 +338,10 @@ def _v3_get_guokr_list(category, page):
         info['time_millis'] = time_millis
         list.append(info)
 
-    next = str(int(page) + 1)
+    if category != 'home':
+        next = str(int(page) + 1)
+    else:
+        next = list[-1]['id']
     result = {
         'name': 'guokr',
         'category': category,

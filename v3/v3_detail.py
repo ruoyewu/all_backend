@@ -241,11 +241,11 @@ def _v3_36kr_detail(category, id):
             info = item.text
         elif item.name == 'strong':
             size = len(content_list)
-            if size > 0 and content_list[size - 1]['info'] == item.text:
-                if content_list[size - 1]['type'] == v3_const.v3_item_type['h1']:
+            if len(content_list) > 0 and content_list[-1]['info'] == item.text:
+                if content_list[-1]['type'] == v3_const.v3_item_type['h1']:
                     info = ''
-                elif content_list[size - 1]['type'] == v3_const.v3_item_type['text']:
-                    content_list[size - 1]['type'] = v3_const.v3_item_type['h2']
+                elif content_list[-1]['type'] == v3_const.v3_item_type['text']:
+                    content_list[-1]['type'] = v3_const.v3_item_type['h2']
                     info = ''
             else:
                 type = v3_const.v3_item_type['h2']
@@ -310,9 +310,8 @@ def _v3_guokr_detail(category, id):
         if item.name == 'p':
             info = item.text
         elif item.name == 'strong':
-            last = len(content_list) - 1
-            if item.text == content_list[last]['info']:
-                content_list[last]['type'] = v3_const.v3_item_type['h1']
+            if len(content_list) > 0 and item.text == content_list[-1]['info']:
+                content_list[-1]['type'] = v3_const.v3_item_type['h1']
         elif item.name == 'img':
             type = v3_const.v3_item_type['image']
             try:
@@ -322,9 +321,8 @@ def _v3_guokr_detail(category, id):
         elif item.name == 'blockquote':
             type = v3_const.v3_item_type['quote']
             info = item.text
-            last = len(content_list) - 1
-            if info in content_list[last]['info']:
-                content_list[last]['type'] = v3_const.v3_item_type['quote']
+            if len(content_list) > 0 and info in content_list[-1]['info']:
+                content_list[-1]['type'] = v3_const.v3_item_type['quote']
                 info = ''
         if info != '':
             info = info.replace('"', '\'')
