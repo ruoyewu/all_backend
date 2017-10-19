@@ -31,7 +31,7 @@ def v3_get_api():
 def v3_get_list():
     name = request.args['name']
     category = str(request.args['category'])
-    page = str(request.args['page'])
+    page = request.args['page']
 
     return v3_list.v3_get_list(name, category, page)
 
@@ -43,7 +43,7 @@ def v3_get_list2():
     page = request.form['page']
     content = request.form['content']
 
-    return v3_list.v3_get_list2(name, category, page, content)
+    return v3_list.v3_get_list2(name, category, page, json.loads(content))
 
 
 @v3_app.route('/article/detail')

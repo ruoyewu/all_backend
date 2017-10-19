@@ -523,11 +523,13 @@ def _v3_get_vmovie_list(category, page, content):
         title = item['title']
         image = item['image']
         type = item['cates'][0]['catename']
-        content = requests.get(v3_const.v3_categories['vmovie']['detail'] + id).json()['data']
-        forward = content['intro']
-        video = content['content']['video'][0]['qiniu_url']
+        detail = requests.get(v3_const.v3_categories['vmovie']['detail'] + id).json()['data']
+        forward = detail['intro']
+        video = detail['content']['video'][0]['qiniu_url']
+        if video == '':
+            video = detail['content']['video'][0]['progressive'][0]['qiniu_url']
         url = 'http://www.vmovier.com/' + id
-        time_millis = content['publish_time'] + '000'
+        time_millis = detail['publish_time'] + '000'
         info = v3_const.v3_get_default_list_item()
         info['id'] = id
         info['title'] = title
