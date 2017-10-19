@@ -75,6 +75,31 @@ def v3_get_list(name, category, page):
         return _v3_get_vmovie_list(category, page, content)
 
 
+def v3_get_list2(name, category, page, content):
+    if name == 'one':
+        return _v3_get_one_list(category, page, content)
+    elif name == 'ifanr':
+        return _v3_get_ifanr_list(category, page, content)
+    elif name == 'sspai':
+        return _v3_get_sspai_list(category, page, content)
+    elif name == 'qdaily':
+        return _v3_get_qdaily_list(category, page, content)
+    elif name == '36kr':
+        return _v3_get_36kr_list(category, page, content)
+    elif name == 'juzi':
+        return _v3_get_juzi_list(category, page, content)
+    elif name == 'geography':
+        return _v3_get_geography_list(category, page, content)
+    elif name == '500px':
+        return _v3_get_500px_list(category, page, content)
+    elif name == 'guokr':
+        return _v3_get_guokr_list(category, page, content)
+    elif name == 'kaiyan':
+        return _v3_get_kaiyan_list(category, page, content)
+    elif name == 'vmovie':
+        return _v3_get_vmovie_list(category, page, content)
+
+
 def _v3_get_one_list(category, page, content):
     if category == 'home':
         content_list = content['data']['content_list']
@@ -552,7 +577,7 @@ def __v3_get_ifanr_detail(content):
             info = item.text
             type = v3_const.v3_item_type['quote']
         elif item.name == 'li':
-            type = v3_const.v3_open_type['li']
+            type = v3_const.v3_item_type['li']
             info = item.text
 
         if info.strip() != '':

@@ -40,8 +40,10 @@ def v3_get_list():
 def v3_get_list2():
     name = request.form['name']
     category = request.form['category']
+    page = request.form['page']
     content = request.form['content']
 
+    return v3_list.v3_get_list2(name, category, page, content)
 
 
 @v3_app.route('/article/detail')
