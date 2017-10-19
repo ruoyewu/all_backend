@@ -9,36 +9,77 @@ from v3 import v3_const
 
 def v3_get_list(name, category, page):
     if name == 'one':
-        return _v3_get_one_list(category, page)
+        if category == 'home':
+            url = v3_const.v3_categories[name][category] + page + '/0'
+        else:
+            url = v3_const.v3_categories[name][category] + page
+        content = requests.get(url).json()
+        return _v3_get_one_list(category, page, content)
     elif name == 'ifanr':
-        return _v3_get_ifanr_list(category, page)
+        if page == '0':
+            page = '1'
+        url = v3_const.v3_categories[name][category] + page
+        content = requests.get(url).json()
+        return _v3_get_ifanr_list(category, page, content)
     elif name == 'sspai':
-        return _v3_get_sspai_list(category, page)
+        url = v3_const.v3_categories['sspai'][category] + page
+        content = requests.get(url).json()
+        return _v3_get_sspai_list(category, page, content)
     elif name == 'qdaily':
-        return _v3_get_qdaily_list(category, page)
+        url = v3_const.v3_categories['qdaily'][category] + page
+        content = requests.get(url).json()
+        return _v3_get_qdaily_list(category, page, content)
     elif name == '36kr':
-        return _v3_get_36kr_list(category, page)
+        url = v3_const.v3_categories['36kr'][category] + page
+        content = requests.get(url).json()
+        return _v3_get_36kr_list(category, page, content)
     elif name == 'juzi':
-        return _v3_get_juzi_list(category, page)
+        if page == '0':
+            page = '1'
+        url = v3_const.v3_categories['juzi'][category] + page
+        content = requests.get(url).json()
+        return _v3_get_juzi_list(category, page, content)
     elif name == 'geography':
-        return _v3_get_geography_list(category, page)
+        url = v3_const.v3_categories['geography']['home'] + page
+        content = requests.get(url).json()
+        return _v3_get_geography_list(category, page, content)
     elif name == '500px':
-        return _v3_get_500px_list(category, page)
+        url = v3_const.v3_categories['500px'][category] + page
+        content = requests.get(url).json()
+        return _v3_get_500px_list(category, page, content)
     elif name == 'guokr':
-        return _v3_get_guokr_list(category, page)
+        if category == 'home':
+            if page == '0':
+                url = v3_const.v3_categories['guokr']['home_index']
+            else:
+                url = v3_const.v3_categories['guokr']['home'] + page
+        else:
+            url = v3_const.v3_categories['guokr'][category] + page
+        content = requests.get(url).json()
+        return _v3_get_guokr_list(category, page, content)
     elif name == 'kaiyan':
-        return _v3_get_kaiyan_list(category, page)
+        if category == 'home' or category == 'weekly':
+            url = v3_const.v3_categories['kaiyan'][category]
+        else:
+            url = v3_const.v3_categories['kaiyan'][category] + page
+        content = requests.get(url).json()
+        return _v3_get_kaiyan_list(category, page, content)
     elif name == 'vmovie':
-        return _v3_get_vmovie_list(category, page)
+        if category == 'home':
+            url = v3_const.v3_categories[name][category] + page
+        else:
+            if page == '0':
+                page = '1'
+            url = v3_const.v3_categories[name][category] + page
+        content = requests.get(url).json()
+        return _v3_get_vmovie_list(category, page, content)
 
 
-def _v3_get_one_list(category, page):
+def _v3_get_one_list(category, page, content):
     if category == 'home':
-        url = v3_const.v3_categories['one']['home'] + page + '/0'
-        content_list = requests.get(url).json()['data']['content_list']
+        content_list = content['data']['content_list']
     else:
-        url = v3_const.v3_categories['one'][category] + page
-        content_list = requests.get(url).json()['data']
+        content_list = content['data']
 
     list = []
     next = ''
@@ -101,11 +142,8 @@ def _v3_get_one_list(category, page):
     return json.dumps(result, ensure_ascii=False)
 
 
-def _v3_get_ifanr_list(category, page):
-    if page == "0":
-        page = "1"
-    url = v3_const.v3_categories['ifanr'][category] + page
-    content_list = requests.get(url).json()['data']
+def _v3_get_ifanr_list(category, page, content):
+    content_list = content['data']
 
     list = []
     next = str(int(page) + 1)
@@ -141,11 +179,9 @@ def _v3_get_ifanr_list(category, page):
     return json.dumps(result, ensure_ascii=False)
 
 
-def _v3_get_sspai_list(category, page):
-    offset = str(int(page) * 10)
-    next = int(page) + 1
-    url = v3_const.v3_categories['sspai'][category] + offset
-    content_list = requests.get(url).json()['list']
+def _v3_get_sspai_list(category, page, content):
+    next = str(int(page) + 10)
+    content_list = content['list']
 
     list = []
     for i in range(len(content_list)):
@@ -183,9 +219,8 @@ def _v3_get_sspai_list(category, page):
     return json.dumps(result, ensure_ascii=False)
 
 
-def _v3_get_qdaily_list(category, page):
-    url = v3_const.v3_categories['qdaily'][category] + page
-    data = requests.get(url).json()['data']
+def _v3_get_qdaily_list(category, page, content):
+    data = content['data']
     next = data['last_key']
     content_list = data['feeds']
 
@@ -223,9 +258,8 @@ def _v3_get_qdaily_list(category, page):
     return json.dumps(result, ensure_ascii=False)
 
 
-def _v3_get_36kr_list(category, page):
-    url = v3_const.v3_categories['36kr'][category] + page
-    content_list = requests.get(url).json()['data']['items']
+def _v3_get_36kr_list(category, page, content):
+    content_list = content['data']['items']
 
     list = []
     for i in range(len(content_list)):
@@ -259,11 +293,8 @@ def _v3_get_36kr_list(category, page):
     return json.dumps(result, ensure_ascii=False)
 
 
-def _v3_get_juzi_list(category, page):
-    if page == '0':
-        page = '1'
-    url = v3_const.v3_categories['juzi'][category] + page
-    content_list = requests.get(url).json()['data']['list']
+def _v3_get_juzi_list(category, page, content):
+    content_list = content['data']['list']
 
     list = []
     for i in range(len(content_list)):
@@ -304,16 +335,8 @@ def _v3_get_juzi_list(category, page):
     return json.dumps(result, ensure_ascii=False)
 
 
-def _v3_get_guokr_list(category, page):
-    if category == 'home':
-        if page == '0':
-            url = v3_const.v3_categories['guokr']['home_index']
-        else:
-            url = v3_const.v3_categories['guokr']['home'] + page
-    else:
-        offset = str(int(page) * 10)
-        url = v3_const.v3_categories['guokr'][category] + offset
-    content_list = requests.get(url).json()['result']
+def _v3_get_guokr_list(category, page, content):
+    content_list = content['result']
 
     list = []
     for i in range(len(content_list)):
@@ -339,7 +362,7 @@ def _v3_get_guokr_list(category, page):
         list.append(info)
 
     if category != 'home':
-        next = str(int(page) + 1)
+        next = str(int(page) + 10)
     else:
         next = list[-1]['id']
     result = {
@@ -351,13 +374,8 @@ def _v3_get_guokr_list(category, page):
     return json.dumps(result, ensure_ascii=False)
 
 
-def _v3_get_kaiyan_list(category, page):
-    if category == 'home' or category == 'weekly':
-        url = v3_const.v3_categories['kaiyan'][category]
-    else:
-        offset = str(int(page) * 10)
-        url = v3_const.v3_categories['kaiyan'][category] + offset
-    content_list = requests.get(url).json()['itemList']
+def _v3_get_kaiyan_list(category, page, content):
+    content_list = content['itemList']
 
     list = []
     for i in range(len(content_list)):
@@ -392,7 +410,7 @@ def _v3_get_kaiyan_list(category, page):
         info['open_type'] = v3_const.v3_open_type['video']
         list.append(info)
 
-    next = str(int(page) + 1)
+    next = str(int(page) + 10)
     result = {
         'name': 'kaiyan',
         'category': category,
@@ -402,13 +420,11 @@ def _v3_get_kaiyan_list(category, page):
     return json.dumps(result, ensure_ascii=False)
 
 
-def _v3_get_geography_list(category, page):
-    url = v3_const.v3_categories['geography']['home'] + page
-    data = requests.get(url).json()
-    next_url = data['nextUrl']
+def _v3_get_geography_list(category, page, content):
+    next_url = content['nextUrl']
     nexts = next_url.split('&')
     next = nexts[len(nexts) - 1][12:]
-    content_list = data['articles']
+    content_list = content['articles']
 
     list = []
     for i in range(len(content_list)):
@@ -437,13 +453,11 @@ def _v3_get_geography_list(category, page):
     return json.dumps(result, ensure_ascii=False)
 
 
-def _v3_get_500px_list(category, page):
-    url = v3_const.v3_categories['500px'][category] + page
-    data = requests.get(url).json()
-    next_url = data['nextUrl']
+def _v3_get_500px_list(category, page, content):
+    next_url = content['nextUrl']
     nexts = next_url.split('&')
     next = nexts[len(nexts) - 1][12:]
-    content_list = data['articles']
+    content_list = content['articles']
 
     list = []
     for i in range(len(content_list)):
@@ -468,23 +482,14 @@ def _v3_get_500px_list(category, page):
     return json.dumps(result, ensure_ascii=False)
 
 
-def _v3_get_vmovie_list(category, page):
+def _v3_get_vmovie_list(category, page, content):
     if category == 'home':
-        if page == '0':
-            url = v3_const.v3_categories['vmovie']['home']
-            data = requests.get(url).json()['data']['today']
-            next = data['lastid']
-            content_list = data['list']
-        else:
-            url = v3_const.v3_categories['vmovie']['home_last'] + page
-            data = requests.get(url).json()['data']
-            next = data['lastid']
-            content_list = data['list']
+        data = content['data']
+        next = data['lastid']
+        content_list = data['list']
     else:
-        page = str(int(page) + 1)
-        url = v3_const.v3_categories['vmovie'][category] + page
         next = str(int(page) + 1)
-        content_list = requests.get(url).json()['data']
+        content_list = content['data']
 
     list = []
     for i in range(len(content_list)):
@@ -522,7 +527,7 @@ def _v3_get_vmovie_list(category, page):
 def __v3_get_ifanr_detail(content):
     list = []
     soup = BeautifulSoup(str(content), 'html.parser')
-    items = soup.find_all(name=['p', 'img', 'h3', 'blockquote'])
+    items = soup.find_all(name=['p', 'img', 'h3', 'blockquote', 'li'])
 
     for i in range(len(items)):
         item = items[i]
@@ -546,6 +551,9 @@ def __v3_get_ifanr_detail(content):
         elif item.name == 'blockquote':
             info = item.text
             type = v3_const.v3_item_type['quote']
+        elif item.name == 'li':
+            type = v3_const.v3_open_type['li']
+            info = item.text
 
         if info.strip() != '':
             list.append({'type': type, 'info': info})

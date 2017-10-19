@@ -4,7 +4,7 @@ import os
 from flask import Blueprint, request, send_from_directory
 from werkzeug.utils import secure_filename
 
-from v3 import v3_list, v3_detail, v3_sql
+from v3 import v3_list, v3_detail, v3_sql, v3_const
 
 file_dir = 'C:\\Users\\Administrator\\Desktop\\allapp\\files\\avatar'
 
@@ -16,6 +16,17 @@ def v3_index():
     return 'this is v3 page'
 
 
+@v3_app.route('/app/api')
+def v3_get_api():
+    name = request.args['name']
+
+    list = v3_const.v3_api[name]
+    category_list = []
+    for category in list:
+        category_list.append({'category': category, 'api': list[category]})
+    return json.dumps(category_list, ensure_ascii=False)
+
+
 @v3_app.route('/article/list')
 def v3_get_list():
     name = request.args['name']
@@ -23,7 +34,14 @@ def v3_get_list():
     page = str(request.args['page'])
 
     return v3_list.v3_get_list(name, category, page)
-    pass
+
+
+@v3_app.route('/article/list2', methods=['POST'])
+def v3_get_list2():
+    name = request.form['name']
+    category = request.form['category']
+    content = request.form['content']
+
 
 
 @v3_app.route('/article/detail')

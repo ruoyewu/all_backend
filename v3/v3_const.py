@@ -1,7 +1,10 @@
+import json
+
+
 def v3_get_default_list_item():
-    return { 'id': '', 'title': '', 'forward': '', 'author': '', 'image': '', 'video': '',
-             'date': '', 'time_millis': '', 'age': '', 'original_url': '', 'content': [],
-             'type': '', 'category_id': '', 'open_type': '1', 'other_info': '', 'img_list': []}
+    return {'id': '', 'title': '', 'forward': '', 'author': '', 'image': '', 'video': '',
+            'date': '', 'time_millis': '', 'age': '', 'original_url': '', 'content': [],
+            'type': '', 'category_id': '', 'open_type': '1', 'other_info': '', 'img_list': []}
 
 
 def v3_get_default_detail_item():
@@ -24,31 +27,31 @@ v3_categories = {
         'home': 'http://www.ifanr.com/api/v3.0/?action=ifr_latest&posts_per_page=10&appkey=k0umfuztmirn5v73z3ij&sign'
                 '=93dbaa08a7876dc852c64ae8547aebc7&paged=',
         'app': 'http://www.ifanr.com/api/v3.0/?action=ifr_latest&posts_per_page=10&appkey=k0umfuztmirn5v73z3ij&sign'
-                '=93dbaa08a7876dc852c64ae8547aebc7&post_type=app&paged=',
+               '=93dbaa08a7876dc852c64ae8547aebc7&post_type=app&paged=',
         'coolBuy': 'http://www.ifanr.com/api/v3.0/?action=ifr_latest&posts_per_page=10&appkey=k0umfuztmirn5v73z3ij&sign'
-                '=93dbaa08a7876dc852c64ae8547aebc7&post_type=coolbuy&paged=',
+                   '=93dbaa08a7876dc852c64ae8547aebc7&post_type=coolbuy&paged=',
         'video': 'http://www.ifanr.com/api/v3.0/?action=ifr_latest&posts_per_page=10&appkey=k0umfuztmirn5v73z3ij&sign'
-                '=93dbaa08a7876dc852c64ae8547aebc7&post_type=video&paged=',
+                 '=93dbaa08a7876dc852c64ae8547aebc7&post_type=video&paged=',
         'product': 'http://www.ifanr.com/api/v3.0/?action=ifr_latest&posts_per_page=10&appkey=k0umfuztmirn5v73z3ij&sign'
-                '=93dbaa08a7876dc852c64ae8547aebc7&category_id=1774&paged=',
+                   '=93dbaa08a7876dc852c64ae8547aebc7&category_id=1774&paged=',
         'people': 'http://www.ifanr.com/api/v3.0/?action=ifr_latest&posts_per_page=10&appkey=k0umfuztmirn5v73z3ij&sign'
-                '=93dbaa08a7876dc852c64ae8547aebc7&category_id=57269&paged=',
+                  '=93dbaa08a7876dc852c64ae8547aebc7&category_id=57269&paged=',
         'company': 'http://www.ifanr.com/api/v3.0/?action=ifr_latest&posts_per_page=10&appkey=k0umfuztmirn5v73z3ij&sign'
-                '=93dbaa08a7876dc852c64ae8547aebc7&category_id=19&paged=',
+                   '=93dbaa08a7876dc852c64ae8547aebc7&category_id=19&paged=',
         'image': 'http://www.ifanr.com/api/v3.0/?action=ifr_latest&posts_per_page=10&appkey=k0umfuztmirn5v73z3ij&sign'
-                '=93dbaa08a7876dc852c64ae8547aebc7&category_id=57906&paged=',
+                 '=93dbaa08a7876dc852c64ae8547aebc7&category_id=57906&paged=',
         'adv': 'http://www.ifanr.com/api/v3.0/?action=ifr_latest&posts_per_page=10&appkey=k0umfuztmirn5v73z3ij&sign'
-                '=93dbaa08a7876dc852c64ae8547aebc7&category_id=64265&paged=',
+               '=93dbaa08a7876dc852c64ae8547aebc7&category_id=64265&paged=',
         'create': 'http://www.ifanr.com/api/v3.0/?action=ifr_latest&posts_per_page=10&appkey=k0umfuztmirn5v73z3ij&sign'
-                '=93dbaa08a7876dc852c64ae8547aebc7&category_id=33330&paged=',
+                  '=93dbaa08a7876dc852c64ae8547aebc7&category_id=33330&paged=',
         'early': 'http://www.ifanr.com/api/v3.0/?action=ifr_latest&posts_per_page=10&appkey=k0umfuztmirn5v73z3ij&sign'
-                '=93dbaa08a7876dc852c64ae8547aebc7&category_id=57268&paged=',
+                 '=93dbaa08a7876dc852c64ae8547aebc7&category_id=57268&paged=',
         'car': 'http://www.ifanr.com/api/v3.0/?action=ifr_latest&posts_per_page=10&appkey=k0umfuztmirn5v73z3ij&sign'
-                '=93dbaa08a7876dc852c64ae8547aebc7&category_id=33328&paged=',
+               '=93dbaa08a7876dc852c64ae8547aebc7&category_id=33328&paged=',
         'game': 'http://www.ifanr.com/api/v3.0/?action=ifr_latest&posts_per_page=10&appkey=k0umfuztmirn5v73z3ij&sign'
                 '=93dbaa08a7876dc852c64ae8547aebc7&category_id=782&paged=',
         'special': 'http://www.ifanr.com/api/v3.0/?action=ifr_latest&posts_per_page=10&appkey=k0umfuztmirn5v73z3ij&sign'
-                '=93dbaa08a7876dc852c64ae8547aebc7&category_id=1769&paged=',
+                   '=93dbaa08a7876dc852c64ae8547aebc7&category_id=1769&paged=',
         'life': 'http://www.ifanr.com/api/v3.0/?action=ifr_latest&posts_per_page=10&appkey=k0umfuztmirn5v73z3ij&sign'
                 '=93dbaa08a7876dc852c64ae8547aebc7&category_id=54067&paged=',
         'fanr': 'http://www.ifanr.com/api/v3.0/?action=ifr_latest&posts_per_page=10&appkey=k0umfuztmirn5v73z3ij&sign'
@@ -181,77 +184,77 @@ v3_categories = {
     '500px': {
         'home': 'https://api.qingmang.me/v2/article.list?token=c400a7e21688496ca3e7f17c6b0d1846&category_id=p280'
                 '&page_cursor=',
-        'hot':  'https://api.qingmang.me/v2/article.list?token=c400a7e21688496ca3e7f17c6b0d1846&category_id=p3473'
-                '&page_cursor=',
+        'hot': 'https://api.qingmang.me/v2/article.list?token=c400a7e21688496ca3e7f17c6b0d1846&category_id=p3473'
+               '&page_cursor=',
         'abstract': 'https://api.qingmang.me/v2/article.list?token=c400a7e21688496ca3e7f17c6b0d1846&category_id=p3475'
-                '&page_cursor=',
+                    '&page_cursor=',
         'animal': 'https://api.qingmang.me/v2/article.list?token=c400a7e21688496ca3e7f17c6b0d1846&category_id=p3477'
-                '&page_cursor=',
+                  '&page_cursor=',
         'black': 'https://api.qingmang.me/v2/article.list?token=c400a7e21688496ca3e7f17c6b0d1846&category_id=p3479'
-                '&page_cursor=',
+                 '&page_cursor=',
         'famous': 'https://api.qingmang.me/v2/article.list?token=c400a7e21688496ca3e7f17c6b0d1846&category_id=p3481'
-                '&page_cursor=',
+                  '&page_cursor=',
         'city': 'https://api.qingmang.me/v2/article.list?token=c400a7e21688496ca3e7f17c6b0d1846&category_id=p3483'
                 '&page_cursor=',
         'commerce': 'https://api.qingmang.me/v2/article.list?token=c400a7e21688496ca3e7f17c6b0d1846&category_id=p3485'
-                '&page_cursor=',
+                    '&page_cursor=',
         'music': 'https://api.qingmang.me/v2/article.list?token=c400a7e21688496ca3e7f17c6b0d1846&category_id=p3487'
-                '&page_cursor=',
+                 '&page_cursor=',
         'family': 'https://api.qingmang.me/v2/article.list?token=c400a7e21688496ca3e7f17c6b0d1846&category_id=p3489'
-                '&page_cursor=',
+                  '&page_cursor=',
         'fashion': 'https://api.qingmang.me/v2/article.list?token=c400a7e21688496ca3e7f17c6b0d1846&category_id=p3491'
-                '&page_cursor=',
+                   '&page_cursor=',
         'movie': 'https://api.qingmang.me/v2/article.list?token=c400a7e21688496ca3e7f17c6b0d1846&category_id=p3493'
-                '&page_cursor=',
+                 '&page_cursor=',
         'art': 'https://api.qingmang.me/v2/article.list?token=c400a7e21688496ca3e7f17c6b0d1846&category_id=p3495'
-                '&page_cursor=',
+               '&page_cursor=',
         'food': 'https://api.qingmang.me/v2/article.list?token=c400a7e21688496ca3e7f17c6b0d1846&category_id=p3497'
                 '&page_cursor=',
         'news': 'https://api.qingmang.me/v2/article.list?token=c400a7e21688496ca3e7f17c6b0d1846&category_id=p3499'
                 '&page_cursor=',
         'scenery': 'https://api.qingmang.me/v2/article.list?token=c400a7e21688496ca3e7f17c6b0d1846&category_id=p3501'
-                '&page_cursor=',
+                   '&page_cursor=',
         'tiny': 'https://api.qingmang.me/v2/article.list?token=c400a7e21688496ca3e7f17c6b0d1846&category_id=p3503'
                 '&page_cursor=',
         'nature': 'https://api.qingmang.me/v2/article.list?token=c400a7e21688496ca3e7f17c6b0d1846&category_id=p3505'
-                '&page_cursor=',
+                  '&page_cursor=',
         'people': 'https://api.qingmang.me/v2/article.list?token=c400a7e21688496ca3e7f17c6b0d1846&category_id=p3507'
-                '&page_cursor=',
+                  '&page_cursor=',
         'act': 'https://api.qingmang.me/v2/article.list?token=c400a7e21688496ca3e7f17c6b0d1846&category_id=p3509'
-                '&page_cursor=',
+               '&page_cursor=',
         'sport': 'https://api.qingmang.me/v2/article.list?token=c400a7e21688496ca3e7f17c6b0d1846&category_id=p3511'
-                '&page_cursor=',
+                 '&page_cursor=',
         'calm': 'https://api.qingmang.me/v2/article.list?token=c400a7e21688496ca3e7f17c6b0d1846&category_id=p3513'
                 '&page_cursor=',
         'street': 'https://api.qingmang.me/v2/article.list?token=c400a7e21688496ca3e7f17c6b0d1846&category_id=p3515'
-                '&page_cursor=',
+                  '&page_cursor=',
         'traffic': 'https://api.qingmang.me/v2/article.list?token=c400a7e21688496ca3e7f17c6b0d1846&category_id=p3517'
-                '&page_cursor=',
+                   '&page_cursor=',
         'travel': 'https://api.qingmang.me/v2/article.list?token=c400a7e21688496ca3e7f17c6b0d1846&category_id=p3519'
-                '&page_cursor=',
+                  '&page_cursor=',
         'under_water': 'https://api.qingmang.me/v2/article.list?token=c400a7e21688496ca3e7f17c6b0d1846&category_id'
                        '=p3521&page_cursor=',
         'city_explore': 'https://api.qingmang.me/v2/article.list?token=c400a7e21688496ca3e7f17c6b0d1846&category_id'
                         '=p3523&page_cursor=',
         'wedding': 'https://api.qingmang.me/v2/article.list?token=c400a7e21688496ca3e7f17c6b0d1846&category_id=p3525'
-                '&page_cursor='
+                   '&page_cursor='
     },
     'tmt': {
         'home': 'https://api.tmtpost.com/v1/lists/home?limit=10&offset=',
         'fast': 'https://api.tmtpost.com/v1/posts/list/category/2581216?&fields=authors;thumb_image;number_of_reads;summary'
                 '&limit=10&offset=',
         'create': 'https://api.tmtpost.com/v1/posts/list/category/2446155?&fields=authors;thumb_image;number_of_reads;summary'
-                '&limit=10&offset=',
+                  '&limit=10&offset=',
         'company': 'https://api.tmtpost.com/v1/posts/list/category/2446153?&fields=authors;thumb_image;number_of_reads;summary'
-                '&limit=10&offset=',
+                   '&limit=10&offset=',
         'car': 'https://api.tmtpost.com/v1/posts/list/category/2573550?&fields=authors;thumb_image;number_of_reads;summary'
-                '&limit=10&offset=',
+               '&limit=10&offset=',
         'amuse': 'https://api.tmtpost.com/v1/posts/list/category/2446157?&fields=authors;thumb_image;number_of_reads;summary'
-                '&limit=10&offset=',
+                 '&limit=10&offset=',
         'professional': 'https://api.tmtpost.com/v1/posts/list/category/2573543?&fields=authors;thumb_image;number_of_reads;summary'
-                '&limit=10&offset=',
+                        '&limit=10&offset=',
         'english': 'https://api.tmtpost.com/v1/posts/list/category/2573634?&fields=authors;thumb_image;number_of_reads;summary'
-                '&limit=10&offset=',
+                   '&limit=10&offset=',
         'detail': 'http://www.tmtpost.com/'
     },
     'crazy_read': {
@@ -285,8 +288,7 @@ v3_categories = {
         'collect': 'http://baobab.kaiyanapp.com/api/v4/categories/videoList?num=10&strategy=date&id=34&start='
     },
     'vmovie': {
-        'home': 'https://app.vmovier.com/apiv3/index/index',
-        'home_last': 'https://app.vmovier.com/apiv3/index/getIndexPosts/lastid/',
+        'home': 'https://app.vmovier.com/apiv3/index/getIndexPosts/lastid/',
         'hot': 'https://app.vmovier.com/apiv3/post/getPostByTab?size=10&tab=hot&p=',
         'idea': 'https://app.vmovier.com/apiv3/post/getPostInCate?size=10&cateid=6&p=',
         'travel': 'https://app.vmovier.com/apiv3/post/getPostInCate?size=10&cateid=11&p=',
@@ -339,6 +341,288 @@ v3_categories = {
         'detail': 'http://jingxuan.guokr.com/pick/v2/'
     }
 }
+
+
+v3_api = {
+    'one': {
+        'home': 'http://v3.wufazhuce.com:8000/api/channel/one/@page/0',
+        'read': 'http://v3.wufazhuce.com:8000/api/channel/reading/more/@page',
+        'music': 'http://v3.wufazhuce.com:8000/api/channel/music/more/@page',
+        'movie': 'http://v3.wufazhuce.com:8000/api/channel/movie/more/@page',
+        'start': '0'
+    },
+    'ifanr': {
+        'home': 'http://www.ifanr.com/api/v3.0/?action=ifr_latest&posts_per_page=10&appkey=k0umfuztmirn5v73z3ij&sign'
+                '=93dbaa08a7876dc852c64ae8547aebc7&paged=@page',
+        'app': 'http://www.ifanr.com/api/v3.0/?action=ifr_latest&posts_per_page=10&appkey=k0umfuztmirn5v73z3ij&sign'
+               '=93dbaa08a7876dc852c64ae8547aebc7&post_type=app&paged=@page',
+        'coolBuy': 'http://www.ifanr.com/api/v3.0/?action=ifr_latest&posts_per_page=10&appkey=k0umfuztmirn5v73z3ij&sign'
+                   '=93dbaa08a7876dc852c64ae8547aebc7&post_type=coolbuy&paged=@page',
+        'video': 'http://www.ifanr.com/api/v3.0/?action=ifr_latest&posts_per_page=10&appkey=k0umfuztmirn5v73z3ij&sign'
+                 '=93dbaa08a7876dc852c64ae8547aebc7&post_type=video&paged=@page',
+        'product': 'http://www.ifanr.com/api/v3.0/?action=ifr_latest&posts_per_page=10&appkey=k0umfuztmirn5v73z3ij&sign'
+                   '=93dbaa08a7876dc852c64ae8547aebc7&category_id=1774&paged=@page',
+        'people': 'http://www.ifanr.com/api/v3.0/?action=ifr_latest&posts_per_page=10&appkey=k0umfuztmirn5v73z3ij&sign'
+                  '=93dbaa08a7876dc852c64ae8547aebc7&category_id=57269&paged=@page',
+        'company': 'http://www.ifanr.com/api/v3.0/?action=ifr_latest&posts_per_page=10&appkey=k0umfuztmirn5v73z3ij&sign'
+                   '=93dbaa08a7876dc852c64ae8547aebc7&category_id=19&paged=@page',
+        'image': 'http://www.ifanr.com/api/v3.0/?action=ifr_latest&posts_per_page=10&appkey=k0umfuztmirn5v73z3ij&sign'
+                 '=93dbaa08a7876dc852c64ae8547aebc7&category_id=57906&paged=@page',
+        'adv': 'http://www.ifanr.com/api/v3.0/?action=ifr_latest&posts_per_page=10&appkey=k0umfuztmirn5v73z3ij&sign'
+               '=93dbaa08a7876dc852c64ae8547aebc7&category_id=64265&paged=@page',
+        'create': 'http://www.ifanr.com/api/v3.0/?action=ifr_latest&posts_per_page=10&appkey=k0umfuztmirn5v73z3ij&sign'
+                  '=93dbaa08a7876dc852c64ae8547aebc7&category_id=33330&paged=@page',
+        'early': 'http://www.ifanr.com/api/v3.0/?action=ifr_latest&posts_per_page=10&appkey=k0umfuztmirn5v73z3ij&sign'
+                 '=93dbaa08a7876dc852c64ae8547aebc7&category_id=57268&paged=@page',
+        'car': 'http://www.ifanr.com/api/v3.0/?action=ifr_latest&posts_per_page=10&appkey=k0umfuztmirn5v73z3ij&sign'
+               '=93dbaa08a7876dc852c64ae8547aebc7&category_id=33328&paged=@page',
+        'game': 'http://www.ifanr.com/api/v3.0/?action=ifr_latest&posts_per_page=10&appkey=k0umfuztmirn5v73z3ij&sign'
+                '=93dbaa08a7876dc852c64ae8547aebc7&category_id=782&paged=@page',
+        'special': 'http://www.ifanr.com/api/v3.0/?action=ifr_latest&posts_per_page=10&appkey=k0umfuztmirn5v73z3ij&sign'
+                   '=93dbaa08a7876dc852c64ae8547aebc7&category_id=1769&paged=@page',
+        'life': 'http://www.ifanr.com/api/v3.0/?action=ifr_latest&posts_per_page=10&appkey=k0umfuztmirn5v73z3ij&sign'
+                '=93dbaa08a7876dc852c64ae8547aebc7&category_id=54067&paged=@page',
+        'fanr': 'http://www.ifanr.com/api/v3.0/?action=ifr_latest&posts_per_page=10&appkey=k0umfuztmirn5v73z3ij&sign'
+                '=93dbaa08a7876dc852c64ae8547aebc7&category_id=60394&paged=@page',
+        'test': 'http://www.ifanr.com/api/v3.0/?action=ifr_latest&posts_per_page=10&appkey=k0umfuztmirn5v73z3ij&sign'
+                '=93dbaa08a7876dc852c64ae8547aebc7&category_id=49180&paged=@page',
+        'rank': 'http://www.ifanr.com/api/v3.0/?action=ifr_latest&posts_per_page=10&appkey=k0umfuztmirn5v73z3ij&sign'
+                '=93dbaa08a7876dc852c64ae8547aebc7&category_id=13508&paged=@page',
+        'start': '1'
+    },
+    'qdaily': {
+        'home': 'http://www.qdaily.com/homes/articlemore/@page',
+        'long': 'http://www.qdaily.com/tags/tagmore/1068/@page',
+        'image': 'http://www.qdaily.com/tags/tagmore/1615/@page',
+        'top': 'http://www.qdaily.com/tags/tagmore/29/@page',
+        'commerce': 'http://www.qdaily.com/categories/categorymore/18/@page',
+        'intel': 'http://www.qdaily.com/categories/categorymore/4/@page',
+        'design': 'http://www.qdaily.com/categories/categorymore/17/@page',
+        'fashion': 'http://www.qdaily.com/categories/categorymore/19/@page',
+        'amuse': 'http://www.qdaily.com/categories/categorymore/3/@page',
+        'city': 'http://www.qdaily.com/categories/categorymore/5/@page',
+        'game': 'http://www.qdaily.com/categories/categorymore/54/@page',
+        'start': '0'
+    },
+    '36kr': {
+        'home': 'http://36kr.com/api/info-flow/main_site/posts?column_id=&per_page=10&b_id=@page',
+        'early': 'http://36kr.com/api//post?column_id=67&per_page=10&b_id=@page',
+        'company': 'http://36kr.com/api//post?column_id=23&per_page=10&b_id=@page',
+        'create': 'http://36kr.com/api//post?column_id=102&per_page=10&b_id=@page',
+        'consume': 'http://36kr.com/api//post?column_id=180&per_page=10&b_id=@page',
+        'what': 'http://36kr.com/api//post?column_id=186&per_page=10&b_id=@page',
+        'skill': 'http://36kr.com/api//post?column_id=103&per_page=10&b_id=@page',
+        'video': 'http://36kr.com/api//post?column_id=18&per_page=10&b_id=@page',
+        'play': 'http://36kr.com/api//post?column_id=24&per_page=10&b_id=@page',
+        'new': 'http://36kr.com/api//post?column_id=66&per_page=10&b_id=@page',
+        'deep': 'http://36kr.com/api//post?column_id=70&per_page=10&b_id=@page',
+        'research': 'http://36kr.com/api//post?column_id=71&per_page=10&b_id=@page',
+        'policy': 'http://36kr.com/api//post?column_id=101&per_page=10&b_id=@page',
+        'industry': 'http://36kr.com/api//post?column_id=104&per_page=10&b_id=@page',
+        'interview': 'http://36kr.com/api//post?column_id=107&per_page=10&b_id=@page',
+        'career': 'http://36kr.com/api//post?column_id=109&per_page=10&b_id=@page',
+        'early_report': 'http://36kr.com/api//post?column_id=110&per_page=10&b_id=@page',
+        'dujiaoshou': 'http://36kr.com/api//post?column_id=113&per_page=10&b_id=@page',
+        'shangxueyuan': 'http://36kr.com/api//post?column_id=114&per_page=10&b_id=@page',
+        'silicon_valley': 'http://36kr.com/api//post?column_id=115&per_page=10&b_id=@page',
+        'abroad_create': 'http://36kr.com/api//post?column_id=116&per_page=10&b_id=@page',
+        'creator': 'http://36kr.com/api//post?column_id=117&per_page=10&b_id=@page',
+        'comment': 'http://36kr.com/api//post?column_id=118&per_page=10&b_id=@page',
+        'raise_funds': 'http://36kr.com/api//post?column_id=119&per_page=10&b_id=@page',
+        'car': 'http://36kr.com/api//post?column_id=120&per_page=10&b_id=@page',
+        'feature': 'http://36kr.com/api//post?column_id=121&per_page=10&b_id=@page',
+        'commerce_info': 'http://36kr.com/api//post?column_id=169&per_page=10&b_id=@page',
+        'yike': 'http://36kr.com/api//post?column_id=170&per_page=10&b_id=@page',
+        'intel': 'http://36kr.com/api//post?column_id=171&per_page=10&b_id=@page',
+        'new_commerce': 'http://36kr.com/api//post?column_id=173&per_page=10&b_id=@page',
+        'fengkou': 'http://36kr.com/api//post?column_id=177&per_page=10&b_id=@page',
+        'new_wind': 'http://36kr.com/api//post?column_id=178&per_page=10&b_id=@page',
+        'share_economy': 'http://36kr.com/api//post?column_id=181&per_page=10&b_id=@page',
+        'focus_economy': 'http://36kr.com/api//post?column_id=182&per_page=10&b_id=@page',
+        'commerce_100': 'http://36kr.com/api//post?column_id=183&per_page=10&b_id=@page',
+        'one_more': 'http://36kr.com/api//post?column_id=184&per_page=10&b_id=@page',
+        'ai_is': 'http://36kr.com/api//post?column_id=185&per_page=10&b_id=@page',
+        'silicon_think': 'http://36kr.com/api//post?column_id=187&per_page=10&b_id=@page',
+        'ku_100': 'http://36kr.com/api//post?column_id=188&per_page=10&b_id=@page',
+        'tide_intel': 'http://36kr.com/api//post?column_id=189&per_page=10&b_id=@page',
+        'employ_100': 'http://36kr.com/api//post?column_id=190&per_page=10&b_id=@page',
+        'read': 'http://36kr.com/api//post?column_id=192&per_page=10&b_id=@page',
+        'other': 'http://36kr.com/api//post?column_id=72&per_page=10&b_id=@page',
+        'start': '0'
+    },
+    'sspai': {
+        'home': 'https://sspai.com/api/v1/articles?limit=10&type=recommend_to_home&sort=recommend_to_home_at&offset=@page',
+        'matrix': 'https://sspai.com/api/v1/articles?limit=10&is_matrix=1&sort=matrix_at&offset=@page',
+        'efficient': 'https://sspai.com/api/v1/articles?limit=10&has_tag=1&tag=效率工具&type=recommend_to_home&offset=@page',
+        'photo': 'https://sspai.com/api/v1/articles?limit=10&has_tag=1&tag=手机摄影&type=recommend_to_home&offset=@page',
+        'life': 'https://sspai.com/api/v1/articles?limit=10&has_tag=1&tag=生活方式&type=recommend_to_home&offset=@page',
+        'game': 'https://sspai.com/api/v1/articles?limit=10&has_tag=1&tag=游戏&type=recommend_to_home&offset=@page',
+        'hard': 'https://sspai.com/api/v1/articles?limit=10&has_tag=1&tag=硬件&type=recommend_to_home&offset=@page',
+        'people': 'https://sspai.com/api/v1/articles?limit=10&has_tag=1&tag=人物&type=recommend_to_home&offset=@page',
+        'mac': 'https://sspai.com/api/v1/articles?limit=20&has_tag=1&tag=mac&offset=@page',
+        'ios': 'https://sspai.com/api/v1/articles?limit=20&has_tag=1&tag=ios&offset=@page',
+        'android': 'https://sspai.com/api/v1/articles?limit=20&has_tag=1&tag=android&offset=@page',
+        'start': '0'
+    },
+    'juzi': {
+        'home': 'http://api.app.happyjuzi.com/article/list/home?ver=3.8.2&page=@page',
+        'amuse': 'http://api.app.happyjuzi.com/article/list/channel?ver=3.8.2&id=27&page=@page',
+        'movie': 'http://api.app.happyjuzi.com/article/list/channel?ver=3.8.2&id=32&page=@page',
+        'fashion': 'http://api.app.happyjuzi.com/article/list/channel?ver=3.8.2&id=26&page=@page',
+        'beauty': 'http://api.app.happyjuzi.com/article/list/channel?ver=3.8.2&id=102&page=@page',
+        'funny': 'http://api.app.happyjuzi.com/article/list/channel?ver=3.8.2&id=61&page=@page',
+        'life': 'http://api.app.happyjuzi.com/article/list/channel?ver=3.8.2&id=95&page=@page',
+        'plan': 'http://api.app.happyjuzi.com/article/list/channel?ver=3.8.2&id=241&page=@page',
+        'start': '1'
+    },
+    'geography': {
+        'home': 'https://api.qingmang.me/v2/article.list?category_id=p196&token=c400a7e21688496ca3e7f17c6b0d1846'
+                '&page_cursor=@page',
+        'start': '0'
+    },
+    '500px': {
+        'home': 'https://api.qingmang.me/v2/article.list?token=c400a7e21688496ca3e7f17c6b0d1846&category_id=p280'
+                '&page_cursor=@page',
+        'hot': 'https://api.qingmang.me/v2/article.list?token=c400a7e21688496ca3e7f17c6b0d1846&category_id=p3473'
+               '&page_cursor=@page',
+        'abstract': 'https://api.qingmang.me/v2/article.list?token=c400a7e21688496ca3e7f17c6b0d1846&category_id=p3475'
+                    '&page_cursor=@page',
+        'animal': 'https://api.qingmang.me/v2/article.list?token=c400a7e21688496ca3e7f17c6b0d1846&category_id=p3477'
+                  '&page_cursor=@page',
+        'black': 'https://api.qingmang.me/v2/article.list?token=c400a7e21688496ca3e7f17c6b0d1846&category_id=p3479'
+                 '&page_cursor=@page',
+        'famous': 'https://api.qingmang.me/v2/article.list?token=c400a7e21688496ca3e7f17c6b0d1846&category_id=p3481'
+                  '&page_cursor=@page',
+        'city': 'https://api.qingmang.me/v2/article.list?token=c400a7e21688496ca3e7f17c6b0d1846&category_id=p3483'
+                '&page_cursor=@page',
+        'commerce': 'https://api.qingmang.me/v2/article.list?token=c400a7e21688496ca3e7f17c6b0d1846&category_id=p3485'
+                    '&page_cursor=@page',
+        'music': 'https://api.qingmang.me/v2/article.list?token=c400a7e21688496ca3e7f17c6b0d1846&category_id=p3487'
+                 '&page_cursor=@page',
+        'family': 'https://api.qingmang.me/v2/article.list?token=c400a7e21688496ca3e7f17c6b0d1846&category_id=p3489'
+                  '&page_cursor=@page',
+        'fashion': 'https://api.qingmang.me/v2/article.list?token=c400a7e21688496ca3e7f17c6b0d1846&category_id=p3491'
+                   '&page_cursor=@page',
+        'movie': 'https://api.qingmang.me/v2/article.list?token=c400a7e21688496ca3e7f17c6b0d1846&category_id=p3493'
+                 '&page_cursor=@page',
+        'art': 'https://api.qingmang.me/v2/article.list?token=c400a7e21688496ca3e7f17c6b0d1846&category_id=p3495'
+               '&page_cursor=@page',
+        'food': 'https://api.qingmang.me/v2/article.list?token=c400a7e21688496ca3e7f17c6b0d1846&category_id=p3497'
+                '&page_cursor=@page',
+        'news': 'https://api.qingmang.me/v2/article.list?token=c400a7e21688496ca3e7f17c6b0d1846&category_id=p3499'
+                '&page_cursor=@page',
+        'scenery': 'https://api.qingmang.me/v2/article.list?token=c400a7e21688496ca3e7f17c6b0d1846&category_id=p3501'
+                   '&page_cursor=@page',
+        'tiny': 'https://api.qingmang.me/v2/article.list?token=c400a7e21688496ca3e7f17c6b0d1846&category_id=p3503'
+                '&page_cursor=@page',
+        'nature': 'https://api.qingmang.me/v2/article.list?token=c400a7e21688496ca3e7f17c6b0d1846&category_id=p3505'
+                  '&page_cursor=@page',
+        'people': 'https://api.qingmang.me/v2/article.list?token=c400a7e21688496ca3e7f17c6b0d1846&category_id=p3507'
+                  '&page_cursor=@page',
+        'act': 'https://api.qingmang.me/v2/article.list?token=c400a7e21688496ca3e7f17c6b0d1846&category_id=p3509'
+               '&page_cursor=@page',
+        'sport': 'https://api.qingmang.me/v2/article.list?token=c400a7e21688496ca3e7f17c6b0d1846&category_id=p3511'
+                 '&page_cursor=@page',
+        'calm': 'https://api.qingmang.me/v2/article.list?token=c400a7e21688496ca3e7f17c6b0d1846&category_id=p3513'
+                '&page_cursor=@page',
+        'street': 'https://api.qingmang.me/v2/article.list?token=c400a7e21688496ca3e7f17c6b0d1846&category_id=p3515'
+                  '&page_cursor=@page',
+        'traffic': 'https://api.qingmang.me/v2/article.list?token=c400a7e21688496ca3e7f17c6b0d1846&category_id=p3517'
+                   '&page_cursor=@page',
+        'travel': 'https://api.qingmang.me/v2/article.list?token=c400a7e21688496ca3e7f17c6b0d1846&category_id=p3519'
+                  '&page_cursor=@page',
+        'under_water': 'https://api.qingmang.me/v2/article.list?token=c400a7e21688496ca3e7f17c6b0d1846&category_id'
+                       '=p3521&page_cursor=@page',
+        'city_explore': 'https://api.qingmang.me/v2/article.list?token=c400a7e21688496ca3e7f17c6b0d1846&category_id'
+                        '=p3523&page_cursor=@page',
+        'wedding': 'https://api.qingmang.me/v2/article.list?token=c400a7e21688496ca3e7f17c6b0d1846&category_id=p3525'
+                   '&page_cursor=@page',
+        'start': '0'
+    },
+    'tmt': {
+        'home': 'https://api.tmtpost.com/v1/lists/home?limit=10&offset=',
+        'fast': 'https://api.tmtpost.com/v1/posts/list/category/2581216?&fields=authors;thumb_image;number_of_reads;summary'
+                '&limit=10&offset=',
+        'create': 'https://api.tmtpost.com/v1/posts/list/category/2446155?&fields=authors;thumb_image;number_of_reads;summary'
+                  '&limit=10&offset=',
+        'company': 'https://api.tmtpost.com/v1/posts/list/category/2446153?&fields=authors;thumb_image;number_of_reads;summary'
+                   '&limit=10&offset=',
+        'car': 'https://api.tmtpost.com/v1/posts/list/category/2573550?&fields=authors;thumb_image;number_of_reads;summary'
+               '&limit=10&offset=',
+        'amuse': 'https://api.tmtpost.com/v1/posts/list/category/2446157?&fields=authors;thumb_image;number_of_reads;summary'
+                 '&limit=10&offset=',
+        'professional': 'https://api.tmtpost.com/v1/posts/list/category/2573543?&fields=authors;thumb_image;number_of_reads;summary'
+                        '&limit=10&offset=',
+        'english': 'https://api.tmtpost.com/v1/posts/list/category/2573634?&fields=authors;thumb_image;number_of_reads;summary'
+                   '&limit=10&offset=',
+        'detail': 'http://www.tmtpost.com/'
+    },
+    'kaiyan': {
+        'home_index': 'http://baobab.kaiyanapp.com/api/v4/tabs/selected?udid=e6ff9949782643bb9f5be5e930d1459d2f53088a&vc'
+                '=218&vn=3.9.0&deviceModel=ONEPLUS%20A5000&first_channel=eyepetizer_PP_market&last_channel'
+                '=eyepetizer_PP_market&system_version_code=25&lastStartId=0',
+        'weekly_index': 'http://baobab.kaiyanapp.com/api/v4/rankList/videos?strategy=weekly&udid'
+                  '=e6ff9949782643bb9f5be5e930d1459d2f53088a&vc=218&vn=3.9.0&deviceModel=ONEPLUS%20A5000'
+                  '&first_channel=eyepetizer_PP_market&last_channel=eyepetizer_PP_market&system_version_code=25',
+        'life': 'http://baobab.kaiyanapp.com/api/v4/categories/videoList?num=10&strategy=date&id=36&start=@page',
+        'sport': 'http://baobab.kaiyanapp.com/api/v4/categories/videoList?num=10&strategy=date&id=18&start=@page',
+        'idea': 'http://baobab.kaiyanapp.com/api/v4/categories/videoList?num=10&strategy=date&id=2&start=@page',
+        'adv': 'http://baobab.kaiyanapp.com/api/v4/categories/videoList?num=10&strategy=date&id=14&start=@page',
+        "music": 'http://baobab.kaiyanapp.com/api/v4/categories/videoList?num=10&strategy=date&id=20&start=@page',
+        "travel": 'http://baobab.kaiyanapp.com/api/v4/categories/videoList?num=10&strategy=date&id=6&start=@page',
+        'fashion': 'http://baobab.kaiyanapp.com/api/v4/categories/videoList?num=10&strategy=date&id=24&start=@page',
+        'notes': 'http://baobab.kaiyanapp.com/api/v4/categories/videoList?num=10&strategy=date&id=22&start=@page',
+        'starter': 'http://baobab.kaiyanapp.com/api/v4/categories/videoList?num=10&strategy=date&id=4&start=@page',
+        'game': 'http://baobab.kaiyanapp.com/api/v4/categories/videoList?num=10&strategy=date&id=30&start=@page',
+        'pet': 'http://baobab.kaiyanapp.com/api/v4/categories/videoList?num=10&strategy=date&id=26&start=@page',
+        'animation': 'http://baobab.kaiyanapp.com/api/v4/categories/videoList?num=10&strategy=date&id=10&start=@page',
+        'technology': 'http://baobab.kaiyanapp.com/api/v4/categories/videoList?num=10&strategy=date&id=32&start=@page',
+        'plot': 'http://baobab.kaiyanapp.com/api/v4/categories/videoList?num=10&strategy=date&id=12&start=@page',
+        'amuse': 'http://baobab.kaiyanapp.com/api/v4/categories/videoList?num=10&strategy=date&id=28&start=@page',
+        'advance': 'http://baobab.kaiyanapp.com/api/v4/categories/videoList?num=10&strategy=date&id=8&start=@page',
+        'show': 'http://baobab.kaiyanapp.com/api/v4/categories/videoList?num=10&strategy=date&id=38&start=@page',
+        'collect': 'http://baobab.kaiyanapp.com/api/v4/categories/videoList?num=10&strategy=date&id=34&start=@page',
+        'start': '0'
+    },
+    'vmovie': {
+        'home': 'https://app.vmovier.com/apiv3/index/getIndexPosts/lastid/@page',
+        'hot': 'https://app.vmovier.com/apiv3/post/getPostByTab?size=10&tab=hot&p=@page',
+        'idea': 'https://app.vmovier.com/apiv3/post/getPostInCate?size=10&cateid=6&p=@page',
+        'travel': 'https://app.vmovier.com/apiv3/post/getPostInCate?size=10&cateid=11&p=@page',
+        'adv': 'https://app.vmovier.com/apiv3/post/getPostInCate?size=10&cateid=13&p=@page',
+        'amuse': 'https://app.vmovier.com/apiv3/post/getPostInCate?size=10&cateid=8&p=@page',
+        'love': 'https://app.vmovier.com/apiv3/post/getPostInCate?size=10&cateid=12&p=@page',
+        'plot': 'https://app.vmovier.com/apiv3/post/getPostInCate?size=10&cateid=17&p=@page',
+        'sport': 'https://app.vmovier.com/apiv3/post/getPostInCate?size=10&cateid=10&p=@page',
+        'animation': 'https://app.vmovier.com/apiv3/post/getPostInCate?size=10&cateid=16&p=@page',
+        'lizhi': 'https://app.vmovier.com/apiv3/post/getPostInCate?size=10&cateid=7&p=@page',
+        'music': 'https://app.vmovier.com/apiv3/post/getPostInCate?size=10&cateid=18&p=@page',
+        'science': 'https://app.vmovier.com/apiv3/post/getPostInCate?size=10&cateid=23&p=@page',
+        'advance': 'https://app.vmovier.com/apiv3/post/getPostInCate?size=10&cateid=43&p=@page',
+        'note': 'https://app.vmovier.com/apiv3/post/getPostInCate?size=10&cateid=24&p=@page',
+        'mix': 'https://app.vmovier.com/apiv3/post/getPostInCate?size=10&cateid=44&p=@page',
+        'experiment': 'https://app.vmovier.com/apiv3/post/getPostInCate?size=10&cateid=45&p=@page',
+        'life': 'https://app.vmovier.com/apiv3/post/getPostInCate?size=10&cateid=78&p=@page',
+        'start': '1',
+        'home_start': '0'
+    },
+    "guokr": {
+        'home_index': 'http://apis.guokr.com/handpick/v2/article.json?retrieve_type=by_touch_move&move_type=down',
+        'home': 'http://apis.guokr.com/handpick/v2/article.json?retrieve_type=by_touch_move&move_type=up&refresh_pick_id=@page',
+        'science': 'http://apis.guokr.com/handpick/v2/article.json?retrieve_type=by_offset&limit=10&category=science&offset=@page',
+        'game': 'http://apis.guokr.com/handpick/v2/article.json?retrieve_type=by_offset&limit=10&category=game&offset=@page',
+        'gossip': 'http://apis.guokr.com/handpick/v2/article.json?retrieve_type=by_offset&limit=10&category=gossip&offset=@page',
+        'funny': 'http://apis.guokr.com/handpick/v2/article.json?retrieve_type=by_offset&limit=10&category=funny&offset=@page',
+        'life': 'http://apis.guokr.com/handpick/v2/article.json?retrieve_type=by_offset&limit=10&category=life&offset=@page',
+        'health': 'http://apis.guokr.com/handpick/v2/article.json?retrieve_type=by_offset&limit=10&category=health&offset=@page',
+        'learning': 'http://apis.guokr.com/handpick/v2/article.json?retrieve_type=by_offset&limit=10&category=learning&offset=@page',
+        'humanities': 'http://apis.guokr.com/handpick/v2/article.json?retrieve_type=by_offset&limit=10&category=humanities&offset=@page',
+        'nature': 'http://apis.guokr.com/handpick/v2/article.json?retrieve_type=by_offset&limit=10&category=nature&offset=@page',
+        'entertainment': 'http://apis.guokr.com/handpick/v2/article.json?retrieve_type=by_offset&limit=10&category=entertainment&offset=@page',
+        'start': '0'
+    }
+}
+
 
 # 每一个 item 都对应着打开方式
 v3_open_type = {
