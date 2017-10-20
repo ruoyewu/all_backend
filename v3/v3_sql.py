@@ -1,4 +1,5 @@
 import pymysql
+import time
 
 host = 'localhost'
 username = 'root'
@@ -8,32 +9,33 @@ db_name = 'allapp'
 start_transaction = "START TRANSACTION"
 transaction_commit = "COMMIT"
 
+query_user_id = "select name from user WHERE id = '%d'"
 query_user_name = "select * from user where name = '%s'"
-insert_user_name_pass = "insert into user (name, password) values ('%s', '%s')"
+insert_user_name_pass_time = "insert into user (name, password, create_time) values ('%s', '%s', '%d')"
 
 insert_article_sql = "insert into article values('%s', '%s')"
 query_article_sql = "select * from article WHERE `key`= '%s'"
 
-insert_comment_sql = "insert into comment (time, username, content, `key`, parent) values " \
-                     "('%d', '%s', '%s', '%s', '%d')"
+insert_comment_sql = "insert into comment (time, userid, content, `key`, parent) values " \
+                     "('%d', '%d', '%s', '%s', '%d')"
 query_comment_sql = "select * from comment WHERE `key` = '%s' ORDER BY `time` desc limit 10"
 query_comment_below_sql = "select * from comment WHERE `key` = '%s' and `time` < '%d' order by `time` desc limit 10"
 query_comment_id_sql = "select * from comment WHERE  id = '%d'"
-query_comment_time_user_sql = "select * from comment WHERE time = '%d' and username = '%s'"
+query_comment_time_user_sql = "select * from comment WHERE time = '%d' and userid = '%d'"
 query_comment_key_count = "select count(*) from comment where `key` = '%s'"
 query_comment_parent = "select * from comment where parent = '%d'"
 delete_comment_id_sql = "delete from comment where id = '%d'"
 
-insert_love_key_user = "insert into love (`key`, username) values ('%s', '%s')"
-delete_love_key_user = "delete from love where `key` = '%s' and username = '%s'"
+insert_love_key_user = "insert into love (`key`, userid) values ('%s', '%d')"
+delete_love_key_user = "delete from love where `key` = '%s' and userid = '%d'"
 query_love_key_count = "select count(*) from love WHERE `key` = '%s'"
-query_love_key_user = "select * from love WHERE `key` = '%s' and username = '%s'"
+query_love_key_user = "select * from love WHERE `key` = '%s' and userid = '%d'"
 
-insert_favorite_sql = "insert into favorite (username, info, `time`, `key`) values ('%s', '%s', '%d', '%s')"
-query_favorite_sql = "select * from favorite where username = '%s' order by `time` desc limit 10"
-query_favorite_time_sql = "select * from favorite where username = '%s' and `time` < '%d' order by `time` desc limit 10"
-query_favorite_user_key_sql = "select * from favorite where username = '%s' and `key` = '%s'"
-delete_favorite_user_key = "delete from favorite where username = '%s' and `key` = '%s'"
+insert_favorite_sql = "insert into favorite (userid, info, `time`, `key`) values ('%d', '%s', '%d', '%s')"
+query_favorite_sql = "select * from favorite where userid = '%d' order by `time` desc limit 10"
+query_favorite_time_sql = "select * from favorite where userid = '%d' and `time` < '%d' order by `time` desc limit 10"
+query_favorite_user_key_sql = "select * from favorite where userid = '%d' and `key` = '%s'"
+delete_favorite_user_key = "delete from favorite where userid = '%d' and `key` = '%s'"
 
 
 # user
@@ -48,7 +50,7 @@ def user_login(name, password):
         info = "没有此用户"
     elif data[2] == password:
         result = True
-        info = str(data[0])
+        info = {'id': data[0], 'name': data[1]}
     else:
         result = False
         info = "密码错误"
@@ -79,7 +81,9 @@ def user_sign(name, password):
         data = get_user_name(name, cur)
         if data == 'no':
             try:
-                cur.execute(insert_user_name_pass % (name, password))
+                t = time.time()
+                t = int(t * 1000)
+                cur.execute(insert_user_name_pass_time % (name, password, t))
                 conn.commit()
             except:
                 pass
@@ -90,7 +94,7 @@ def user_sign(name, password):
                 info = "注册失败"
             else:
                 result = True
-                info = str(data[0])
+                info = {'id': data[0], 'name': data[1]}
         else:
             result = False
             info = "用户名已存在"
@@ -128,10 +132,10 @@ def get_article(key):
     return result
 
 
-def get_article_info(key, username):
+def get_article_info(key, userid):
     conn, cur = openDB()
 
-    cur.execute(query_love_key_user % (key, username))
+    cur.execute(query_love_key_user % (key, userid))
     result = cur.fetchone()
 
     if result is None:
@@ -145,7 +149,7 @@ def get_article_info(key, username):
     cur.execute(query_comment_key_count % key)
     comment_num = cur.fetchone()[0]
 
-    favorite = get_favorite_key_user(key, username, cur)
+    favorite = get_favorite_key_user(key, userid, cur)
 
     closeDB(conn, cur)
 
@@ -160,19 +164,19 @@ def get_article_info(key, username):
 # favorite
 
 
-def put_favorite(username, time, info, key, favorite):
+def put_favorite(userid, time, info, key, favorite):
     conn, cur = openDB()
 
     if favorite == '0':
-        cur.execute(delete_favorite_user_key % (username, key))
+        cur.execute(delete_favorite_user_key % (userid, key))
     else:
-        if get_favorite_key_user(key, username, cur):
+        if get_favorite_key_user(key, userid, cur):
             pass
         else:
-            cur.execute(insert_favorite_sql % (username, info, time, key))
+            cur.execute(insert_favorite_sql % (userid, info, time, key))
     conn.commit()
 
-    result = get_favorite_key_user(key, username, cur)
+    result = get_favorite_key_user(key, userid, cur)
 
     closeDB(conn, cur)
 
@@ -181,13 +185,13 @@ def put_favorite(username, time, info, key, favorite):
     }
 
 
-def get_favorite_time(username, time):
+def get_favorite_time(userid, time):
     conn, cur = openDB()
 
     if time == 0:
-        cur.execute(query_favorite_sql % username)
+        cur.execute(query_favorite_sql % userid)
     else:
-        cur.execute(query_favorite_time_sql % (username, time))
+        cur.execute(query_favorite_time_sql % (userid, time))
 
     favorite_list = []
     list = cur.fetchall()
@@ -237,7 +241,7 @@ def get_comment_list(key, time):
             comment_list.append(parseCommentData(item, cur))
 
     closeDB(conn, cur)
-    if len(comment_list) >=10:
+    if len(comment_list) >= 10:
         next = comment_list[9]['time']
     else:
         next = -1
@@ -250,18 +254,18 @@ def get_comment_list(key, time):
     }
 
 
-def put_comment(key, time, username, content, parent):
+def put_comment(key, time, userid, content, parent):
     conn, cur = openDB()
 
     try:
-        cur.execute(insert_comment_sql % (time, username, content, key, parent))
+        cur.execute(insert_comment_sql % (time, userid, content, key, parent))
         conn.commit()
         result = 'ok'
     except:
         result = 'error'
 
     if result == 'ok':
-        cur.execute(query_comment_time_user_sql % (time, username))
+        cur.execute(query_comment_time_user_sql % (time, userid))
         data = cur.fetchone()
         if data is None:
             result = False
@@ -339,7 +343,7 @@ def closeDB(conn, cur):
 def parseCommentData(data, cur):
     id = data[0]
     time = data[1]
-    username = data[2]
+    userid = data[2]
     content = data[3]
     key = data[4]
     parent = data[5]
@@ -349,14 +353,15 @@ def parseCommentData(data, cur):
         if p is None:
             parent = ''
         else:
-            parent = p[2] + ' : ' + p[3]
+            parent = get_username(p[2], cur) + ' : ' + p[3]
     else:
         parent = ''
 
     return {
         'id': id,
         'time': time,
-        'username': username,
+        'userid': userid,
+        'username': get_username(userid, cur),
         'content': content,
         'key': key,
         'parent': parent
@@ -383,8 +388,8 @@ def get_comment_parent(parent, cur):
     return id_list
 
 
-def get_love_key_user(key, username, cur):
-    cur.execute(query_love_key_user % (key, username))
+def get_love_key_user(key, userid, cur):
+    cur.execute(query_love_key_user % (key, userid))
     result = cur.fetchone()
 
     if result is None:
@@ -404,21 +409,21 @@ def get_user_name(name, cur):
 
 
 def parseFavoriteData(data):
-    username = data[0]
+    userid = data[0]
     info = data[1]
     time = data[2]
     key = data[3]
 
     return {
-        'username': username,
+        'userid': userid,
         'info': info,
         'time': time,
         'key': key
     }
 
 
-def get_favorite_key_user(key, username, cur):
-    cur.execute(query_favorite_user_key_sql % (username, key))
+def get_favorite_key_user(key, userid, cur):
+    cur.execute(query_favorite_user_key_sql % (userid, key))
     data = cur.fetchone()
     if data is None:
         return False
@@ -426,7 +431,16 @@ def get_favorite_key_user(key, username, cur):
         return True
 
 
+def get_username(userid, cur):
+    cur.execute(query_user_id % userid)
+    data = cur.fetchone()
+    if data is None:
+        return 'no user'
+    else:
+        return data[0]
+
+
 if __name__ == '__main__':
     print(
-        get_favorite_time('ruoye', 12345657)
+        put_favorite(2, 123435, 'info', 'key', '1')
     )
