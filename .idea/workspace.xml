@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="adb2b422-3cff-4fce-90e9-0296bd56140a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/v3/v3_sql.py" afterPath="$PROJECT_DIR$/v3/v3_sql.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/v3/v3_main.py" afterPath="$PROJECT_DIR$/v3/v3_main.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -77,11 +77,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="v3_sql.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="v3_sql.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/v3/v3_sql.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="223">
-              <caret line="316" column="0" lean-forward="true" selection-start-line="316" selection-start-column="0" selection-end-line="316" selection-end-column="0" />
+            <state relative-caret-position="137">
+              <caret line="399" column="9" lean-forward="false" selection-start-line="399" selection-start-column="9" selection-end-line="399" selection-end-column="9" />
               <folding>
                 <element signature="e#542#666#0" expanded="false" />
                 <element signature="e#2093#2463#0" expanded="false" />
@@ -134,7 +134,6 @@
                 <element signature="e#8822#8985#0" expanded="false" />
                 <element signature="e#9029#9201#0" expanded="false" />
                 <element signature="e#9460#9586#0" expanded="false" />
-                <element signature="e#9855#10009#0" expanded="false" />
                 <element signature="e#10047#10187#0" expanded="false" />
                 <element signature="e#10221#10285#0" expanded="false" />
                 <marker date="1508487404856" expanded="false" signature="195:232" ph="select name user" />
@@ -176,6 +175,16 @@
           <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
             <state>
               <filtering enabled="true" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="v3_main.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/v3/v3_main.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="287">
+              <caret line="141" column="42" lean-forward="true" selection-start-line="141" selection-start-column="42" selection-end-line="141" selection-end-column="42" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -251,9 +260,9 @@
         <option value="$PROJECT_DIR$/v3/demo.json" />
         <option value="$PROJECT_DIR$/v3/app.json" />
         <option value="$PROJECT_DIR$/v3/v3_const.py" />
-        <option value="$PROJECT_DIR$/v3/v3_main.py" />
         <option value="$PROJECT_DIR$/v3/v3_list.py" />
         <option value="$PROJECT_DIR$/v3/v3_sql.py" />
+        <option value="$PROJECT_DIR$/v3/v3_main.py" />
       </list>
     </option>
   </component>
@@ -884,7 +893,14 @@
       <option name="project" value="LOCAL" />
       <updated>1508487023835</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="增加 用户表 id列">
+      <created>1508487408096</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1508487408096</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1014,7 +1030,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="115" />
+      <option name="time" value="116" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
@@ -1270,7 +1286,6 @@
             <element signature="e#8822#8985#0" expanded="false" />
             <element signature="e#9029#9201#0" expanded="false" />
             <element signature="e#9460#9586#0" expanded="false" />
-            <element signature="e#9855#10009#0" expanded="false" />
             <element signature="e#10047#10187#0" expanded="false" />
             <element signature="e#10221#10285#0" expanded="false" />
             <marker date="1508487404856" expanded="false" signature="195:232" ph="select name user" />
@@ -1557,29 +1572,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/v3/v3_main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="589">
-          <caret line="149" column="0" lean-forward="false" selection-start-line="149" selection-start-column="0" selection-end-line="149" selection-end-column="0" />
-          <folding>
-            <element signature="e#343#367#0" expanded="false" />
-            <element signature="e#418#661#0" expanded="false" />
-            <element signature="e#718#876#0" expanded="false" />
-            <element signature="e#953#1166#0" expanded="false" />
-            <element signature="e#1227#1393#0" expanded="false" />
-            <element signature="e#1470#1780#0" expanded="false" />
-            <element signature="e#1839#2002#0" expanded="false" />
-            <element signature="e#2067#2185#0" expanded="false" />
-            <element signature="e#2250#2418#0" expanded="false" />
-            <element signature="e#2483#2681#0" expanded="false" />
-            <element signature="e#3208#3403#0" expanded="false" />
-            <element signature="e#3485#3543#0" expanded="false" />
-            <element signature="e#3622#3917#0" expanded="false" />
-            <element signature="e#3978#4155#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="das://table:/54dc8ed2/f0b333fb-47e0-4dcc-b8d9-a106a11deb24/allapp.comment">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -1601,18 +1593,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/v3/v3_sql.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="316" column="0" lean-forward="true" selection-start-line="316" selection-start-column="0" selection-end-line="316" selection-end-column="0" />
+        <state relative-caret-position="137">
+          <caret line="399" column="9" lean-forward="false" selection-start-line="399" selection-start-column="9" selection-end-line="399" selection-end-column="9" />
           <folding>
             <element signature="e#542#666#0" expanded="false" />
             <element signature="e#2093#2463#0" expanded="false" />
@@ -1665,7 +1649,6 @@
             <element signature="e#8822#8985#0" expanded="false" />
             <element signature="e#9029#9201#0" expanded="false" />
             <element signature="e#9460#9586#0" expanded="false" />
-            <element signature="e#9855#10009#0" expanded="false" />
             <element signature="e#10047#10187#0" expanded="false" />
             <element signature="e#10221#10285#0" expanded="false" />
             <marker date="1508487404856" expanded="false" signature="195:232" ph="select name user" />
@@ -1698,6 +1681,22 @@
             <marker date="1508487404856" expanded="false" signature="1898:1957" ph="select * fro... favorite" />
             <marker date="1508487404856" expanded="false" signature="1987:2044" ph="delete from " />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/v3/v3_main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="287">
+          <caret line="141" column="42" lean-forward="true" selection-start-line="141" selection-start-column="42" selection-end-line="141" selection-end-column="42" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -59,7 +59,7 @@ def v3_get_detail():
 @v3_app.route('/comment/add', methods=['POST'])
 def v3_add_comment():
     time = int(request.form['time'])
-    username = request.form['username']
+    username = int(request.form['userid'])
     content = request.form['content'].strip()
     key = request.form['key']
     parent = int(request.form['parent'])
@@ -88,7 +88,7 @@ def v3_delete_comment():
 @v3_app.route('/article/info')
 def v3_get_article_info():
     key = request.args['key']
-    username = request.args['username']
+    username = int(request.args['userid'])
 
     result = v3_sql.get_article_info(key, username)
     return json.dumps(result, ensure_ascii=False)
@@ -97,7 +97,7 @@ def v3_get_article_info():
 @v3_app.route('/article/love')
 def v3_set_article_love():
     key = request.args['key']
-    username = request.args['username']
+    username = int(request.args['userid'])
     love = request.args['love']
 
     result = v3_sql.set_love(key, username, love)
@@ -126,20 +126,20 @@ def v3_user_sign():
 @v3_app.route('/user/avatar', methods=['POST'])
 def v3_user_avatar():
     file = request.files['image']
-    username = request.form['username']
+    userid = request.form['userid']
     filename = secure_filename(file.filename)
-    file.save(os.path.join(file_dir, username + ".avatar"))
+    file.save(os.path.join(file_dir, userid + ".avatar"))
     return filename
 
 
-@v3_app.route('/user/avatar/<username>')
-def v3_user_avatar_get(username):
-    return send_from_directory(file_dir, username + ".avatar")
+@v3_app.route('/user/avatar/<userid>')
+def v3_user_avatar_get(userid):
+    return send_from_directory(file_dir, userid + ".avatar")
 
 
 @v3_app.route('/favorite/put', methods=['POST'])
 def v3_favorite_put():
-    username = request.form['username']
+    username = int(request.form['userid'])
     info = request.form['info']
     time = int(request.form['time'])
     key = request.form['key']
@@ -151,7 +151,7 @@ def v3_favorite_put():
 
 @v3_app.route('/favorite/get')
 def v3_favorite_get():
-    username = request.args['username']
+    username = int(request.args['userid'])
     time = int(request.args['time'])
 
     result = v3_sql.get_favorite_time(username, time)
