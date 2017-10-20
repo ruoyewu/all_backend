@@ -303,19 +303,19 @@ def delete_comment(id):
 # love
 
 
-def set_love(key, username, love):
+def set_love(key, userid, love):
     conn, cur = openDB()
 
     if love == '0':
-        cur.execute(delete_love_key_user % (key, username))
+        cur.execute(delete_love_key_user % (key, userid))
     else:
-        if get_love_key_user(key, username, cur):
+        if get_love_key_user(key, userid, cur):
             pass
         else:
-            cur.execute(insert_love_key_user % (key, username))
+            cur.execute(insert_love_key_user % (key, userid))
     conn.commit()
 
-    if get_love_key_user(key, username, cur):
+    if get_love_key_user(key, userid, cur):
         result = True
     else:
         result = False
