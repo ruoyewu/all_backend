@@ -46,9 +46,9 @@ def user_login(name, password):
     if data == 'no':
         result = False
         info = "没有此用户"
-    elif data == password:
+    elif data[2] == password:
         result = True
-        info = name
+        info = str(data[0])
     else:
         result = False
         info = "密码错误"
@@ -90,7 +90,7 @@ def user_sign(name, password):
                 info = "注册失败"
             else:
                 result = True
-                info = name
+                info = str(data[0])
         else:
             result = False
             info = "用户名已存在"
@@ -400,8 +400,6 @@ def get_user_name(name, cur):
     result = cur.fetchone()
     if result is None:
         result = 'no'
-    else:
-        result = result[1]
     return result
 
 
