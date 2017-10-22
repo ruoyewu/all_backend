@@ -409,10 +409,10 @@ def get_user_name(name, cur):
 
 
 def parseFavoriteData(data):
-    userid = data[0]
-    info = data[1]
-    time = data[2]
-    key = data[3]
+    userid = data[1]
+    info = data[2]
+    time = data[3]
+    key = data[4]
 
     return {
         'userid': userid,
@@ -442,5 +442,5 @@ def get_username(userid, cur):
 
 if __name__ == '__main__':
     print(
-        put_favorite(2, 123435, 'info', 'key', '1')
+        user_sign("fadsf", "fadsfasdfas")
     )

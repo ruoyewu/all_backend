@@ -171,6 +171,8 @@ def _v3_get_ifanr_list(category, page, content):
     content_list = content['data']
 
     list = []
+    if page == '0':
+        page = '1'
     next = str(int(page) + 1)
     for i in range(len(content_list)):
         item = content_list[i]

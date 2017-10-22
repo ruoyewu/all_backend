@@ -564,6 +564,9 @@ v3_api = {
         'weekly_index': 'http://baobab.kaiyanapp.com/api/v4/rankList/videos?strategy=weekly&udid'
                   '=e6ff9949782643bb9f5be5e930d1459d2f53088a&vc=218&vn=3.9.0&deviceModel=ONEPLUS%20A5000'
                   '&first_channel=eyepetizer_PP_market&last_channel=eyepetizer_PP_market&system_version_code=25',
+        'home': 'http://baobab.kaiyanapp.com/api/v4/tabs/selected?udid=e6ff9949782643bb9f5be5e930d1459d2f53088a&vc'
+                '=218&vn=3.9.0&deviceModel=ONEPLUS%20A5000&first_channel=eyepetizer_PP_market&last_channel'
+                '=eyepetizer_PP_market&system_version_code=25&lastStartId=0',
         'life': 'http://baobab.kaiyanapp.com/api/v4/categories/videoList?num=10&strategy=date&id=36&start=@page',
         'sport': 'http://baobab.kaiyanapp.com/api/v4/categories/videoList?num=10&strategy=date&id=18&start=@page',
         'idea': 'http://baobab.kaiyanapp.com/api/v4/categories/videoList?num=10&strategy=date&id=2&start=@page',
