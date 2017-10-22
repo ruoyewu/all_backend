@@ -459,9 +459,9 @@ v3_api = {
         'game': 'https://sspai.com/api/v1/articles?limit=10&has_tag=1&tag=游戏&type=recommend_to_home&offset=@page',
         'hard': 'https://sspai.com/api/v1/articles?limit=10&has_tag=1&tag=硬件&type=recommend_to_home&offset=@page',
         'people': 'https://sspai.com/api/v1/articles?limit=10&has_tag=1&tag=人物&type=recommend_to_home&offset=@page',
-        'mac': 'https://sspai.com/api/v1/articles?limit=20&has_tag=1&tag=mac&offset=@page',
-        'ios': 'https://sspai.com/api/v1/articles?limit=20&has_tag=1&tag=ios&offset=@page',
-        'android': 'https://sspai.com/api/v1/articles?limit=20&has_tag=1&tag=android&offset=@page',
+        'mac': 'https://sspai.com/api/v1/articles?limit=10&has_tag=1&tag=mac&offset=@page',
+        'ios': 'https://sspai.com/api/v1/articles?limit=10&has_tag=1&tag=ios&offset=@page',
+        'android': 'https://sspai.com/api/v1/articles?limit=10&has_tag=1&tag=android&offset=@page',
         'start': '0'
     },
     'juzi': {

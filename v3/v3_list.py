@@ -352,6 +352,8 @@ def _v3_get_juzi_list(category, page, content):
         info['original_url'] = url
         list.append(info)
 
+    if page == '0':
+        page = '1'
     next = str(int(page) + 1)
     result = {
         'name': 'juzi',
@@ -515,6 +517,8 @@ def _v3_get_vmovie_list(category, page, content):
         next = data['lastid']
         content_list = data['list']
     else:
+        if page == '0':
+            page = '1'
         next = str(int(page) + 1)
         content_list = content['data']
 
