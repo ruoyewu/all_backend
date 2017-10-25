@@ -339,6 +339,10 @@ v3_categories = {
         'nature': 'http://apis.guokr.com/handpick/v2/article.json?retrieve_type=by_offset&limit=10&category=nature&offset=',
         'entertainment': 'http://apis.guokr.com/handpick/v2/article.json?retrieve_type=by_offset&limit=10&category=entertainment&offset=',
         'detail': 'http://jingxuan.guokr.com/pick/v2/'
+    },
+    "dgtle": {
+        'home': 'http://www.dgtle.com/portal.php?mod=index&ajaxlist=1&mobile=yes&page=',
+        'detail': 'http://www.dgtle.com/article-@id-1.html'
     }
 }
 
@@ -622,6 +626,10 @@ v3_api = {
         'humanities': 'http://apis.guokr.com/handpick/v2/article.json?retrieve_type=by_offset&limit=10&category=humanities&offset=@page',
         'nature': 'http://apis.guokr.com/handpick/v2/article.json?retrieve_type=by_offset&limit=10&category=nature&offset=@page',
         'entertainment': 'http://apis.guokr.com/handpick/v2/article.json?retrieve_type=by_offset&limit=10&category=entertainment&offset=@page',
+        'start': '0'
+    },
+    'dgtle': {
+        'home': 'http://www.dgtle.com/portal.php?mod=index&ajaxlist=1&mobile=yes&page=@page',
         'start': '0'
     }
 }

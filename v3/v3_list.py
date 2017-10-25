@@ -73,6 +73,10 @@ def v3_get_list(name, category, page):
             url = v3_const.v3_categories[name][category] + page
         content = requests.get(url).json()
         return _v3_get_vmovie_list(category, page, content)
+    elif name == 'dgtle':
+        url = v3_const.v3_categories[name][category] + page
+        content = requests.get(url).text
+        return _v3_get_dgtle_list(category, page, content)
 
 
 def v3_get_list2(name, category, page, content):
@@ -98,6 +102,8 @@ def v3_get_list2(name, category, page, content):
         return _v3_get_kaiyan_list(category, page, content)
     elif name == 'vmovie':
         return _v3_get_vmovie_list(category, page, content)
+    elif name == 'dgtle':
+        return _v3_get_dgtle_list(category, page, content)
 
 
 def _v3_get_one_list(category, page, content):
@@ -553,6 +559,44 @@ def _v3_get_vmovie_list(category, page, content):
         'category': category,
         'list': list,
         'next': next
+    }
+    return json.dumps(result, ensure_ascii=False)
+
+
+def _v3_get_dgtle_list(category, page, content):
+    content = content.replace('<![CDATA[', '')
+    content_soup = BeautifulSoup(content, 'html.parser')
+    content_list = content_soup.find_all(name=['dl'])
+
+    next = str(int(page) + 1)
+
+    list = []
+    for i in range(len(content_list)):
+        item = content_list[i]
+        item_soup = BeautifulSoup(str(item), 'html.parser')
+        title_item = item_soup.find('dt', attrs={'class': ['zjj_title']})
+        title = title_item.text
+        url = title_item.a['href']
+        id = url.split('-')[1]
+        forward = item_soup.find('dd', attrs={'class': ['cr_summary']}).text
+        age = item_soup.find('div', attrs={'class': ['article_date']}).text
+        author = item_soup.find('div', attrs={'class': ['cr_author']}).text
+        type = item_soup.find('div', attrs={'class': ['portallist_cat']}).text
+        info = v3_const.v3_get_default_list_item()
+        info['id'] = id
+        info['title'] = title
+        info['original_url'] = url
+        info['forward'] = forward
+        info['age'] = age
+        info['author'] = author
+        info['type'] = type
+        list.append(info)
+
+    result = {
+        'name': 'dgtle',
+        'category': category,
+        'next': next,
+        'list': list
     }
     return json.dumps(result, ensure_ascii=False)
 
