@@ -582,9 +582,14 @@ def _v3_get_dgtle_list(category, page, content):
         age = item_soup.find('div', attrs={'class': ['article_date']}).text
         author = item_soup.find('div', attrs={'class': ['cr_author']}).text
         type = item_soup.find('div', attrs={'class': ['portallist_cat']}).text
+        try:
+            image = item.dd.a['style'].split('\'')[1]
+        except:
+            image = ''
         info = v3_const.v3_get_default_list_item()
         info['id'] = id
         info['title'] = title
+        info['image'] = image
         info['original_url'] = url
         info['forward'] = forward
         info['age'] = age
