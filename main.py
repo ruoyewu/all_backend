@@ -1,6 +1,4 @@
-import json
 
-import requests
 from flask import Flask
 
 from v2 import v2_main
@@ -11,5 +9,5 @@ app.register_blueprint(v2_main.v2_app)
 app.register_blueprint(v3_main.v3_app)
 
 
-app.run(host='0.0.0', port=80, debug=False)
+app.run(host='0.0.0', port=3421, debug=False)
 

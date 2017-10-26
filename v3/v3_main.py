@@ -42,8 +42,10 @@ def v3_get_list2():
     category = request.form['category']
     page = request.form['page']
     content = request.form['content']
-
-    return v3_list.v3_get_list2(name, category, page, json.loads(content))
+    if name == 'dgtle':
+        return v3_list.v3_get_list2(name, category, page, content)
+    else:
+        return v3_list.v3_get_list2(name, category, page, json.loads(content))
 
 
 @v3_app.route('/article/detail')
