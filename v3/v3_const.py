@@ -627,7 +627,7 @@ v3_api = {
     },
     'dgtle': {
         'home': 'http://www.dgtle.com/portal.php?mod=index&ajaxlist=1&mobile=yes&page=@page',
-        'start': '0'
+        'start': '1'
     }
 }
 

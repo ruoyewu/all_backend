@@ -6,8 +6,8 @@ from werkzeug.utils import secure_filename
 
 from v3 import v3_list, v3_detail, v3_sql, v3_const
 
-# file_dir = '/home/ubuntu/project/file/all/avatar/'
-file_dir = ' /Users/wuruoye/Documents/python/all_app/avatar/'
+file_dir = '/home/ubuntu/project/file/all/avatar/'
+# file_dir = ' /Users/wuruoye/Documents/python/all_app/avatar/'
 
 v3_app = Blueprint('v3', __name__, url_prefix='/v3')
 
