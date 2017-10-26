@@ -6,7 +6,8 @@ from werkzeug.utils import secure_filename
 
 from v3 import v3_list, v3_detail, v3_sql, v3_const
 
-file_dir = '/home/ubuntu/project/file/all/avatar/'
+# file_dir = '/home/ubuntu/project/file/all/avatar/'
+file_dir = ' /Users/wuruoye/Documents/python/all_app/avatar/'
 
 v3_app = Blueprint('v3', __name__, url_prefix='/v3')
 
@@ -127,7 +128,7 @@ def v3_user_sign():
 
 @v3_app.route('/user/avatar', methods=['POST'])
 def v3_user_avatar():
-    file = request.files['image']
+    file = request.files['file']
     userid = request.form['userid']
     filename = secure_filename(file.filename)
     file.save(os.path.join(file_dir, userid + ".avatar"))
