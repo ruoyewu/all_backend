@@ -11,6 +11,5 @@ app.register_blueprint(v2_main.v2_app)
 app.register_blueprint(v3_main.v3_app)
 
 
-if __name__ == '__main__':
-    app.run(debug=True)
+app.run(debug=True)
 

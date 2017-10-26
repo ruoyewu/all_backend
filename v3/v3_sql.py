@@ -3,7 +3,7 @@ import time
 
 host = 'localhost'
 username = 'root'
-password = 'ILYT3421'
+password = 'ruoyetian'
 db_name = 'allapp'
 
 start_transaction = "START TRANSACTION"
