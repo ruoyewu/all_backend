@@ -1,8 +1,8 @@
-from urllib.request import urlopen
-
-from bs4 import BeautifulSoup
-import requests
 import json
+from html.parser import HTMLParser
+
+import requests
+from bs4 import BeautifulSoup
 
 from v3 import v3_const, v3_sql
 
@@ -23,7 +23,10 @@ def v3_detail(name, category, id):
             result = _v3_juzi_detail(category, id)
         elif name == 'guokr':
             result = _v3_guokr_detail(category, id)
-        v3_sql.put_article(key, result)
+        elif name == 'dgtle':
+            result = _v3_dgtle_detail(category, id)
+        if result != 'no':
+            v3_sql.put_article(key, result)
     return result
 
 
@@ -331,3 +334,60 @@ def _v3_guokr_detail(category, id):
     result = v3_const.v3_get_default_detail_item()
     result['content'] = content_list
     return json.dumps(result, ensure_ascii=False)
+
+
+class DgtleParser(HTMLParser):
+    list = []
+    current_type = v3_const.v3_item_type['text']
+
+    def error(self, message):
+        pass
+
+    def handle_starttag(self, tag, attrs):
+        # print(tag, dict(attrs))
+        if tag == 'img':
+            self.list.append({'type': v3_const.v3_item_type['image'], 'info': dict(attrs)['src']})
+        else:
+            try:
+                if tag == 'div' and dict(attrs)['align'] == 'center':
+                    self.current_type = v3_const.v3_item_type['text_cen']
+                elif tag == 'font' and dict(attrs)['size'] == '5':
+                    self.current_type = v3_const.v3_item_type['h2']
+                elif tag == 'font' and dict(attrs)['size'] == '6':
+                    self.current_type = v3_const.v3_item_type['h1']
+                elif tag == 'li':
+                    self.current_type = v3_const.v3_item_type['li']
+                elif tag == 'blockquote':
+                    self.current_type = v3_const.v3_item_type['quote']
+                elif tag == 'div' and dict(attrs)['align'] == 'left':
+                    self.current_type = v3_const.v3_item_type['text']
+                elif tag == 'br':
+                    self.current_type = v3_const.v3_item_type['text']
+            except:
+                pass
+
+    def handle_data(self, data):
+        # print('data:', data)
+        if data.strip() != '':
+            self.list.append({'type': self.current_type, 'info': data.strip()})
+            self.current_type = v3_const.v3_item_type['text']
+
+
+def _v3_dgtle_detail(category, id):
+    url = v3_const.v3_categories['dgtle']['detail'].replace('@id', id)
+    response = requests.get(url)
+
+    soup = BeautifulSoup(response.text, 'html.parser')
+    content = soup.find('div', attrs={'class': 'view_content'})
+
+    parser = DgtleParser()
+    parser.feed(str(content))
+    content_list = parser.list
+
+    result = v3_const.v3_get_default_detail_item()
+    result['content'] = content_list
+    return json.dumps(result, ensure_ascii=False)
+
+
+if __name__ == '__main__':
+    print(_v3_dgtle_detail('home', '20125'))

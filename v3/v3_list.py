@@ -567,6 +567,8 @@ def _v3_get_dgtle_list(category, page, content):
     content_soup = BeautifulSoup(content, 'html.parser')
     content_list = content_soup.find_all(name=['dl'])
 
+    if page == '0':
+        page = '1'
     next = str(int(page) + 1)
 
     list = []

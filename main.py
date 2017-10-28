@@ -1,4 +1,3 @@
-
 from flask import Flask
 
 from v2 import v2_main
@@ -10,5 +9,5 @@ app.register_blueprint(v3_main.v3_app)
 
 app.debug = True
 
-# app.run(port=3421, debug=False)
+# app.run(port=3421)
 
