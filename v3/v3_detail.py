@@ -381,6 +381,7 @@ def _v3_dgtle_detail(category, id):
     content = soup.find('div', attrs={'class': 'view_content'})
 
     parser = DgtleParser()
+    parser.list.clear()
     parser.feed(str(content))
     content_list = parser.list
 
