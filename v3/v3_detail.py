@@ -340,6 +340,11 @@ class DgtleParser(HTMLParser):
     list = []
     current_type = v3_const.v3_item_type['text']
 
+    def __init__(self):
+        super().__init__()
+        self.list.clear()
+        self.current_type = v3_const.v3_item_type['text']
+
     def error(self, message):
         pass
 
@@ -381,7 +386,6 @@ def _v3_dgtle_detail(category, id):
     content = soup.find('div', attrs={'class': 'view_content'})
 
     parser = DgtleParser()
-    parser.list.clear()
     parser.feed(str(content))
     content_list = parser.list
 
