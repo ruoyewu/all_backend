@@ -613,7 +613,7 @@ def _v3_get_dgtle_list(category, page, content):
 def __v3_get_ifanr_detail(content):
     list = []
     soup = BeautifulSoup(str(content), 'html.parser')
-    items = soup.find_all(name=['p', 'img', 'h3', 'blockquote', 'li'])
+    items = soup.find_all(name=['p', 'img', 'h3', 'blockquote', 'li', 'iframe'])
 
     for i in range(len(items)):
         item = items[i]
@@ -640,9 +640,15 @@ def __v3_get_ifanr_detail(content):
         elif item.name == 'li':
             type = v3_const.v3_item_type['li']
             info = item.text
+        elif item.name == 'iframe':
+            try:
+                info = item['src']
+            except:
+                info = ''
+            type = v3_const.v3_item_type['video']
 
         if info.strip() != '':
-            list.append({'type': type, 'info': info})
+            list.append({'type': type, 'info': info.strip()})
 
     return list
 
