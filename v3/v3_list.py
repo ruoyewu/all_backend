@@ -427,7 +427,10 @@ def _v3_get_kaiyan_list(category, page, content):
         image = data['cover']['detail']
         type = data['category']
         video = data['playUrl']
-        url = data['webUrl']['raw']
+        try:
+            url = data['webUrl']['raw']
+        except:
+            url = ''
         try:
             author = data['author']['name']
         except:
