@@ -99,7 +99,7 @@ def _v3_one_detail(category, id):
             try:
                 if item['style'] == 'color: rgb(128, 128, 128);':
                     if info in content_list[-1]['info'] or info == content_list[-1]['info']:
-                        content_list[-1]['type'] = v3_const.v3_item_type['quote']
+                        content_list[-1]['type'] = v3_const.v3_item_type['text_cen']
             finally:
                 info = ''
         if info == 'http://image.wufazhuce.com/music_copyright_2_2.png' or info == 'http://image.wufazhuce.com/music_copyright_1.png':
