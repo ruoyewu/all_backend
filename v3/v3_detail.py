@@ -80,7 +80,7 @@ def _v3_one_detail(category, id):
         content = contents[0]
 
     content_soup = BeautifulSoup(str(content), 'html.parser')
-    items = content_soup.find_all(name=['p', 'img'])[1:]
+    items = content_soup.find_all(name=['p', 'img', 'span'])[1:]
     for i in range(len(items)):
         item = items[i]
         type = v3_const.v3_item_type['text']
@@ -95,11 +95,18 @@ def _v3_one_detail(category, id):
         elif item.name == 'img':
             type = v3_const.v3_item_type['image']
             info = item['src']
+        elif item.name == 'span':
+            try:
+                if item['style'] == 'color: rgb(128, 128, 128);':
+                    if info in content_list[-1]['info'] or info == content_list[-1]['info']:
+                        content_list[-1]['type'] = v3_const.v3_item_type['quote']
+            finally:
+                info = ''
         if info == 'http://image.wufazhuce.com/music_copyright_2_2.png' or info == 'http://image.wufazhuce.com/music_copyright_1.png':
             info = ''
-        if info != '':
+        if info.strip() != '':
             info = info.replace('"', '\'')
-            content_list.append({'type': type, 'info': info})
+            content_list.append({'type': type, 'info': info.strip()})
     for i in range(len(editors)):
         editor = editors[i].text
         info = {'type': v3_const.v3_item_type['text_cen'], 'info': editor.replace('"', '\'')}
