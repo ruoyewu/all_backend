@@ -82,10 +82,11 @@ def v3_put_love():
 
 @v3_app.route('/comment/get')
 def v3_get_comment():
+    userid = int(request.args['userid'])
     key = request.args['key']
     below = int(request.args['time'])
 
-    result = v3_sql.get_comment_list(key, below)
+    result = v3_sql.get_comment_list(key, below, userid)
     return json.dumps(result, ensure_ascii=False)
 
 

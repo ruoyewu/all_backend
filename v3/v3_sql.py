@@ -226,7 +226,7 @@ def get_favorite_time(userid, time):
 # comment
 
 
-def get_comment_list(key, time):
+def get_comment_list(key, time, userid):
     conn, cur = openDB()
 
     if time == 0:
@@ -244,7 +244,7 @@ def get_comment_list(key, time):
         info = "获取更多"
         for i in range(len(list)):
             item = list[i]
-            comment_list.append(parseCommentData(item, cur))
+            comment_list.append(parseCommentData(item, cur, userid))
 
     closeDB(conn, cur)
     if len(comment_list) >= 10:
@@ -278,7 +278,7 @@ def get_comment_list_parent(userid, time):
         info = "获取更多"
         for i in range(len(list)):
             item = list[i]
-            comment_list.append(parseCommentData(item, cur))
+            comment_list.append(parseCommentData(item, cur, userid))
 
     closeDB(conn, cur)
     if len(comment_list) >= 10:
@@ -312,7 +312,7 @@ def put_comment(key, time, userid, content, parent):
             info = "评论失败"
         else:
             result = True
-            info = parseCommentData(data, cur)
+            info = parseCommentData(data, cur, userid)
     else:
         result = False
         info = '评论失败'
@@ -402,7 +402,7 @@ def closeDB(conn, cur):
     conn.close()
 
 
-def parseCommentData(data, cur):
+def parseCommentData(data, cur, user):
     id = data[0]
     time = data[1]
     userid = data[2]
@@ -421,6 +421,7 @@ def parseCommentData(data, cur):
 
     cur.execute(query_comment_love_count % id)
     love = cur.fetchone()[0]
+    is_love = get_comment_love_id_user(id, user, cur)
 
     return {
         'id': id,
@@ -430,7 +431,8 @@ def parseCommentData(data, cur):
         'content': content,
         'key': key,
         'parent': parent,
-        'love': love
+        'love': love,
+        'is_love': is_love
     }
 
 
