@@ -25,6 +25,12 @@ query_comment_time_user_sql = "select * from comment WHERE time = '%d' and useri
 query_comment_key_count = "select count(*) from comment where `key` = '%s'"
 query_comment_parent = "select * from comment where parent = '%d'"
 delete_comment_id_sql = "delete from comment where id = '%d'"
+query_comment_parent_user = "select * from comment where parent in (select id from comment where userid = '%d') order by `time` desc limit 10"
+query_comment_parent_user_below = "select * from comment where parent in (select id from comment where userid = '%d') and `time` < '%d' order by `time` desc limit 10"
+insert_comment_love = "insert into comment_love (comment_id, userid) values ('%d', '%d')"
+delete_comment_love = "delete from comment_love where comment_id = '%d' and userid = '%d'"
+query_comment_love_count = "select count(*) from comment_love where comment_id = '%d'"
+query_comment_love_id_user = "select * from comment_love where comment_id = '%d' and userid = '%d'"
 
 insert_love_key_user = "insert into love (`key`, userid) values ('%s', '%d')"
 delete_love_key_user = "delete from love where `key` = '%s' and userid = '%d'"
@@ -254,6 +260,40 @@ def get_comment_list(key, time):
     }
 
 
+def get_comment_list_parent(userid, time):
+    conn, cur = openDB()
+
+    if time == 0:
+        cur.execute(query_comment_parent_user % userid)
+    else:
+        cur.execute(query_comment_parent_user_below % (userid, time))
+
+    comment_list = []
+    list = cur.fetchall()
+    if len(list) == 0:
+        result = True
+        info = "没有更多了"
+    else:
+        result = True
+        info = "获取更多"
+        for i in range(len(list)):
+            item = list[i]
+            comment_list.append(parseCommentData(item, cur))
+
+    closeDB(conn, cur)
+    if len(comment_list) >= 10:
+        next = comment_list[-1]['time']
+    else:
+        next = -1
+
+    return {
+        'result': result,
+        'info': info,
+        'list': comment_list,
+        'next': next
+    }
+
+
 def put_comment(key, time, userid, content, parent):
     conn, cur = openDB()
 
@@ -326,6 +366,28 @@ def set_love(key, userid, love):
     }
 
 
+def set_comment_love(id, userid, love):
+    conn, cur = openDB()
+
+    if love == '0':
+        cur.execute(delete_comment_love % (id, userid))
+    else:
+        if get_comment_love_id_user(id, userid, cur):
+            pass
+        else:
+            cur.execute(insert_comment_love % (id, userid))
+    conn.commit()
+
+    if get_comment_love_id_user(id, userid, cur):
+        result = True
+    else:
+        result = False
+
+    closeDB(conn, cur)
+    return {
+        'result': result
+    }
+
 # private
 
 
@@ -357,6 +419,9 @@ def parseCommentData(data, cur):
     else:
         parent = ''
 
+    cur.execute(query_comment_love_count % id)
+    love = cur.fetchone()[0]
+
     return {
         'id': id,
         'time': time,
@@ -364,7 +429,8 @@ def parseCommentData(data, cur):
         'username': get_username(userid, cur),
         'content': content,
         'key': key,
-        'parent': parent
+        'parent': parent,
+        'love': love
     }
 
 
@@ -390,6 +456,18 @@ def get_comment_parent(parent, cur):
 
 def get_love_key_user(key, userid, cur):
     cur.execute(query_love_key_user % (key, userid))
+    result = cur.fetchone()
+
+    if result is None:
+        result = False
+    else:
+        result = True
+
+    return result
+
+
+def get_comment_love_id_user(id, userid, cur):
+    cur.execute(query_comment_love_id_user % (id, userid))
     result = cur.fetchone()
 
     if result is None:
@@ -442,5 +520,5 @@ def get_username(userid, cur):
 
 if __name__ == '__main__':
     print(
-        user_sign("fadsf", "fadsfasdfas")
+        get_comment_list_parent(2, 123456)
     )

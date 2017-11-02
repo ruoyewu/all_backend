@@ -71,12 +71,30 @@ def v3_add_comment():
     return json.dumps(result, ensure_ascii=False)
 
 
+@v3_app.route('/comment/love', methods=['POST'])
+def v3_put_love():
+    id = int(request.form['id'])
+    userid = int(request.form['userid'])
+    love = request.form['love']
+    result = v3_sql.set_comment_love(id, userid, love)
+    return json.dumps(result, ensure_ascii=False)
+
+
 @v3_app.route('/comment/get')
 def v3_get_comment():
     key = request.args['key']
     below = int(request.args['time'])
 
     result = v3_sql.get_comment_list(key, below)
+    return json.dumps(result, ensure_ascii=False)
+
+
+@v3_app.route('/comment/get_user')
+def v3_get_comment_user():
+    userid = int(request.args['userid'])
+    time = int(request.args['time'])
+
+    result = v3_sql.get_comment_list_parent(userid, time)
     return json.dumps(result, ensure_ascii=False)
 
 
