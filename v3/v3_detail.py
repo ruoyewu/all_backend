@@ -100,7 +100,7 @@ def _v3_one_detail(category, id):
                 if item['style'] == 'color: rgb(128, 128, 128);':
                     if info in content_list[-1]['info'] or info == content_list[-1]['info']:
                         content_list[-1]['type'] = v3_const.v3_item_type['text_cen']
-            finally:
+            except:
                 info = ''
         if info == 'http://image.wufazhuce.com/music_copyright_2_2.png' or info == 'http://image.wufazhuce.com/music_copyright_1.png':
             info = ''
@@ -402,4 +402,4 @@ def _v3_dgtle_detail(category, id):
 
 
 if __name__ == '__main__':
-    print(_v3_dgtle_detail('home', '20125'))
+    print(_v3_one_detail('2', '454'))
