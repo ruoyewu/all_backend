@@ -8,6 +8,10 @@ def v3_get_default_detail_item():
     return {'title': '', 'subtitle': '', 'author': '', 'date': '', 'content': [], 'serial_list': []}
 
 
+def v3_get_default_response():
+    return {'result': False, 'info': '', 'content': ''}
+
+
 v3_categories = {
     'one': {
         'home': 'http://v3.wufazhuce.com:8000/api/channel/one/',

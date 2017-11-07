@@ -26,7 +26,9 @@ def v3_detail(name, category, id):
         elif name == 'dgtle':
             result = _v3_dgtle_detail(category, id)
         if result != 'no':
-            v3_sql.put_article(key, result)
+            v3_sql.put_article(key, json.dumps(result, ensure_ascii=False))
+    else:
+        result = json.loads(result)
     return result
 
 
@@ -116,7 +118,7 @@ def _v3_one_detail(category, id):
     result['subtitle'] = subtitle
     result['author'] = author
     result['content'] = content_list
-    return json.dumps(result, ensure_ascii=False)
+    return result
 
 
 def _v3_sspai_detail(category, id):
@@ -164,7 +166,7 @@ def _v3_sspai_detail(category, id):
     result['author'] = author
     result['date'] = date
     result['content'] = content_list
-    return json.dumps(result, ensure_ascii=False)
+    return result
 
 
 def _v3_qdaily_detail(category, id):
@@ -223,8 +225,7 @@ def _v3_qdaily_detail(category, id):
     result['author'] = author
     result['date'] = date
     result['content'] = content_list
-    return json.dumps(result, ensure_ascii=False)
-    pass
+    return result
 
 
 def _v3_36kr_detail(category, id):
@@ -268,7 +269,7 @@ def _v3_36kr_detail(category, id):
     result = v3_const.v3_get_default_detail_item()
     result['title'] = title
     result['content'] = content_list
-    return json.dumps(result, ensure_ascii=False)
+    return result
 
 
 def _v3_juzi_detail(category, id):
@@ -300,7 +301,7 @@ def _v3_juzi_detail(category, id):
 
     result = v3_const.v3_get_default_detail_item()
     result['content'] = content_list
-    return json.dumps(result, ensure_ascii=False)
+    return result
 
 
 def _v3_guokr_detail(category, id):
@@ -340,7 +341,7 @@ def _v3_guokr_detail(category, id):
 
     result = v3_const.v3_get_default_detail_item()
     result['content'] = content_list
-    return json.dumps(result, ensure_ascii=False)
+    return result
 
 
 class DgtleParser(HTMLParser):
@@ -398,7 +399,7 @@ def _v3_dgtle_detail(category, id):
 
     result = v3_const.v3_get_default_detail_item()
     result['content'] = content_list
-    return json.dumps(result, ensure_ascii=False)
+    return result
 
 
 if __name__ == '__main__':

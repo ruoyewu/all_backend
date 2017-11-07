@@ -170,7 +170,7 @@ def _v3_get_one_list(category, page, content):
         "next": next,
         "list": list
     }
-    return json.dumps(result, ensure_ascii=False)
+    return result
 
 
 def _v3_get_ifanr_list(category, page, content):
@@ -209,7 +209,7 @@ def _v3_get_ifanr_list(category, page, content):
         'next': next,
         'list': list
     }
-    return json.dumps(result, ensure_ascii=False)
+    return result
 
 
 def _v3_get_sspai_list(category, page, content):
@@ -249,7 +249,7 @@ def _v3_get_sspai_list(category, page, content):
         'next': next,
         'list': list
     }
-    return json.dumps(result, ensure_ascii=False)
+    return result
 
 
 def _v3_get_qdaily_list(category, page, content):
@@ -288,7 +288,7 @@ def _v3_get_qdaily_list(category, page, content):
         'next': next,
         'list': list
     }
-    return json.dumps(result, ensure_ascii=False)
+    return result
 
 
 def _v3_get_36kr_list(category, page, content):
@@ -323,7 +323,7 @@ def _v3_get_36kr_list(category, page, content):
         'list': list,
         'next': next
     }
-    return json.dumps(result, ensure_ascii=False)
+    return result
 
 
 def _v3_get_juzi_list(category, page, content):
@@ -367,7 +367,7 @@ def _v3_get_juzi_list(category, page, content):
         'list': list,
         'next': next
     }
-    return json.dumps(result, ensure_ascii=False)
+    return result
 
 
 def _v3_get_guokr_list(category, page, content):
@@ -405,7 +405,7 @@ def _v3_get_guokr_list(category, page, content):
         'list': list,
         'next': next
     }
-    return json.dumps(result, ensure_ascii=False)
+    return result
 
 
 def _v3_get_kaiyan_list(category, page, content):
@@ -454,7 +454,7 @@ def _v3_get_kaiyan_list(category, page, content):
         'list': list,
         'next': next
     }
-    return json.dumps(result, ensure_ascii=False)
+    return result
 
 
 def _v3_get_geography_list(category, page, content):
@@ -487,7 +487,7 @@ def _v3_get_geography_list(category, page, content):
         'list': list,
         'next': next
     }
-    return json.dumps(result, ensure_ascii=False)
+    return result
 
 
 def _v3_get_500px_list(category, page, content):
@@ -516,7 +516,7 @@ def _v3_get_500px_list(category, page, content):
         'list': list,
         'next': next
     }
-    return json.dumps(result, ensure_ascii=False)
+    return result
 
 
 def _v3_get_vmovie_list(category, page, content):
@@ -562,7 +562,7 @@ def _v3_get_vmovie_list(category, page, content):
         'list': list,
         'next': next
     }
-    return json.dumps(result, ensure_ascii=False)
+    return result
 
 
 def _v3_get_dgtle_list(category, page, content):
@@ -607,7 +607,7 @@ def _v3_get_dgtle_list(category, page, content):
         'next': next,
         'list': list
     }
-    return json.dumps(result, ensure_ascii=False)
+    return result
 
 
 def __v3_get_ifanr_detail(content):
