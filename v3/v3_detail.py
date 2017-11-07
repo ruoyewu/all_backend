@@ -132,7 +132,10 @@ def _v3_sspai_detail(category, id):
     except:
         title = ''
     head_content = content_soup.find('div', attrs={'class': 'meta'})
-    author = head_content.h4.text
+    try:
+        author = head_content.h4.text
+    except:
+        author = ''
     date = head_content.time.text
 
     content_list = []
