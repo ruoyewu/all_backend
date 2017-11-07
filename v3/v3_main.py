@@ -17,7 +17,7 @@ def v3_index():
     return 'this is v3 page'
 
 
-@v3_app.route('/app/api')
+@v3_app.route('/app_api', methods=['GET'])
 def v3_get_api():
     try:
         name = request.args['name']
@@ -40,7 +40,7 @@ def v3_get_api():
     return json.dumps(result, ensure_ascii=False)
 
 
-@v3_app.route('/article/list')
+@v3_app.route('/article_list', methods=['GET'])
 def v3_get_list():
     name = request.args['name']
     category = str(request.args['category'])
@@ -55,12 +55,12 @@ def v3_get_list():
     return json.dumps(result, ensure_ascii=False)
 
 
-@v3_app.route('/article/list2', methods=['POST'])
+@v3_app.route('/article_list2', methods=['GET'])
 def v3_get_list2():
-    name = request.form['name']
-    category = request.form['category']
-    page = request.form['page']
-    content = request.form['content']
+    name = request.args['name']
+    category = request.args['category']
+    page = request.args['page']
+    content = request.args['content']
     if name == 'dgtle':
         data = v3_list.v3_get_list2(name, category, page, content)
     else:
@@ -73,7 +73,7 @@ def v3_get_list2():
     return json.dumps(result, ensure_ascii=False)
 
 
-@v3_app.route('/article/detail')
+@v3_app.route('/article_detail', methods=['GET'])
 def v3_get_detail():
     name = request.args['name']
     category = str(request.args['category'])
@@ -89,7 +89,7 @@ def v3_get_detail():
     return json.dumps(result, ensure_ascii=False)
 
 
-@v3_app.route('/comment/add', methods=['POST'])
+@v3_app.route('/comment_add', methods=['POST'])
 def v3_add_comment():
     time = int(request.form['time'])
     username = int(request.form['userid'])
@@ -105,8 +105,7 @@ def v3_add_comment():
     }
     return json.dumps(result, ensure_ascii=False)
 
-
-@v3_app.route('/comment/love', methods=['POST'])
+@v3_app.route('/comment_love', methods=['POST'])
 def v3_put_love():
     id = int(request.form['id'])
     userid = int(request.form['userid'])
@@ -120,7 +119,7 @@ def v3_put_love():
     return json.dumps(result, ensure_ascii=False)
 
 
-@v3_app.route('/comment/get')
+@v3_app.route('/comment_get', methods=['GET'])
 def v3_get_comment():
     userid = int(request.args['userid'])
     key = request.args['key']
@@ -135,7 +134,7 @@ def v3_get_comment():
     return json.dumps(result, ensure_ascii=False)
 
 
-@v3_app.route('/comment/get_user')
+@v3_app.route('/comment_get_user', methods=['GET'])
 def v3_get_comment_user():
     userid = int(request.args['userid'])
     time = int(request.args['time'])
@@ -149,9 +148,9 @@ def v3_get_comment_user():
     return json.dumps(result, ensure_ascii=False)
 
 
-@v3_app.route('/comment/delete')
+@v3_app.route('/comment_delete', methods=['POST'])
 def v3_delete_comment():
-    id = int(request.args['id'])
+    id = int(request.form['id'])
 
     result = v3_sql.delete_comment(id)
     result = {
@@ -162,7 +161,7 @@ def v3_delete_comment():
     return json.dumps(result, ensure_ascii=False)
 
 
-@v3_app.route('/article/info')
+@v3_app.route('/article_info', methods=['GET'])
 def v3_get_article_info():
     key = request.args['key']
     username = int(request.args['userid'])
@@ -176,11 +175,11 @@ def v3_get_article_info():
     return json.dumps(result, ensure_ascii=False)
 
 
-@v3_app.route('/article/love')
+@v3_app.route('/article_love', methods=['POST'])
 def v3_set_article_love():
-    key = request.args['key']
-    username = int(request.args['userid'])
-    love = request.args['love']
+    key = request.form['key']
+    username = int(request.form['userid'])
+    love = request.form['love']
 
     result = v3_sql.set_love(key, username, love)
     result = {
@@ -191,7 +190,7 @@ def v3_set_article_love():
     return json.dumps(result, ensure_ascii=False)
 
 
-@v3_app.route('/user/login')
+@v3_app.route('/user_login', methods=['GET'])
 def v3_user_login():
     name = request.args['username']
     password = request.args['password']
@@ -205,10 +204,10 @@ def v3_user_login():
     return json.dumps(result, ensure_ascii=False)
 
 
-@v3_app.route('/user/sign')
+@v3_app.route('/user_sign', methods=['POST'])
 def v3_user_sign():
-    name = request.args['username']
-    password = request.args['password']
+    name = request.form['username']
+    password = request.form['password']
 
     result = v3_sql.user_sign(name, password)
     result = {
@@ -219,7 +218,7 @@ def v3_user_sign():
     return json.dumps(result, ensure_ascii=False)
 
 
-@v3_app.route('/user/avatar', methods=['POST'])
+@v3_app.route('/user_avatar', methods=['POST'])
 def v3_user_avatar():
     file = request.files['file']
     userid = request.form['userid']
@@ -233,12 +232,12 @@ def v3_user_avatar():
     return result
 
 
-@v3_app.route('/user/avatar/<userid>')
+@v3_app.route('/user/avatar/<userid>', methods=['GET'])
 def v3_user_avatar_get(userid):
     return send_from_directory(file_dir, userid + ".avatar")
 
 
-@v3_app.route('/favorite/put', methods=['POST'])
+@v3_app.route('/favorite_put', methods=['POST'])
 def v3_favorite_put():
     username = int(request.form['userid'])
     info = request.form['info']
@@ -255,7 +254,7 @@ def v3_favorite_put():
     return json.dumps(result, ensure_ascii=False)
 
 
-@v3_app.route('/favorite/get')
+@v3_app.route('/favorite/get', methods=['GET'])
 def v3_favorite_get():
     username = int(request.args['userid'])
     time = int(request.args['time'])
