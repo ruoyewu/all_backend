@@ -127,7 +127,10 @@ def _v3_sspai_detail(category, id):
     soup = BeautifulSoup(response.text, 'html.parser')
     content = soup.find('article')
     content_soup = BeautifulSoup(str(content), 'html.parser')
-    title = content.h1.text
+    try:
+        title = content.h1.text
+    except:
+        title = ''
     head_content = content_soup.find('div', attrs={'class': 'meta'})
     author = head_content.h4.text
     date = head_content.time.text

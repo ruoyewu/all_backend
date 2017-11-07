@@ -105,6 +105,7 @@ def v3_add_comment():
     }
     return json.dumps(result, ensure_ascii=False)
 
+
 @v3_app.route('/comment_love', methods=['POST'])
 def v3_put_love():
     id = int(request.form['id'])
