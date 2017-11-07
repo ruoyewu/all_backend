@@ -55,12 +55,12 @@ def v3_get_list():
     return json.dumps(result, ensure_ascii=False)
 
 
-@v3_app.route('/article_list2', methods=['GET'])
+@v3_app.route('/article_list2', methods=['POST'])
 def v3_get_list2():
-    name = request.args['name']
-    category = request.args['category']
-    page = request.args['page']
-    content = request.args['content']
+    name = request.form['name']
+    category = request.form['category']
+    page = request.form['page']
+    content = request.form['content']
     if name == 'dgtle':
         data = v3_list.v3_get_list2(name, category, page, content)
     else:

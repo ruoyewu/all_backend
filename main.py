@@ -19,7 +19,10 @@ def rsa_test():
     if request.method == 'POST':
         secret = request.form['secret']
         text = util.decrypt_rsa(secret)
+        print(text)
         t = int(text)
+        print(t)
+        print(int(time()))
         if abs(int(time()) - t) > 60:
             return {
                 'result': False,
