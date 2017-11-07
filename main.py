@@ -16,10 +16,11 @@ app.debug = False
 
 @app.before_request
 def rsa_test():
-    if request.method == 'POST':
-        secret = request.form['secret']
-    else:
-        secret = request.args['secret']
+    pass
+    # if request.method == 'POST':
+    #     secret = request.form['secret']
+    # else:
+    #     secret = request.args['secret']
     # text = util.decrypt_rsa(secret)
     # t = int(text)
     # if abs(int(time()) - t) > 60:
