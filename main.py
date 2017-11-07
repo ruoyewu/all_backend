@@ -1,14 +1,9 @@
-import base64
 import json
 from time import time
 
-import util
-
-from Crypto import Random
-from Crypto.Cipher import PKCS1_v1_5
-from Crypto.PublicKey import RSA
 from flask import Flask, request
 
+import util
 from v2 import v2_main
 from v3 import v3_main
 
@@ -19,23 +14,20 @@ app.register_blueprint(v3_main.v3_app)
 app.debug = False
 
 
-random_generator = Random.new().read
-
-
 @app.before_request
 def rsa_test():
     if request.method == 'POST':
         secret = request.form['secret']
     else:
         secret = request.args['secret']
-    text = util.decrypt_rsa(secret)
-    t = int(text)
-    if abs(int(time()) - t) > 60:
-        return {
-            'result': False,
-            'info': "invalid secret",
-            'content': ''
-        }
+    # text = util.decrypt_rsa(secret)
+    # t = int(text)
+    # if abs(int(time()) - t) > 60:
+    #     return {
+    #         'result': False,
+    #         'info': "invalid secret",
+    #         'content': ''
+    #     }
 
 
 @app.route('/test', methods=['GET', 'POST'])
