@@ -255,7 +255,7 @@ def v3_favorite_put():
     return json.dumps(result, ensure_ascii=False)
 
 
-@v3_app.route('/favorite/get', methods=['GET'])
+@v3_app.route('/favorite_get', methods=['GET'])
 def v3_favorite_get():
     username = int(request.args['userid'])
     time = int(request.args['time'])
