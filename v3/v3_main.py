@@ -102,26 +102,17 @@ def v3_get_detail():
 
 @v3_app.route('/comment_add', methods=['POST'])
 def v3_add_comment():
-    secret = request.form['secret']
-    if check_secret(secret):
-        time = int(request.form['time'])
-        username = int(request.form['userid'])
-        content = request.form['content'].strip()
-        key = request.form['key']
-        parent = int(request.form['parent'])
-
-        result = v3_sql.put_comment(key, time, username, content, parent)
-        result = {
-            'result': True,
-            'info': '添加评论',
-            'content': result
-        }
-    else:
-        result = {
-            'result': False,
-            'info': 'invalid secret',
-            'content': ''
-        }
+    time = int(request.form['time'])
+    username = int(request.form['userid'])
+    content = request.form['content'].strip()
+    key = request.form['key']
+    parent = int(request.form['parent'])
+    result = v3_sql.put_comment(key, time, username, content, parent)
+    result = {
+        'result': True,
+        'info': '添加评论',
+        'content': result
+    }
     return json.dumps(result, ensure_ascii=False)
 
 

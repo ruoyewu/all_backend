@@ -9,7 +9,6 @@ random_generator = Random.new().read
 def decrypt_rsa(secret):
     cipher = PKCS1_v1_5.new(util.private_key)
     text = cipher.decrypt(base64.b64decode(secret), random_generator)
-    print(type(text))
     return text.decode('utf-8')
 
 
