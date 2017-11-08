@@ -188,17 +188,19 @@ def v3_get_article_info():
 
 @v3_app.route('/article_love', methods=['POST'])
 def v3_set_article_love():
-    key = request.form['key']
-    username = int(request.form['userid'])
-    love = request.form['love']
+    secret = request.form['secret']
+    if check_secret(secret):
+        key = request.form['key']
+        username = int(request.form['userid'])
+        love = request.form['love']
 
-    result = v3_sql.set_love(key, username, love)
-    result = {
-        'result': True,
-        'info': '文章点赞',
-        'content': result
-    }
-    return json.dumps(result, ensure_ascii=False)
+        result = v3_sql.set_love(key, username, love)
+        result = {
+            'result': True,
+            'info': '文章点赞',
+            'content': result
+        }
+        return json.dumps(result, ensure_ascii=False)
 
 
 @v3_app.route('/user_login', methods=['GET'])
