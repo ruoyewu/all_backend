@@ -5,7 +5,7 @@ from time import time
 from flask import Blueprint, request, send_from_directory
 from werkzeug.utils import secure_filename
 
-import util
+from util import secret
 from v3 import v3_list, v3_detail, v3_sql, v3_const
 
 file_dir = '/home/ubuntu/project/file/all/avatar/'
@@ -15,7 +15,7 @@ v3_app = Blueprint('v3', __name__, url_prefix='/v3')
 
 
 def check_secret(secret):
-    t = int(util.decrypt_rsa(secret))
+    t = int(secret.decrypt_rsa(secret))
     print(t, time())
     if abs(t - time()) > 60:
         return False
