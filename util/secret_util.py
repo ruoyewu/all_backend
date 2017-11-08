@@ -11,6 +11,7 @@ def decrypt_rsa(secret):
         private_key = RSA.importKey(file.read())
         cipher = PKCS1_v1_5.new(private_key)
         text = cipher.decrypt(base64.b64decode(secret), random_generator)
+        print(str(text))
         return text.decode('utf-8')
 
 
