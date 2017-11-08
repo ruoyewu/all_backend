@@ -1,15 +1,26 @@
 import json
 import os
+from time import time
 
 from flask import Blueprint, request, send_from_directory
 from werkzeug.utils import secure_filename
 
+import util
 from v3 import v3_list, v3_detail, v3_sql, v3_const
 
 file_dir = '/home/ubuntu/project/file/all/avatar/'
 # file_dir = ' /Users/wuruoye/Documents/python/all_app/avatar/'
 
 v3_app = Blueprint('v3', __name__, url_prefix='/v3')
+
+
+def check_secret(secret):
+    t = int(util.decrypt_rsa(secret))
+    print(t, time())
+    if abs(t - time()) > 60:
+        return False
+    else:
+        return True
 
 
 @v3_app.route('/')
@@ -91,18 +102,26 @@ def v3_get_detail():
 
 @v3_app.route('/comment_add', methods=['POST'])
 def v3_add_comment():
-    time = int(request.form['time'])
-    username = int(request.form['userid'])
-    content = request.form['content'].strip()
-    key = request.form['key']
-    parent = int(request.form['parent'])
+    secret = request.form['secret']
+    if check_secret(secret):
+        time = int(request.form['time'])
+        username = int(request.form['userid'])
+        content = request.form['content'].strip()
+        key = request.form['key']
+        parent = int(request.form['parent'])
 
-    result = v3_sql.put_comment(key, time, username, content, parent)
-    result = {
-        'result': True,
-        'info': '添加评论',
-        'content': result
-    }
+        result = v3_sql.put_comment(key, time, username, content, parent)
+        result = {
+            'result': True,
+            'info': '添加评论',
+            'content': result
+        }
+    else:
+        result = {
+            'result': False,
+            'info': 'invalid secret',
+            'content': ''
+        }
     return json.dumps(result, ensure_ascii=False)
 
 
