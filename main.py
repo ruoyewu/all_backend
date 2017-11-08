@@ -56,4 +56,4 @@ def error_404(e):
     return json.dumps(result, ensure_ascii=False)
 
 
-# app.run(port=3421)
+app.run(host='0.0.0.0', port=3421)
