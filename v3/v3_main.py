@@ -286,3 +286,8 @@ def v3_favorite_get():
         'content': result
     }
     return json.dumps(result, ensure_ascii=False)
+
+
+if __name__ == '__main__':
+    message = 'xviaum2UGVRtLBAeHVYUlft/82K2WoIFxDcKT4FnbRZ2ptEISX3D+yRQcuYg5DOQEeE3MeTbQ04r\ny436cpnqjeq6qPvVEVvejEmNoTosvwp0AVvMBaYNj6TkGL78GoleUcFxTA6p7w9SP1Vsc0bRcpi7\nF1qUfFXQBliUFY5UEaI='
+    print(check_secret(message))
