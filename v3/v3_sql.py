@@ -11,6 +11,7 @@ query_user_id = "select name from user WHERE id = '%d'"
 query_user_name = "select * from user where name = '%s'"
 insert_user_name_pass_time = "insert into user (name, password, create_time) values ('%s', '%s', '%d')"
 update_user_read_sql = "update user set read_time = '%d'where id = '%d'"
+query_user_read_sql = "select read_time from user where id = '%d'"
 
 insert_article_sql = "insert into article values('%s', '%s')"
 query_article_sql = "select * from article WHERE `key`= '%s'"
@@ -118,8 +119,11 @@ def user_read_time_update(time, userid):
     conn, cur = openDB()
 
     try:
-        cur.execute(update_user_read_sql % (time, userid))
-        conn.commit()
+        cur.execute(query_user_read_sql % userid)
+        old_time = cur.fetchall()[0]
+        if old_time < time:
+            cur.execute(update_user_read_sql % (time, userid))
+            conn.commit()
         result = True
         info = '上传成功'
     except:
