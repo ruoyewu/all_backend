@@ -120,7 +120,7 @@ def user_read_time_update(time, userid):
 
     try:
         cur.execute(query_user_read_sql % userid)
-        old_time = cur.fetchall()[0]
+        old_time = cur.fetchone()
         if old_time < time:
             cur.execute(update_user_read_sql % (time, userid))
             conn.commit()
