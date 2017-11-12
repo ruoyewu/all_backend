@@ -57,7 +57,7 @@ def user_login(name, password):
     elif data[2] == password:
         result = True
         info = {'id': data[0], 'name': data[1]}
-        content['read_time'] = data[3]
+        content['read_time'] = data[4]
     else:
         result = False
         info = "密码错误"
