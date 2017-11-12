@@ -1,11 +1,9 @@
 import json
 import os
-from time import time
 
 from flask import Blueprint, request, send_from_directory
 from werkzeug.utils import secure_filename
 
-from util import secret_util
 from v3 import v3_list, v3_detail, v3_sql, v3_const
 
 file_dir = '/home/ubuntu/project/file/all/avatar/'
@@ -294,4 +292,3 @@ def v3_favorite_get():
 
 if __name__ == '__main__':
     message = 'xviaum2UGVRtLBAeHVYUlft/82K2WoIFxDcKT4FnbRZ2ptEISX3D+yRQcuYg5DOQEeE3MeTbQ04r\ny436cpnqjeq6qPvVEVvejEmNoTosvwp0AVvMBaYNj6TkGL78GoleUcFxTA6p7w9SP1Vsc0bRcpi7\nF1qUfFXQBliUFY5UEaI='
-    print(check_secret(message))
