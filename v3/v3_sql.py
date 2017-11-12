@@ -120,7 +120,7 @@ def user_read_time_update(time, userid):
 
     try:
         cur.execute(query_user_read_sql % userid)
-        old_time = cur.fetchone()
+        old_time = cur.fetchone()[0]
         if old_time < time:
             cur.execute(update_user_read_sql % (time, userid))
             conn.commit()
@@ -546,5 +546,5 @@ def get_username(userid, cur):
 
 if __name__ == '__main__':
     print(
-        get_comment_list_parent(2, 123456)
+        user_read_time_update(10, 1)
     )
