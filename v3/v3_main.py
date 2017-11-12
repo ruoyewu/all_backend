@@ -12,15 +12,6 @@ file_dir = '/home/ubuntu/project/file/all/avatar/'
 v3_app = Blueprint('v3', __name__, url_prefix='/v3')
 
 
-# def check_secret(secret):
-#     t = int(secret_util.decrypt_rsa(secret))
-#     print(t, time())
-#     if abs(t - time()) > 60:
-#         return False
-#     else:
-#         return True
-
-
 @v3_app.route('/')
 def v3_index():
     return 'this is v3 page'
@@ -288,7 +279,3 @@ def v3_favorite_get():
         'content': result
     }
     return json.dumps(result, ensure_ascii=False)
-
-
-if __name__ == '__main__':
-    message = 'xviaum2UGVRtLBAeHVYUlft/82K2WoIFxDcKT4FnbRZ2ptEISX3D+yRQcuYg5DOQEeE3MeTbQ04r\ny436cpnqjeq6qPvVEVvejEmNoTosvwp0AVvMBaYNj6TkGL78GoleUcFxTA6p7w9SP1Vsc0bRcpi7\nF1qUfFXQBliUFY5UEaI='

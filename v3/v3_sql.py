@@ -57,8 +57,7 @@ def user_login(name, password):
         info = "没有此用户"
     elif data[2] == password:
         result = True
-        info = {'id': data[0], 'name': data[1]}
-        content['read_time'] = data[4]
+        info = {'id': data[0], 'name': data[1], 'read_time': data[4]}
     else:
         result = False
         info = "密码错误"
@@ -67,8 +66,7 @@ def user_login(name, password):
 
     return {
         'result': result,
-        'info': info,
-        'content': content
+        'info': info
     }
 
 
