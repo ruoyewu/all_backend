@@ -119,6 +119,7 @@ def user_read_time_update(time, userid):
 
     try:
         cur.execute(update_user_read_sql % (time, userid))
+        conn.commit()
         result = True
         info = '上传成功'
     except:
