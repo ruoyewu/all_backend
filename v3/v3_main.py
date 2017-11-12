@@ -14,13 +14,13 @@ file_dir = '/home/ubuntu/project/file/all/avatar/'
 v3_app = Blueprint('v3', __name__, url_prefix='/v3')
 
 
-def check_secret(secret):
-    t = int(secret_util.decrypt_rsa(secret))
-    print(t, time())
-    if abs(t - time()) > 60:
-        return False
-    else:
-        return True
+# def check_secret(secret):
+#     t = int(secret_util.decrypt_rsa(secret))
+#     print(t, time())
+#     if abs(t - time()) > 60:
+#         return False
+#     else:
+#         return True
 
 
 @v3_app.route('/')
@@ -188,19 +188,17 @@ def v3_get_article_info():
 
 @v3_app.route('/article_love', methods=['POST'])
 def v3_set_article_love():
-    secret = request.form['secret']
-    if check_secret(secret):
-        key = request.form['key']
-        username = int(request.form['userid'])
-        love = request.form['love']
+    key = request.form['key']
+    username = int(request.form['userid'])
+    love = request.form['love']
 
-        result = v3_sql.set_love(key, username, love)
-        result = {
-            'result': True,
-            'info': '文章点赞',
-            'content': result
-        }
-        return json.dumps(result, ensure_ascii=False)
+    result = v3_sql.set_love(key, username, love)
+    result = {
+        'result': True,
+        'info': '文章点赞',
+        'content': result
+    }
+    return json.dumps(result, ensure_ascii=False)
 
 
 @v3_app.route('/user_login', methods=['GET'])
@@ -226,6 +224,19 @@ def v3_user_sign():
     result = {
         'result': True,
         'info': '用户注册',
+        'content': result
+    }
+    return json.dumps(result, ensure_ascii=False)
+
+
+@v3_app.route('/user_read_time', methods=['POST'])
+def v3_user_read_time():
+    userid = int(request.form['userid'])
+    read_time = int(request.form['read_time'])
+    result = v3_sql.user_read_time_update(read_time, userid)
+    result = {
+        'result': True,
+        'info': "上传阅读时间",
         'content': result
     }
     return json.dumps(result, ensure_ascii=False)

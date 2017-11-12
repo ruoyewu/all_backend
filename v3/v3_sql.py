@@ -1,10 +1,8 @@
 import pymysql
+
+from util import sql_util
 import time
 
-host = 'localhost'
-username = 'root'
-password = 'ruoyetian'
-db_name = 'allapp'
 
 start_transaction = "START TRANSACTION"
 transaction_commit = "COMMIT"
@@ -12,6 +10,7 @@ transaction_commit = "COMMIT"
 query_user_id = "select name from user WHERE id = '%d'"
 query_user_name = "select * from user where name = '%s'"
 insert_user_name_pass_time = "insert into user (name, password, create_time) values ('%s', '%s', '%d')"
+update_user_read_sql = "update user set read_time = '%d'where id = '%d'"
 
 insert_article_sql = "insert into article values('%s', '%s')"
 query_article_sql = "select * from article WHERE `key`= '%s'"
@@ -50,6 +49,7 @@ delete_favorite_user_key = "delete from favorite where userid = '%d' and `key` =
 def user_login(name, password):
     conn, cur = openDB()
 
+    content = {}
     data = get_user_name(name, cur)
     if data == 'no':
         result = False
@@ -57,6 +57,7 @@ def user_login(name, password):
     elif data[2] == password:
         result = True
         info = {'id': data[0], 'name': data[1]}
+        content['read_time'] = data[3]
     else:
         result = False
         info = "密码错误"
@@ -65,7 +66,8 @@ def user_login(name, password):
 
     return {
         'result': result,
-        'info': info
+        'info': info,
+        'content': content
     }
 
 
@@ -110,6 +112,26 @@ def user_sign(name, password):
         'result': result,
         'info': info
     }
+
+
+def user_read_time_update(time, userid):
+    conn, cur = openDB()
+
+    try:
+        cur.execute(update_user_read_sql % (time, userid))
+        result = True
+        info = '上传成功'
+    except:
+        result = False
+        info = "上传失败"
+
+    closeDB(conn, cur)
+
+    return {
+        'result': result,
+        'info': info
+    }
+    pass
 
 
 # article
@@ -392,14 +414,11 @@ def set_comment_love(id, userid, love):
 
 
 def openDB():
-    conn = pymysql.connect(host=host, user=username, passwd=password, db=db_name, charset='utf8mb4')
-    cur = conn.cursor()
-    return conn, cur
+    return sql_util.openDB()
 
 
 def closeDB(conn, cur):
-    cur.close()
-    conn.close()
+    sql_util.closeDB(conn, cur)
 
 
 def parseCommentData(data, cur, user):
