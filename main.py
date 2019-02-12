@@ -1,16 +1,19 @@
 import json
-from time import time
 
-from flask import Flask, request
+from flask import Flask
 
-import util
+
+app = Flask(__name__)
+
 from v2 import v2_main
 from v3 import v3_main
 
-app = Flask(__name__)
 app.register_blueprint(v2_main.v2_app)
 app.register_blueprint(v3_main.v3_app)
 
+
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://debian-sys-maint:NfGi6vUSCsMIZyqt@localhost:3306/all?charset=utf8'
+app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN']=True
 app.debug = False
 
 
@@ -56,4 +59,4 @@ def error_404(e):
     return json.dumps(result, ensure_ascii=False)
 
 
-# app.run(host='0.0.0.0', port=3421)
+# app.run(port=3421)

@@ -2,9 +2,9 @@ import pymysql
 
 
 host = 'localhost'
-username = 'root'
-password = 'ruoyetian'
-db_name = 'allapp'
+username = 'debian-sys-maint'
+password = 'NfGi6vUSCsMIZyqt'
+db_name = 'all'
 
 
 def openDB():

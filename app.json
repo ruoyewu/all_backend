@@ -1,0 +1,12 @@
+{
+  "list": ["ifanr"],
+  "info_list": [
+    {
+    "name": "ifanr",
+    "title": "爱范儿",
+    "icon": "https://all-1251826226.cos.ap-shanghai.myqcloud.com/ifanr-app.png",
+    "category_name": ["home", "app", "coolBuy", "video", "product", "people", "company", "image", "adv", "create", "early", "car", "game", "special", "life", "fanr", "test", "rank"],
+    "category_title": ["首页", "App", "酷买", "视频", "产品", "人物", "公司", "图片", "adv", "初创", "早期", "汽车", "游戏", "特殊", "生活", "fanr", "测评", "榜单"]
+    }
+  ]
+}

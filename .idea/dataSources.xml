@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="all_local" uuid="f0b333fb-47e0-4dcc-b8d9-a106a11deb24">
+    <data-source source="LOCAL" name="all_local" uuid="0ea079c4-bccb-4806-8758-4bd6f628bb3c">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
@@ -15,11 +15,11 @@
         <property name="yearIsDateType" value="false" />
       </driver-properties>
     </data-source>
-    <data-source source="LOCAL" name="all_server" uuid="35f1da90-51fe-4452-8932-5708b916c432">
+    <data-source source="LOCAL" name="all@remote" uuid="28fa5fad-55bd-4def-9033-0a7880bbe7c3">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3306/allapp</jdbc-url>
+      <jdbc-url>jdbc:mysql://localhost:3306/all</jdbc-url>
       <driver-properties>
         <property name="autoReconnect" value="true" />
         <property name="zeroDateTimeBehavior" value="convertToNull" />
