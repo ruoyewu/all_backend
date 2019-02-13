@@ -1,12 +1,47 @@
 {
-  "list": ["ifanr"],
+  "list": ["one","ifanr", "qdaily", "36kr", "sspai", "juzi"],
   "info_list": [
+    {
+      "name": "one",
+      "title": "One 一个",
+      "icon": "https://all-1251826226.cos.ap-shanghai.myqcloud.com/one-app.png",
+      "category_name": ["home", "read", "music", "movie"],
+      "category_title": ["首页", "阅读", "音乐", "电影"]
+    },
     {
     "name": "ifanr",
     "title": "爱范儿",
     "icon": "https://all-1251826226.cos.ap-shanghai.myqcloud.com/ifanr-app.png",
     "category_name": ["home", "app", "coolBuy", "video", "product", "people", "company", "image", "adv", "create", "early", "car", "game", "special", "life", "fanr", "test", "rank"],
     "category_title": ["首页", "App", "酷买", "视频", "产品", "人物", "公司", "图片", "adv", "初创", "早期", "汽车", "游戏", "特殊", "生活", "fanr", "测评", "榜单"]
+    },
+    {
+      "name": "qdaily",
+      "title": "好奇心日报",
+      "icon": "https://all-1251826226.cos.ap-shanghai.myqcloud.com/qdaily-app.png",
+      "category_name": ["home", "long", "image", "top", "commerce", "intel", "design", "fashion", "amuse", "city", "game", "detail"],
+      "category_title": ["首页", "长文章", "图片", "Top", "商业", "Intel", "设计", "时尚", "娱乐", "城市", "游戏"]
+    },
+    {
+      "name": "36kr",
+      "title": "36氪",
+      "icon": "https://all-1251826226.cos.ap-shanghai.myqcloud.com/36kr-app.png",
+      "category_name": ["home", "early", "company", "create", "consume", "what", "skill", "video", "play", "new", "deep", "research", "policy", "industry", "interview", "career", "early_report", "dujiaoshou", "shangxueyuan", "silicon_valley", "abroad_create", "creator", "comment", "raise_funds", "car", "feature", "commerce_info", "yike", "intel", "new_commerce", "fengkou", "new_wind", "share_economy", "focus_economy", "commerce_100", "one_more", "ai_is", "silicon_think", "ku_100", "tide_intel", "employ_100", "read", "other"],
+      "category_title": ["首页", "早报", "公司","初创", "消费", "What","技能", "视频", "Play","新闻", "深度", "调查","公众", "工业", "访谈","职业", "早报", "独角兽","商学院", "硅谷", "外创","创始人", "评论", "Raise Funds","汽车", "未来", "商业信息","一刻", "技术", "新经济","风口", "新风向", "共享经济","聚焦经济", "商业100", "One More","AI is", "硅谷想", "酷 100","贸易技术", "Employ 100", "阅读","其他", "详细"]
+    },
+    {
+      "name": "sspai",
+      "title": "少数派",
+      "icon": "https://all-1251826226.cos.ap-shanghai.myqcloud.com/sspai-app.png",
+      "category_name": ["home", "matrix", "efficient", "photo", "life", "game", "hard", "people", "mac", "ios", "android"],
+      "category_title": ["首页", "矩阵", "效率","图片", "生活", "游戏","Hard", "人物", "Mac","Ios", "Android"]
+    },
+    {
+      "name": "juzi",
+      "title": "橘子娱乐",
+      "icon": "https://all-1251826226.cos.ap-shanghai.myqcloud.com/juzi-app.png",
+      "category_name": ["home", "amuse", "movie", "fashion", "beauty", "funny", "life", "plan"],
+      "category_title": ["首页", "娱乐", "视频","时尚", "美丽", "搞笑","生活", "计划"]
     }
   ]
 }

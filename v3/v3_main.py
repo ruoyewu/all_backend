@@ -7,7 +7,7 @@ from werkzeug.utils import secure_filename
 from v3 import v3_list, v3_detail, v3_sql, v3_const
 
 file_dir = '/home/ubuntu/app/all/avatar/'
-# file_dir = ' /Users/wuruoye/Documents/python/all_app/avatar/'
+# file_dir = '/Users/wuruoye/Documents/python/all_app/avatar/'
 
 v3_app = Blueprint('v3', __name__, url_prefix='/v3')
 
@@ -242,7 +242,7 @@ def v3_user_avatar():
         'info': '头像上传',
         'content': filename
     }
-    return result
+    return json.dumps(result, ensure_ascii=False)
 
 
 @v3_app.route('/user/avatar/<userid>', methods=['GET'])

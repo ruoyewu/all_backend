@@ -469,6 +469,29 @@ v3_api = {
         'android': 'https://sspai.com/api/v1/articles?limit=10&has_tag=1&tag=android&offset=@page',
         'start': '0'
     },
+    'juejin': {
+        'home': 'https://timeline-merger-ms.juejin.im/v1/get_entry_by_timeline?src=web&limit=10&type=post&category'
+                '=all&before=',
+        'android': 'https://timeline-merger-ms.juejin.im/v1/get_entry_by_timeline?src=web&limit=10&type=post&category'
+                   '=5562b410e4b00c57d9b94a92&before=',
+        'web_design': 'https://timeline-merger-ms.juejin.im/v1/get_entry_by_timeline?src=web&limit=10&type=post'
+                      '&category=5562b415e4b00c57d9b94ac8&before=',
+        'web_server': 'https://timeline-merger-ms.juejin.im/v1/get_entry_by_timeline?src=web&limit=10&type=post'
+                      '&category=5562b419e4b00c57d9b94ae2&before=',
+        'ios': 'https://timeline-merger-ms.juejin.im/v1/get_entry_by_timeline?src=web&limit=10&type=post&category'
+               '=5562b405e4b00c57d9b94a41&before=',
+        'design': 'https://timeline-merger-ms.juejin.im/v1/get_entry_by_timeline?src=web&limit=10&type=post&category'
+                  '=5562b41de4b00c57d9b94b0f&before=',
+        'product': 'https://timeline-merger-ms.juejin.im/v1/get_entry_by_timeline?src=web&limit=10&type=post&category'
+                   '=569cbe0460b23e90721dff38&before=',
+        'tool': 'https://timeline-merger-ms.juejin.im/v1/get_entry_by_timeline?src=web&limit=10&type=post&category'
+                '=5562b422e4b00c57d9b94b53&before=',
+        'read': 'https://timeline-merger-ms.juejin.im/v1/get_entry_by_timeline?src=web&limit=10&type=post&category'
+                '=5562b428e4b00c57d9b94b9d&before=',
+        'intel': 'https://timeline-merger-ms.juejin.im/v1/get_entry_by_timeline?src=web&limit=10&type=post&category'
+                 '=57be7c18128fe1005fa902de&before= ',
+        'start': '0'
+    },
     'juzi': {
         'home': 'http://api.app.happyjuzi.com/article/list/home?ver=3.8.2&page=@page',
         'amuse': 'http://api.app.happyjuzi.com/article/list/channel?ver=3.8.2&id=27&page=@page',
